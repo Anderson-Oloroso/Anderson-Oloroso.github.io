@@ -9,6 +9,7 @@ body{
     background-attachment: fixed;
     font-family: 'Times New Roman', Times, serif;
     font-style: italic;
+    justify-content: space-around;
 }
 
 header, main, footer{
@@ -16,6 +17,10 @@ header, main, footer{
     height: auto;
     display: flex;
     flex-flow: column wrap;
+}
+header{
+    top: 0;
+    position: fixed;
 }
 nav{
     width: 100%;
@@ -26,12 +31,17 @@ nav{
     align-items: center;
     text-align: center;
     justify-content: space-between;
+    position: sticky;
+}
+.titulo{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 h1{
-    margin-left: 10%;
-    width: 30%;
     color: white;
-    height: 100%;
     font-size: 2em;
     font-weight: bold;
 }
@@ -44,12 +54,13 @@ h1{
     font-weight: bold;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 a{
     font-style:italic;
     text-decoration: none;
+    color: rgb(234, 255, 1);
 }
 a:hover{
     color: #0c7250;
@@ -57,12 +68,56 @@ a:hover{
 
 #presentacion, #sobreMi, #habilidades, #proyectos, #contacto{
     width: 100%;
+    font-size: 1.5em;
+    color: 	#e2e8f0;
     height: auto;
     display: flex;
     flex-flow: column wrap;
 }
 
 #presentacion{
-    background-color: #0a0a0a;
-    color: 	#e2e8f0;
+    padding-top: 3em;
+    display: flex;
+    flex-flow:  row wrap;
+    align-items: center;
+    justify-content: space-around;
+    text-align: left;
+    
+}
+aside{
+    width: 25%;
+    height: auto;
+    display: flex;
+    align-items: right;
+    justify-content: right;
+}   
+aside img{
+    width: 80%;
+    height: auto;
+    border-radius: 10%;
+}
+article{
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+h2{
+    font-size: 2em;
+    height: 1em;
+    margin: 0;
+    padding: 0;
+}
+article h3{
+    height: 1em;
+    margin: 0;
+    padding: 0;
+    color: rgb(0, 217, 255);
+}
+article p{
+    padding: 0;
+    margin: 0;
+    text-align: justify;
+    text-justify: inter-word;
 }
