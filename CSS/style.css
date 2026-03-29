@@ -121,3 +121,58 @@ article p{
     text-align: justify;
     text-justify: inter-word;
 }
+
+#sobreMi{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: left;
+    justify-content: space-around;
+}
+
+#sobreMi article {
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: right;
+    justify-content: space-evenly;
+}
+
+.soy{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.soy article{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.content{
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+.soy section{
+    width: 40%;
+    height: 30vh;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 6px 6px 10px white;
+}
+
+.soy section img{
+    width: 30%;
+    height: auto;
+    border-radius: 10%;
+}
