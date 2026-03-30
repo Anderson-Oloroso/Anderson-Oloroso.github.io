@@ -208,11 +208,19 @@ article p{
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+    border-radius: 10%;
     justify-content: space-evenly;
     box-shadow: 6px 6px 10px white;
+    padding-bottom: 15px;
 }
 .gustos div img{
     width: auto;
     height: 80%;
     border-radius: 10%;
+}   
+
+.gustos div img:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+    box-shadow: yellow 0px 0px 10px;
 }
