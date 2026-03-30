@@ -63,7 +63,7 @@ a{
     color: rgb(234, 255, 1);
 }
 a:hover{
-    color: #0c7250;
+    color: black;
 }
 
 #presentacion, #sobreMi, #habilidades, #proyectos, #contacto{
@@ -123,6 +123,7 @@ article p{
 }
 
 #sobreMi{
+    width: 100%;
     display: flex;
     flex-flow: column wrap;
     align-items: left;
@@ -154,7 +155,7 @@ article p{
     justify-content: space-evenly;
 }
 .content{
-    width: 60%;
+    width: 50%;
     height: auto;
     display: flex;
     flex-flow: column wrap;
@@ -162,8 +163,8 @@ article p{
     justify-content: center;
 }
 .soy section{
-    width: 40%;
-    height: 30vh;
+    width: 30%;
+    height: auto;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -174,5 +175,44 @@ article p{
 .soy section img{
     width: 30%;
     height: auto;
+    border-radius: 10%;
+}
+
+.soy section img:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+    box-shadow: yellow 0px 0px 10px;
+}
+
+.gustos h3{
+    color: rgb(0, 217, 255);
+    font-size: 1.5em;
+    width: 100%;
+    height: 1em;
+    margin: 0;
+    padding: 0;
+}
+.gustos{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.gustos div{
+    width: 20%;
+    height: 20vh;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 6px 6px 10px white;
+}
+.gustos div img{
+    width: auto;
+    height: 80%;
     border-radius: 10%;
 }
