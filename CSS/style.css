@@ -259,9 +259,11 @@ table{
     border: 1px solid white;
     border-collapse: collapse;
 }
-table td{ 
-    border: 1px solid white;
-    border-collapse: collapse;
+table thead{
+    width: 100%;
+}
+table thead td{
+    width: 33%;
 }
 
 table img{
