@@ -252,20 +252,39 @@ article p{
 }
 
 table{
-    width: 100%;
+    width: 95%;
     height: auto;
-    display: flex;
-    flex-flow: column wrap;
-    border: 1px solid white;
     border-collapse: collapse;
 }
 table thead{
+    background: linear-gradient(to bottom, blue, rgb(0, 217, 255));
+    color: white;
+}
+table thead th{
+    width: 30%;
+    height: 1.5em;
+}
+table thead th:first-child{
+    width: 20%;
+    height: 1.5em;
+}
+table tbody tr{
+    color: white;
+    height: 4em;
+    width: auto;
+}
+table tbody td{
+    width: 30%;
+    height: auto;
+    text-align: center;
+    padding: 10px;
+}
+table tbody td img{
+    width: 50%;
+    height: auto;
+}
+table tfoot{
     width: 100%;
-}
-table thead td{
-    width: 33%;
-}
-
-table img{
-    width: 300px;
+    height: 1.5em;
+    background:linear-gradient(to right, blue, lightblue, blue);
 }
