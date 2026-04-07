@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 body{
     width: 100%;
     height: auto;
@@ -11,7 +14,10 @@ body{
     font-style: italic;
     justify-content: space-around;
 }
-
+h2{
+    width: 100%;
+    text-align: center;
+}
 header, main, footer{
     width: 100%;
     height: auto;
@@ -208,7 +214,6 @@ article p{
     display: flex;
     flex-flow: column wrap;
     align-items: center;
-    border-radius: 10%;
     justify-content: space-evenly;
     box-shadow: 6px 6px 10px white;
     padding-bottom: 15px;
@@ -217,6 +222,8 @@ article p{
     width: auto;
     height: 80%;
     border-radius: 10%;
+    display: flex;
+    flex-flow: row wrap;
 }   
 
 .gustos div img:hover{
@@ -248,43 +255,80 @@ article p{
     margin: 0;
     padding: 0;
     color: rgb(0, 217, 255);
+    justify-content: center;
+}
+.aprendizaje h3{
+    padding-top: 2em;
+    width: 100%;
     text-align: center;
+    padding-bottom: 1em;
 }
 
 table{
-    width: 95%;
+    width: 98%;
     height: auto;
     border-collapse: collapse;
 }
-table thead{
+table thead, tfoot{
     background: linear-gradient(to bottom, blue, rgb(0, 217, 255));
     color: white;
+    text-align: center;
 }
 table thead th{
-    width: 30%;
-    height: 1.5em;
-}
-table thead th:first-child{
-    width: 20%;
     height: 1.5em;
 }
 table tbody tr{
     color: white;
     height: 4em;
-    width: auto;
+    width: 100%;
 }
 table tbody td{
-    width: 30%;
+    width: 10% ;
     height: auto;
     text-align: center;
     padding: 10px;
+    border-bottom: 1px solid white;
 }
 table tbody td img{
-    width: 50%;
+    width: 40%;
     height: auto;
 }
-table tfoot{
+
+.interes-tech{
     width: 100%;
-    height: 1.5em;
-    background:linear-gradient(to right, blue, lightblue, blue);
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    gap: 2em;
 }
+.interes-tech h3{
+    padding-top: 2em;
+    padding-bottom: 0;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+.interes-tech h4{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.interes-tech section{
+    width: 20%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.interes-tech section img{
+    width: 90%;
+    height: 20vh;
+    border: 1px solid wheat;
+    border-radius: 10px;
+}
+
+#habilidades {}
