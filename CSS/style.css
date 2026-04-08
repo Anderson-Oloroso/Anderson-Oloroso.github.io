@@ -14,10 +14,20 @@ body{
     font-style: italic;
     justify-content: space-around;
 }
+h1{
+    margin: 0;
+}
 h2{
     width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: column wrap;
     text-align: center;
+    font-size: 2em;
+    height: 1em;
+    margin-bottom: 0;
 }
+
 header, main, footer{
     width: 100%;
     height: auto;
@@ -46,9 +56,9 @@ nav{
     align-items: center;
     justify-content: center;
 }
-h1{
+nav .titulo h2{
     color: white;
-    font-size: 2em;
+    font-size: 2vw;
     font-weight: bold;
 }
 
@@ -109,12 +119,7 @@ article{
     flex-flow: column wrap;
     justify-content: center;
 }
-h2{
-    font-size: 2em;
-    height: 1em;
-    margin: 0;
-    padding: 0;
-}
+
 article h3{
     height: 1em;
     margin: 0;
@@ -329,4 +334,50 @@ table tbody td img{
     height: 20vh;
     border: 1px solid wheat;
     border-radius: 10px;
+}
+
+#habilidades{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#habilidades ol{
+    width: 100%;
+    list-style: none;
+    gap: 5px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#habilidades ol li{
+    counter-increment: item;
+    width: 30%;
+    height: auto;
+    position: relative;
+    text-align: center;
+    background-color: rgba(0, 217, 255, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#habilidades ol li::before{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.2em;
+    height: 2.2em;
+    background-color: #4ecde4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    content: counter(itiem);
+    font-size: 0.9rem;
 }
