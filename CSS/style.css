@@ -217,7 +217,7 @@ article p{
 
 .gustos div{
     width: 20%;
-    height: 250px;
+    height: 15vw;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -310,7 +310,7 @@ table tbody td img{
     gap: 2em;
 }
 .interes-tech h3{
-    padding-top: 2em;
+    padding-top: 2rem;
     padding-bottom: 0;
     width: 100%;
     align-items: center;
@@ -332,7 +332,7 @@ table tbody td img{
 
 .interes-tech section img{
     width: 90%;
-    height: 20vh;
+    height: 10vw;
     border: 1px solid wheat;
     border-radius: 10px;
 }
