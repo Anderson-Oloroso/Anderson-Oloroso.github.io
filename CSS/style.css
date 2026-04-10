@@ -13,9 +13,12 @@ body{
     font-family: 'Times New Roman', Times, serif;
     font-style: italic;
     justify-content: space-around;
+    line-height: 1.6;
 }
 h1{
     margin: 0;
+    font-weight: 700;
+    font-size: 2.2em;
 }
 h2{
     width: 100%;
@@ -23,9 +26,10 @@ h2{
     display: flex;
     flex-flow: column wrap;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.8em;
     height: 1em;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
 header, main, footer{
@@ -99,7 +103,7 @@ a:hover{
 }
 
 #presentacion{
-    padding-top: 1rem;
+    padding-top: 2rem;
     display: flex;
     flex-flow:  row wrap;
     align-items: center;
@@ -132,6 +136,8 @@ article h3{
     margin: 0;
     padding: 0;
     color: rgb(0, 217, 255);
+    font-weight: 500;
+    font-size: 1.3em;
 }
 article p{
     padding: 0;
@@ -209,6 +215,7 @@ article p{
     text-align: center;
     margin: 0;
     padding: 0;
+    font-weight: 500;
 }
 .gustos{
     width: 100%;
@@ -260,6 +267,7 @@ article p{
     height: 1em;
     margin: 0;
     padding: 0;
+    font-weight: 500;
 }
 
 .aprendizaje h4{
@@ -268,6 +276,7 @@ article p{
     padding: 0;
     color: rgb(0, 217, 255);
     justify-content: center;
+    font-weight: 400;
 }
 .aprendizaje h3{
     padding-top: 2em;
@@ -306,6 +315,12 @@ table tbody td img{
     height: auto;
 }
 
+.progress {
+    text-align: center;
+    font-size: 1.2em;
+    padding: 5px;
+}
+
 .interes-tech{
     width: 100%;
     height: auto;
@@ -321,6 +336,7 @@ table tbody td img{
     width: 100%;
     align-items: center;
     text-align: center;
+    font-weight: 500;
 }
 .interes-tech h4{
     width: 100%;
@@ -478,9 +494,6 @@ table tbody td img{
     align-items: center;
     justify-content: center;
     text-align: center;
-    border-bottom: 10px dashed #00BFFF;
-    animation: blue-border 3s linear infinite;
-    margin-bottom: 2rem;
 }
 #contacto section{
     width: 80%;
@@ -491,8 +504,7 @@ table tbody td img{
     margin: 0;
 }
 #contacto section div img{
-    width: 80px;
-    height: 80px;
+    width: 20%;
     object-fit: cover;
     margin: 0 auto 10px auto;
     display: block;
@@ -502,7 +514,7 @@ table tbody td img{
 }
 #contacto section div p{
     color: white;
-    font-size: 0.9em;
+    font-size: 0.8em;
     margin: 0;
     padding: 0;
 }
@@ -513,4 +525,48 @@ table tbody td img{
     50% { border-bottom-color: #0000FF; }
     75% { border-bottom-color: #4169E1; }
     100% { border-bottom-color: #00BFFF; }
+}
+
+@keyframes aurora {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+footer {
+    width: 100%;
+    height: auto;
+    color: white;
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    font-weight: 400;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 255, 150, 0.3), rgba(0, 150, 255, 0.3), rgba(150, 0, 255, 0.3), rgba(255, 0, 150, 0.3), rgba(0, 255, 150, 0.3));
+    background-size: 200% 100%;
+    animation: aurora 8s ease-in-out infinite;
+    z-index: -1;
+}
+
+footer p {
+    margin: 0.2rem 0;
+}
+
+footer a {
+    color: rgb(234, 255, 1);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: lightgreen;
 }
