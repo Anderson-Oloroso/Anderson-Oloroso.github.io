@@ -49,10 +49,10 @@ header{
 }
 nav{
     width: 100%;
-    height: 4vw;
+    height: auto;
     background: linear-gradient(to bottom, blue, rgb(0, 217, 255));
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     align-items: center;
     text-align: center;
     justify-content: space-between;
@@ -60,16 +60,17 @@ nav{
 }
 .titulo{
     width: 30%;
-    height: 100%;
+    height: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 nav .titulo h2{
     color: white;
-    font-size: 2vw;
+    font-size: 2rem;
     width: 100%;
     height: 100%;
+    margin: 0;
     display: flex;
 }
 .container{
@@ -87,6 +88,7 @@ a{
     font-style:italic;
     text-decoration: none;
     color: rgb(234, 255, 1);
+    font-size: 1.2em;
 }
 a:hover{
     color: black;
@@ -103,7 +105,7 @@ a:hover{
 }
 
 #presentacion{
-    padding-top: 2rem;
+    padding-top: 3rem;
     display: flex;
     flex-flow:  row wrap;
     align-items: center;
@@ -255,10 +257,11 @@ article p{
     width: 100%;
     height: auto;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     gap: 20px;
+    overflow-x: visible;
 }
 
 .aprendizaje h3{
@@ -286,9 +289,14 @@ article p{
 }
 
 table{
-    width: 98%;
+    width: 100%;
     height: auto;
     border-collapse: collapse;
+    min-width: 800px !important;
+    margin: 0 auto;
+    table-layout: fixed !important;
+    overflow-x: scroll;
+    box-sizing: border-box;
 }
 table thead, tfoot{
     background: linear-gradient(to bottom, blue, rgb(0, 217, 255));
@@ -297,7 +305,11 @@ table thead, tfoot{
 }
 table thead th{
     height: 1.5em;
+    min-width: 200px !important;
+    box-sizing: border-box !important;
+    text-align: center;
 }
+
 table tbody tr{
     color: white;
     height: 4em;
@@ -306,10 +318,13 @@ table tbody tr{
 table tbody td{
     width: 10% ;
     height: auto;
+    min-width: 200px !important;
+    box-sizing: border-box !important;
     text-align: center;
     padding: 10px;
     border-bottom: 1px solid white;
 }
+
 table tbody td img{
     width: 40%;
     height: auto;
@@ -463,26 +478,31 @@ table tbody td img{
     height: auto;
     margin-top: 0;
 }
+
 #carta div a{
-    width: 50%;
-    text-decoration: none;
-    color: white;
-    height: auto;
+    width: 60%;
+    max-width: 200px; /* Limita ancho max */
+    height: 2.2em; /* Altura fija */
     display: flex;
-    flex-flow: row wrap;
-    border: 1px solid silver;
-    border-radius: 15px;
+    flex-flow: row nowrap; /* NO wrap, icono queda inline */
     align-items: center;
     justify-content: center;
-    margin-bottom: 5px;
+    gap: 0.5rem; /* Espacio entre texto e icono */
+    text-decoration: none;
+    color: white;
+    border: 1px solid silver;
+    border-radius: 15px;
     text-align: center;
     background-color: black;
+    box-sizing: border-box; /* Padding/border en width */
+    font-size: 0.85em;
 }
 
-#carta div a img{
-    width: 10%;
-    margin-left: 10px;
-    padding: 0;
+#carta div a img {
+    width: 16px !important; 
+    height: 16px;
+    margin: 0; 
+    flex-shrink: 0; 
 }
 #carta div a:hover{
     box-shadow: 0px 0px 10px darkcyan;
@@ -551,7 +571,7 @@ footer::before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 200%;
+    width: 100%;
     height: 100%;
     background: linear-gradient(90deg, rgba(0, 255, 150, 0.3), rgba(0, 150, 255, 0.3), rgba(150, 0, 255, 0.3), rgba(255, 0, 150, 0.3), rgba(0, 255, 150, 0.3));
     background-size: 200% 100%;
@@ -570,4 +590,258 @@ footer a {
 
 footer a:hover {
     color: lightgreen;
+}
+
+@media (max-width: 480px) {
+    *{
+        box-sizing: border-box;
+    }
+    nav{
+     flex-flow: column wrap;
+     align-items: center;
+    }   
+    .titulo{
+        width: 100%;
+        height: auto;
+        justify-content: center;
+    }
+    .container{
+        width: 100%;
+        height: auto;
+        justify-content: space-evenly;
+    }
+    .container a{
+        text-align: center;
+        padding: 3px;
+        font-size: 0.9em;
+    }
+    header, main, footer{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+     #presentacion, #sobreMi, #habilidades, #proyectos, #contacto{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        scroll-margin-top: 2rem;
+    }
+    #presentacion{
+        padding-top: 4.5rem;
+        display: flex;
+        flex-flow:  column wrap;
+        align-items: center;
+        justify-content: center;
+    }
+     aside{
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    aside img{
+        width: 50%;
+        height: auto;
+        border-radius: 10%;
+    }
+    article{
+        width: 95%;
+        height: auto;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    article h1{
+        font-size: 1.5em;
+        margin: 0;
+        text-align: center;
+    }
+    article h3{
+        width: 100%;
+        height: 1em;
+        text-align: center;
+    }
+     article p{
+        padding: 0;
+        margin: 0;
+        text-align: justify;
+        text-justify: inter-word;
+    }
+     #sobreMi{
+        width: 100%;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+    }
+     #sobreMi article {
+        width: 100%;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .soy{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .soy .content{
+        width: 95%;
+        height: auto;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+    }
+     .soy article{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .soy section{
+        width: 95%;
+        height: auto;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .soy section img{
+        width: 40%;
+        height: auto;
+    }
+    .gustos{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .gustos h3{
+        margin-top: 1rem;
+    }
+     .gustos div{
+        width: 40%;
+        height: auto;
+    }
+    .aprendizaje {
+        width: 95vw; 
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 10px;
+    }
+    .aprendizaje table {
+        width: 900px; 
+    }
+    .aprendizaje thead th { 
+        height: 40px; padding: 0.4rem; 
+    }
+    .aprendizaje tbody td { 
+        height: 3em; padding: 0.5rem; 
+    }
+    .interes-tech{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    .interes-tech h3{
+        width: 100%;
+        margin-bottom: 2em;
+        align-items: center;
+        text-align: center;
+    }
+     .interes-tech h4{
+        width: 100%;
+        height: 40%;
+        margin: 0;
+        padding: 0;
+    }
+     .interes-tech section{
+        width: 40%;
+        height: 40vw;
+        position: relative;
+        top: 0;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        text-align: center;
+        justify-content: space-evenly;
+    }
+     .interes-tech section img{
+        width: 100%;
+        height: 60%;
+    }
+    #habilidades ol{
+        width: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 5px;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+    }
+     #habilidades ol li{
+        width: 90%;
+    }
+    #proyectos section{
+        width: 95%;
+        border: 2px solid;
+        display: grid;
+        grid-template-columns:repeat(1, 1fr); 
+        gap: 20px;
+        padding: 20px;
+    }
+    #carta div a {
+        width: 85%; 
+        height: 2.5em;
+        font-size: 0.9em;
+        gap: 0.4rem;
+        margin-top: 0;
+        margin-bottom: 2em;
+    }
+    #carta div {
+        padding: 0.5rem;
+        gap: 0.25rem;
+    }
+    #contacto section{
+        width: 95%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 5%;
+        gap: 5%;
+        font-size: 0.9em;
+    }
+    #contacto h2{
+        width: 100%;
+        margin-bottom: 1em;
+        line-height: 1em;
+    }
+    #contacto section div p{
+        margin-bottom: 1em;
+    }
+    #contacto section div img{
+        width: 25%;
+    }
+
 }
