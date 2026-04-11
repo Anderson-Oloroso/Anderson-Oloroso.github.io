@@ -1,7 +1,7 @@
 # Portafolio Personal
 ### _Nombre del proyecto_ 🚀
 
-### _Versión: _
+### _Versión entregada: f0130c4181999bfa0258f7ee49383464703b3a07_
 
 #### ✅ Descripcion del proyecto:
 Este proyecto fue realizado con las tecnologías HTML y CSS en el cual se describe mi trayectoria académica, conocimientos e intereses tecnológicos
