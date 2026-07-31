@@ -1,376 +1,436 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" href="Img/favicon.ico" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="10000">
-    <meta name="description" content="Portafolio Personal">
-    <meta name="author" content="Anderson-Olororoso">
-    <link rel="stylesheet" href="CSS/style.css">
-    <title>Portafolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Henrik Anderson Oloroso García | Portafolio Personal</title>
+  <meta name="description" content="Portafolio profesional de Henrik Anderson Oloroso García, Desarrollador Full Stack Junior en formación.">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="refresh" content="86400">
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="icon" type="image/svg+xml" href="https://api.iconify.design/lucide:code-2.svg?color=%2300d2ff">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="titulo">
-                <h2>Portafolio Personal</h2>
+
+  <!-- NAV -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#presentacion" class="logo">Portafolio Personal</a>
+      
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú de navegación">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#presentacion" class="nav-link active">Presentación</a>
+        <a href="#sobreMi" class="nav-link">Sobre Mí</a>
+        <a href="#habilidades" class="nav-link">Habilidades y Ruta</a>
+        <a href="#proyectos" class="nav-link">Proyectos</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="presentacion">
+      <div class="container hero-grid">
+        <div class="profile-card">
+          <img src="Img/Hnk.png" alt="Fotografía de Henrik Anderson Oloroso García" class="profile-img">
+        </div>
+        
+        <div class="hero-content">
+          <h1>Henrik Anderson Oloroso García</h1>
+          <p class="tagline">Desarrollador Full Stack Junior en Formación</p>
+          <p class="description">
+            Apasionado por la tecnología con experiencia en desarrollo backend y frontend, automatización con n8n, gestión de bases de datos con MySQL e Inteligencia Artificial aplicada.
+          </p>
+          <div class="hero-buttons">
+            <a href="#contacto" class="btn btn-primary">Contáctame</a>
+            <a href="#proyectos" class="btn btn-secondary">Ver Proyectos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section class="section-padding" id="sobreMi">
+      <div class="container">
+        <h2 class="section-title">Sobre Mí</h2>
+        
+        <div class="about-bio">
+          <h3 class="sub-title">¿Quién soy?</h3>
+          <p>
+            Soy un desarrollador en formación constante en Campuslands Guatemala. Cuento con conocimientos en reparación y soporte técnico, bases de datos relacionales con MySQL, lenguajes como C++, VB.NET, JavaScript y Python, así como desarrollo web frontend (HTML5, CSS3, Bootstrap). Domino herramientas como Git, GitHub, GitKraken, VS Code, PyCharm, ClickUp y Notion, además de automatización de flujos con n8n, integración de Inteligencia Artificial y preparación para backend con Java y Spring Boot.
+          </p>
+        </div>
+
+        <h3 class="sub-title" style="text-align: center; margin-bottom: 2rem;">¿Qué me gusta?</h3>
+        <div class="interests-grid">
+          <article class="interest-card">
+            <div class="interest-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=500&auto=format&fit=crop" alt="Mesa de estudio con libros">
             </div>
-            <div class="container">
-                <a href="#presentacion">Presentacion</a>
-                <a href="#sobreMi">Sobre Mi</a>
-                <a href="#habilidades">Habilidades</a>
-                <a href="#proyectos">Proyectos</a>
-                <a href="#contacto">Contacto</a>
+            <h4 class="interest-title">Leer</h4>
+          </article>
+
+          <article class="interest-card">
+            <div class="interest-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=500&auto=format&fit=crop" alt="Gaming Setup">
             </div>
-        </nav>
-    </header>
-    <main>
-        <div id="presentacion">
-            <aside>
-                <img src="Img/Hnk.png" alt="Imagen de perfil">
-            </aside>
-            <article>
-                <h1><strong>Henrik Anderson Oloroso García</strong></h1>
-                <h3>Desarrollador Full Stack</h3>
-                <p>Desarrollador full stack en proceso de formación con experiencia en lenguajes de programación, desarrollo web front-end, base de datos sql, manejo de Git y control de versiones.</p>
-            </article>
-        </div><hr>
-        <div id="sobreMi">
-            <h2>Sobre Mi</h2>
-            <article>
-                <div class="soy">   
-                    <div class="content">
-                        <h3>¿Quién soy?</h3>
-                        <p>Soy un jóven con conocimientos en reparación y soporte técnico, bases de datos relacionales, SQL, manejo de lenguajes de programación tales como C++, VB.NET, JS, Python, además de desarrollo web en HTML, CSS y Bootstrap. Así también manejo plataformas como GitHub, ClickUp y AwardSpace; así mismo, tengo conocimiento de metodoligías ágiles.</p>
-                    </div>
-                    <section>
-                        <img src="Img/fixng.png" alt="Imagen de reparación de computadoras">
-                        <img src="Img/c++.jpg" alt="Imagen de C++">
-                        <img src="Img/js.png" alt="Imagen de JavaScript">
-                        <img src="Img/python.png" alt="Imagen de Python">
-                        <img src="Img/sql.png" alt="Imagen de SQL">
-                        <img src="Img/code.png" alt="Imagen de código">
-                        <img src="Img/security.png" alt="Imagen de seguridad">
-                        <img src="Img/IA.png" alt="Imagen de Inteligencia Artificial">
-                        <img src="Img/games.png" alt="Imagen de juegos">
-                    </section>
-                </div>
-                <div class="gustos">
-                    <h3>¿Qué me gusta?</h3>
-                    <div>
-                        <p>Leer</p>
-                        <img src="Img/reading.png" alt="Imagen de lectura">
-                    </div>
-                    <div>
-                        <p>Videojuegos</p>
-                        <img src="Img/codm.png" alt="Imagen de juegos">
-                    </div>
-                    <div>
-                        <p>Futsal</p>
-                        <img src="Img/futsal.png" alt="Imagen de futsal">
-                    </div>
-                    <div>
-                        <p>La naturaleza</p>
-                        <img src="Img/forest.png" alt="Imagen de naturaleza">
-                    </div>
-                    <div>
-                        <p>Música</p>
-                        <img src="Img/music.png" alt="Imagen de música">
-                    </div>
-                    <div>
-                        <p>Química</p>
-                        <img src="Img/chemistry.png" alt="Imagen de química">
-                    </div>
-                    <div>
-                        <p>Adrenalina</p>
-                        <img src="Img/adrenaline.png" alt="Imagen de adrenalina">
-                    </div>
-                    <div>
-                        <p>Deportivos</p>
-                        <img src="Img/mustag.png" alt="Imagen de Mustag">
-                    </div>
-                </div>
-                <div class="aprendizaje">
-                    <h3>¿Qué estoy aprendiendo?</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Lenguaje</th>
-                                <th>Logo</th>
-                                <th>Descripción</th>
-                                <th>Progreso</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <h4>C++</h4>
-                                </td>
-                                <td>
-                                    <img src="Img/c++.jpg" alt="Imagen de C++">
-                                </td>
-                                <td>
-                                    <p>Lenguaje de programación de alto rendimiento utilizado para desarrollo de software de sistemas.</p>
-                                </td>
-                                <td>
-                                    <div class="progress">
-                                        <div>🎓 Terminado</div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>VB.NET</h4>
-                                </td>
-                                <td>
-                                    <img src="Img/vbnet.png" alt="Imagen de VB.NET">
-                                </td>
-                                <td>
-                                    <p>Lenguaje de programación para desarrollo de aplicaciones en .NET.</p>
-                                </td>
-                                <td>
-                                    <div class="progress">
-                                        <div>🎓 Terminado</div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Python</h4>
-                                </td>
-                                <td>
-                                    <img src="Img/python.png" alt="Imagen de Python">
-                                </td>
-                                <td>
-                                    <p>Lenguaje de programación versátil y fácil de aprender, ideal para diversos proyectos.</p>
-                                </td>
-                                <td>
-                                    <div class="progress">
-                                        <div>🎓 Terminado</div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>HTML</h4>
-                                </td>
-                                <td>
-                                    <img src="Img/html.png" alt="Imagen de HTML">
-                                </td>
-                                <td>
-                                    <p>Lenguaje de marcado para estructura web.</p>
-                                </td>
-                                <td>
-                                    <div class="progress">
-                                        <div>✍️ En progreso</div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>CSS</h4>
-                                </td>
-                                <td>
-                                    <img src="Img/css.png" alt="Imagen de CSS">
-                                </td>
-                                <td>
-                                    <p>Lenguaje para estilos y diseño web.</p>
-                                </td>
-                                <td>
-                                    <div class="progress">
-                                        <div>✍️ En progreso</div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>JavaScript</h4>
-                                </td>
-                                <td>
-                                    <img src="Img/js.png" alt="Imagen de JavaScript">
-                                </td>
-                                <td>
-                                    <p>Lenguaje de programación para desarrollo web interactivo.</p>
-                                </td>
-                                <td>
-                                    <div class="progress">
-                                        <div>📖 Por iniciar</div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>MySQL I</h4>
-                                </td>
-                                <td>
-                                    <img src="Img/sql.png" alt="Imagen de MySQL">
-                                </td>
-                                <td>
-                                    <p>Introducción a bases de datos MySQL.</p>
-                                </td>
-                                <td>
-                                    <div class="progress">
-                                        <div>📖 Por iniciar</div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>MySQL II</h4>
-                                </td>
-                                <td>
-                                    <img src="Img/sql.png" alt="Imagen de MySQL">
-                                </td>
-                                <td>
-                                    <p>Avanzado en gestión de bases de datos MySQL.</p>
-                                </td>
-                                <td>
-                                    <div class="progress">
-                                        <div>📖 Por iniciar</div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Java</h4>
-                                </td>
-                                <td>
-                                    <img src="Img/java.jpg" alt="Imagen de Java">
-                                </td>
-                                <td>
-                                    <p>Lenguaje de programación orientado a objetos.</p>
-                                </td>
-                                <td>
-                                    <div class="progress">
-                                        <div>📖 Por iniciar</div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Spring Boot</h4>
-                                </td>
-                                <td>
-                                    <img src="Img/springboot.png" alt="Imagen de Spring Boot">
-                                </td>
-                                <td>
-                                    <p>Framework para desarrollo de aplicaciones Java.</p>
-                                </td>
-                                <td>
-                                    <div class="progress">
-                                        <div>📖 Por iniciar</div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="4">Lenguajes de programación de alto nivel</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-                <div class="interes-tech">
-                    <h3>¿Qué áreas dentro de la tecnología me interesan?</h3>
-                    <section>
-                        <img src="Img/security.png" alt="Imagen de seguridad">
-                        <h4>Ciberseguridad</h4>
-                    </section>
-                    <section>
-                        <img src="Img/IA.png" alt="Imagen de Inteligencia Artificial">
-                        <h4>Inteligencia Artificial</h4>
-                    </section>
-                    <section>
-                        <img src="Img/code.png" alt="Imagen de Programacion">
-                        <h4>Programacion</h4>
-                    </section>
-                    <section>
-                        <img src="Img/fixng.png" alt="Imagen de reparacion y mantenimiento de computadoras">
-                        <h4>Reparacion de computadoras</h4>
-                    </section>
-                </div>
-            </article>
+            <h4 class="interest-title">Videojuegos</h4>
+          </article>
+
+          <article class="interest-card">
+            <div class="interest-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=500&auto=format&fit=crop" alt="Cancha de Futsal">
+            </div>
+            <h4 class="interest-title">Futsal</h4>
+          </article>
+
+          <article class="interest-card">
+            <div class="interest-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=500&auto=format&fit=crop" alt="Bosque y Naturaleza">
+            </div>
+            <h4 class="interest-title">La naturaleza</h4>
+          </article>
+
+          <article class="interest-card">
+            <div class="interest-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=500&auto=format&fit=crop" alt="Auriculares y música">
+            </div>
+            <h4 class="interest-title">Música</h4>
+          </article>
+
+          <article class="interest-card">
+            <div class="interest-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=500&auto=format&fit=crop" alt="Laboratorio de Química">
+            </div>
+            <h4 class="interest-title">Química</h4>
+          </article>
+
+          <article class="interest-card">
+            <div class="interest-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?q=80&w=500&auto=format&fit=crop" alt="Montaña Rusa">
+            </div>
+            <h4 class="interest-title">Adrenalina</h4>
+          </article>
+
+          <article class="interest-card">
+            <div class="interest-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=500&auto=format&fit=crop" alt="Auto Deportivo">
+            </div>
+            <h4 class="interest-title">Deportivos</h4>
+          </article>
         </div>
-        <div id="habilidades">
-            <h2>Habilidades</h2>
-            <section>
-                <ol>
-                    <li>Resolución de problemas</li>
-                    <li>Trabajo en equipo</li>
-                    <li>Comunicación asertiva</li>
-                    <li>Adaptabilidad</li>
-                    <li>Actualización constante</li>
-                    <li>Pensamiento crítico</li>
-                    <li>Programación e Innovación</li>
-                    <li>Manejo de bases de datos</li>
-                    <li>Desarrollo Web</li>
-                    <li>Instalación de Windows y Linux</li>
-                </ol>
-            </section>
+      </div>
+    </section>
+
+    <!-- HABILIDADES Y RUTA -->
+    <section class="section-padding" id="habilidades">
+      <div class="container">
+        <h2 class="section-title">Habilidades y Ruta de Aprendizaje</h2>
+
+        <h3 class="sub-title" style="text-align: center;">Ruta de Aprendizaje y Tecnologías</h3>
+        <div class="tech-table-container">
+          <table class="tech-table">
+            <thead>
+              <tr>
+                <th>Tecnología / Herramienta</th>
+                <th>Logo</th>
+                <th>Descripción y Ámbito de Aplicación</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>C++</strong></td>
+                <td class="tech-logo-cell">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="Logo C++">
+                </td>
+                <td>Fundamentos de programación, lógica algorítmica y rendimiento de sistemas.</td>
+                <td><span class="badge badge-completed">🎓 Terminado</span></td>
+              </tr>
+              <tr>
+                <td><strong>VB.NET</strong></td>
+                <td class="tech-logo-cell">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt="Logo VB.NET">
+                </td>
+                <td>Desarrollo de aplicaciones de escritorio orientadas a objetos e integración con soluciones .NET.</td>
+                <td><span class="badge badge-completed">🎓 Terminado</span></td>
+              </tr>
+              <tr>
+                <td><strong>Python</strong></td>
+                <td class="tech-logo-cell">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Logo Python">
+                </td>
+                <td>Scripting, automatización, lógica backend, manipulación de archivos y proyectos con IA.</td>
+                <td><span class="badge badge-completed">🎓 Terminado</span></td>
+              </tr>
+              <tr>
+                <td><strong>JavaScript (ES6+)</strong></td>
+                <td class="tech-logo-cell">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="Logo JavaScript">
+                </td>
+                <td>Lógica del cliente, desarrollo de interactividad en páginas web y nodos en automatizaciones.</td>
+                <td><span class="badge badge-completed">🎓 Terminado</span></td>
+              </tr>
+              <tr>
+                <td><strong>HTML5 & CSS3</strong></td>
+                <td class="tech-logo-cell">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="Logo HTML5">
+                </td>
+                <td>Maquetación web responsive, estructuras semánticas y diseño de interfaz adaptable.</td>
+                <td><span class="badge badge-completed">🎓 Terminado</span></td>
+              </tr>
+              <tr>
+                <td><strong>MySQL I</strong></td>
+                <td class="tech-logo-cell">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="Logo MySQL">
+                </td>
+                <td>Diseño de modelos relacionales, tablas, llaves primarias/foráneas y consultas SQL básicas a intermedias.</td>
+                <td><span class="badge badge-completed">🎓 Terminado</span></td>
+              </tr>
+              <tr>
+                <td><strong>n8n & Automatización</strong></td>
+                <td class="tech-logo-cell">
+                  <img src="https://api.iconify.design/simple-icons:n8n.svg?color=%23ff6d5a" alt="Logo n8n">
+                </td>
+                <td>Automatización de flujos de trabajo, integración con Telegram Bots y sincronización de datos con Google Sheets.</td>
+                <td><span class="badge badge-completed">🎓 Terminado</span></td>
+              </tr>
+              <tr>
+                <td><strong>Curso de Inteligencia Artificial</strong></td>
+                <td class="tech-logo-cell">
+                  <img src="Img/ia.svg" alt="Logo IA">
+                </td>
+                <td>Técnicas de Prompt Engineering, integración de modelos de IA en proyectos web y flujo de trabajo optimizado.</td>
+                <td><span class="badge badge-completed">🎓 Terminado</span></td>
+              </tr>
+              <tr>
+                <td><strong>Git & GitHub</strong></td>
+                <td class="tech-logo-cell">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Logo Git">
+                </td>
+                <td>Control de versiones profesional, flujo con ramas, pull requests y despliegue en GitHub Pages.</td>
+                <td><span class="badge badge-completed">🎓 Terminado</span></td>
+              </tr>
+              <tr>
+                <td><strong>MySQL II</strong></td>
+                <td class="tech-logo-cell">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="Logo MySQL">
+                </td>
+                <td>Consultas avanzadas, optimización, procedimientos almacenados, disparadores (triggers) y transacciones.</td>
+                <td><span class="badge badge-progress">📝 En curso</span></td>
+              </tr>
+              <tr>
+                <td><strong>Java</strong></td>
+                <td class="tech-logo-cell">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Logo Java">
+                </td>
+                <td>Programación orientada a objetos sólida y arquitectura para aplicaciones empresariales.</td>
+                <td><span class="badge badge-progress" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border-color: rgba(59, 130, 246, 0.3);">⏳ Por iniciar</span></td>
+              </tr>
+              <tr>
+                <td><strong>Spring Boot</strong></td>
+                <td class="tech-logo-cell">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Logo Spring Boot">
+                </td>
+                <td>Framework para desarrollo de microservicios y APIs REST robustas en el ecosistema Java.</td>
+                <td><span class="badge badge-progress" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border-color: rgba(59, 130, 246, 0.3);">⏳ Por iniciar</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div id="proyectos">
-            <h2>Proyectos destacados</h2>
-            <section>
-                <div id="carta">
-                    <img src="Img/gesture.png" alt="Images representativa para el proyecto de gestor de libros, musicas y peliculas">
-                    <div>
-                        <h4>Biblioteca</h4>
-                        <p>Gestor para el control de datos de películas, libros y músicas. 
-                        </p>
-                        <a href="https://github.com/Anderson-Oloroso/AdminLibrosMusicasPelis.git" target="_blank">Ver repositorio <img src="Img/github.png" alt="Github image"></a>
-                    </div>
-                </div>
-                <div id="carta">
-                    <img src="Img/photos.png" alt="Imagen representativa para el gestor de photos">
-                    <div>
-                        <h4>Fotos</h4>
-                        <p>Gestor para el control de imágenes de Campuslands</p>
-                        <a href="https://github.com/Anderson-Oloroso/ExamenPhotoCampus_HenrikOloroso.git" target="_blank">Ver repositorio <img src="Img/github.png" alt="Github image"></a>
-                    </div>
-                </div>
-                <div id="carta">
-                    <img src="Img/games.png" alt="Imagen representativa para el proyecto de Ranking de videojuegos">
-                    <div>
-                        <h4>Ranking de Videojuegos</h4>
-                        <p>Proyecto para obtener los 3 videojuegos más populares</p>
-                        <a href="https://github.com/Anderson-Oloroso/RankingVideojuegos.git" target="_blank">Ver repositorio <img src="Img/github.png" alt="Github image"></a>
-                    </div>
-                </div>
-            </section>
+
+        <h3 class="sub-title" style="text-align: center;">Áreas Tecnológicas de Interés</h3>
+        <div class="tech-areas-grid">
+          <article class="area-card">
+            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=500&auto=format&fit=crop" alt="Ciberseguridad">
+            <h4>Ciberseguridad</h4>
+          </article>
+          <article class="area-card">
+            <img src="https://www.esneca.com/wp-content/uploads/evolucion-inteligencia-artificial.jpg" alt="Inteligencia Artificial">
+            <h4>Inteligencia Artificial</h4>
+          </article>
+          <article class="area-card">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=500&auto=format&fit=crop" alt="Programación">
+            <h4>Programación</h4>
+          </article>
+          <article class="area-card">
+            <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=500&auto=format&fit=crop" alt="Reparación de Computadoras">
+            <h4>Reparación de Computadoras</h4>
+          </article>
         </div>
-        <div id="contacto">
-            <h2>Información de contacto</h2>
-            <section>
-                <div>
-                    <img src="Img/gmail.png" alt="Imagen de Gmail">
-                    <p>o.and871@gmail.com</p>
-                </div>
-                <div>
-                    <img src="Img/whats.png" alt="Imagen de WhatsApp">
-                    <p>(+502) 5317-2551</p>
-                </div>
-                <div>
-                    <a href="https://www.linkedin.com/in/anderson-oloroso-b45519327" target="_blank">
-                        <img src="Img/in.png" alt="Imagen de LinkedIn">
-                    </a>
-                    <p>Anderson Oloroso</p>
-                </div>
-                <div>
-                    <a href="https://github.com/Anderson-Oloroso" target="_blank">
-                        <img src="Img/github.png" alt="Imagen de GitHub">
-                    </a>
-                    <p>Anderson Oloroso</p>
-                </div>
-            </section>
+
+        <h3 class="sub-title" style="text-align: center;">Certificaciones y Formación Académica</h3>
+        <div class="soft-skills-grid" style="margin-bottom: 4rem;">
+          <div class="soft-skill-item">
+            <span class="skill-number">✓</span>
+            <span><strong>Campuslands Guatemala:</strong> Desarrollador Full-Stack Junior (Campers BI)</span>
+          </div>
+          <div class="soft-skill-item">
+            <span class="skill-number">✓</span>
+            <span><strong>INTECAP:</strong> IT Essentials (Certificación técnica)</span>
+          </div>
+          <div class="soft-skill-item">
+            <span class="skill-number">✓</span>
+            <span><strong>INTECAP:</strong> Análisis de Datos en Excel</span>
+          </div>
+          <div class="soft-skill-item">
+            <span class="skill-number">✓</span>
+            <span><strong>INTECAP:</strong> Diseño de Bases de Datos Relacionales con MySQL</span>
+          </div>
+          <div class="soft-skill-item">
+            <span class="skill-number">✓</span>
+            <span><strong>INTECAP:</strong> Desarrollo de Aplicaciones en Visual Basic .NET</span>
+          </div>
+          <div class="soft-skill-item">
+            <span class="skill-number">✓</span>
+            <span><strong>Ministerio de la Defensa Nacional:</strong> Asistente de Informática (Práctica Supervisada)</span>
+          </div>
         </div>
-    </main>    
-    <footer>
-      <p>&copy; 2026 Henrik Anderson Oloroso García. Todos los derechos reservados.</p>
-      <p>Ultima actualización: <em>10/04/2023</em></p>
-      <p>Hecho con HTML5 & CSS3</p>
-      <p>Herramientas: Visual Studio Code, Git | Hospedado en GitHub Pages</p>
-      <p><a href="https://github.com/Anderson-Oloroso/Anderson-Oloroso.github.io/blob/main/README.md" target="_blank">Documentación disponible en GitHub</a></p>
-    </footer>
+
+        <h3 class="sub-title" style="text-align: center;">Habilidades Blandas y Competencias</h3>
+        <div class="soft-skills-grid">
+          <div class="soft-skill-item">
+            <span class="skill-number">1</span>
+            <span>Resolución de problemas técnicos</span>
+          </div>
+          <div class="soft-skill-item">
+            <span class="skill-number">2</span>
+            <span>Trabajo en equipo y metodologías ágiles</span>
+          </div>
+          <div class="soft-skill-item">
+            <span class="skill-number">3</span>
+            <span>Comunicación asertiva</span>
+          </div>
+          <div class="soft-skill-item">
+            <span class="skill-number">4</span>
+            <span>Adaptabilidad a nuevas tecnologías</span>
+          </div>
+          <div class="soft-skill-item">
+            <span class="skill-number">5</span>
+            <span>Inglés Nivel B2 (Intermedio-Avanzado)</span>
+          </div>
+          <div class="soft-skill-item">
+            <span class="skill-number">6</span>
+            <span>Pensamiento crítico y analítico</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section class="section-padding" id="proyectos">
+      <div class="container">
+        <h2 class="section-title">Proyectos Destacados</h2>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=600&auto=format&fit=crop" alt="Proyecto Biblioteca">
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Administrador de Libros, Películas y Música</h3>
+              <p class="project-description">
+                Gestor para el control de catálogos multimedia y procesamiento de datos con persistencia estructurada.
+              </p>
+              <a href="https://github.com/Anderson-Oloroso/AdminLibrosMusicasPelis.git" target="_blank" rel="noopener noreferrer" class="btn btn-secondary project-btn">
+                Ver repositorio
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1512295767273-ac109ac3acfa?q=80&w=600&auto=format&fit=crop" alt="Proyecto Galería de Fotos">
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Gestor de Fotos & Galería</h3>
+              <p class="project-description">
+                Gestor para el control y organización visual de imágenes desarrollado para proyectos en Campuslands.
+              </p>
+              <a href="https://github.com/Anderson-Oloroso/ExamenPhotoCampus_HenrikOloroso.git" target="_blank" rel="noopener noreferrer" class="btn btn-secondary project-btn">
+                Ver repositorio
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=600&auto=format&fit=crop" alt="Proyecto Ranking Videojuegos">
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Ranking de Videojuegos</h3>
+              <p class="project-description">
+                Proyecto algorítmico diseñado para clasificar listas de datos y filtrar los mejores elementos según valoración de usuarios.
+              </p>
+              <a href="https://github.com/Anderson-Oloroso/RankingVideojuegos.git" target="_blank" rel="noopener noreferrer" class="btn btn-secondary project-btn">
+                Ver repositorio
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section-padding" id="contacto">
+      <div class="container">
+        <h2 class="section-title">Información de contacto</h2>
+
+        <div class="contact-grid">
+          <a href="mailto:o.and871@gmail.com" class="contact-card">
+            <div class="contact-icon">
+              <img src="https://api.iconify.design/logos:google-gmail.svg" alt="Gmail Icon">
+            </div>
+            <p class="contact-label">Correo Electrónico</p>
+            <p class="contact-value">o.and871@gmail.com</p>
+          </a>
+
+          <a href="https://wa.me/50253172551" target="_blank" rel="noopener noreferrer" class="contact-card">
+            <div class="contact-icon">
+              <img src="https://api.iconify.design/logos:whatsapp-icon.svg" alt="WhatsApp Icon">
+            </div>
+            <p class="contact-label">WhatsApp</p>
+            <p class="contact-value">(+502) 5317-2551</p>
+          </a>
+
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-card">
+            <div class="contact-icon">
+              <img src="https://api.iconify.design/logos:linkedin-icon.svg" alt="LinkedIn Icon">
+            </div>
+            <p class="contact-label">LinkedIn</p>
+            <p class="contact-value">Anderson Oloroso</p>
+          </a>
+
+          <a href="https://github.com/anderson-oloroso" target="_blank" rel="noopener noreferrer" class="contact-card">
+            <div class="contact-icon">
+              <img src="https://api.iconify.design/iconoir:github.svg?color=%23ffffff" alt="GitHub Icon">
+            </div>
+            <p class="contact-label">GitHub</p>
+            <p class="contact-value">Anderson Oloroso</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© 2026 Henrik Anderson Oloroso García. Todos los derechos reservados.</p>
+      <p>Última actualización: <span class="footer-highlight">10/04/2025</span></p>
+      <p>Hecho con HTML5, CSS3 y JavaScript | Herramientas: Visual Studio Code, Git | Hospedado en GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="Js/script.js"></script>
 </body>
 </html>
