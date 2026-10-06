@@ -1,42 +1,42 @@
 /* ==========================================================================
    PORTAFOLIO PROFESIONAL - HENRIK ANDERSON OLOROSO GARCÍA
    Técnico en Desarrollo de Software
-   Diseño de Alta Calidad: Estética Realista, Artesanal y Moderna
+   Hoja de Estilos Limpia, Optimizada y Responsiva
    ========================================================================== */
 
 /* --- Tipografía --- */
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* --- Sistema de Diseño y Paleta de Colores Realista (Crafted Dark Carbon & Titanium) --- */
+/* --- Variables y Paleta de Colores --- */
 :root {
-  /* Fuentes */
+  /* Tipografías */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Fira Code', 'JetBrains Mono', monospace;
 
-  /* Paleta Base: Tonos carbón, grafito y titanio naturales (sin neones genéricos) */
+  /* Fondos y Superficies */
   --bg-app: #0b0d13;
   --bg-surface: #11141d;
   --bg-elevated: #171b26;
   --bg-subtle: #1e2230;
-  --bg-card: rgba(17, 20, 29, 0.85);
 
+  /* Bordes */
   --border-dim: rgba(255, 255, 255, 0.07);
   --border-regular: rgba(255, 255, 255, 0.12);
   --border-bright: rgba(255, 255, 255, 0.22);
 
-  /* Texto */
+  /* Textos */
   --text-primary: #f3f4f6;
   --text-secondary: #9ca3af;
   --text-tertiary: #6b7280;
 
-  /* Acentos refinados */
+  /* Acentos */
   --accent-blue: #3b82f6;
   --accent-cyan: #06b6d4;
   --accent-emerald: #10b981;
   --accent-amber: #f59e0b;
   --accent-violet: #8b5cf6;
 
-  /* UI */
+  /* Dimensiones y Radios */
   --nav-height: 68px;
   --radius-xs: 4px;
   --radius-sm: 8px;
@@ -45,13 +45,12 @@
   --radius-full: 9999px;
 
   /* Transiciones */
-  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: 0.18s ease;
   --transition-normal: 0.28s var(--ease-smooth);
 }
 
-/* --- Reset y Configuración Base --- */
+/* --- Resets y Base --- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -70,7 +69,6 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
-  /* Textura de fondo realista con cuadrícula sutil de ingeniería */
   background-image: 
     radial-gradient(ellipse 60% 40% at 50% 0%, rgba(59, 130, 246, 0.08), transparent 70%),
     linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
@@ -80,7 +78,6 @@ body {
   min-height: 100vh;
 }
 
-/* Selección y Focus */
 ::selection {
   background: rgba(59, 130, 246, 0.3);
   color: #fff;
@@ -104,7 +101,11 @@ img {
   display: block;
 }
 
-/* Contenedores */
+ul {
+  list-style: none;
+}
+
+/* --- Contenedores y Secciones --- */
 .container {
   width: 100%;
   max-width: 1120px;
@@ -116,7 +117,6 @@ img {
   padding: 5.5rem 0;
 }
 
-/* Encabezados de Sección */
 .section-header {
   text-align: center;
   max-width: 680px;
@@ -257,7 +257,6 @@ img {
   transform: translateY(-1px);
 }
 
-/* Botón Hamburguesa */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -529,9 +528,7 @@ img {
   line-height: 1.5;
 }
 
-/* ==========================================================================
-   STACK TÉCNICO - ESTILO BADGES REALES (Exacto a la imagen del usuario)
-   ========================================================================== */
+/* --- Stack Técnico Badges --- */
 .stack-section-container {
   background: var(--bg-surface);
   border: 1px solid var(--border-regular);
@@ -565,7 +562,6 @@ img {
   gap: 0.85rem;
 }
 
-/* Badge Base: estilo auténtico de botones de desarrollo */
 .tech-badge {
   display: inline-flex;
   align-items: center;
@@ -597,117 +593,38 @@ img {
   flex-shrink: 0;
 }
 
-/* Colores de Badges Específicos (Fieles al Stack Oficial) */
-/* 1. Frontend */
-.badge-html5 {
-  background: #E44D26;
-}
+/* Colores de Badges */
+.badge-html5 { background: #E44D26; }
+.badge-css3 { background: #1572B6; }
+.badge-javascript { background: #F7DF1E; color: #1a1a1a; }
+.badge-bootstrap { background: #7952B3; }
 
-.badge-css3 {
-  background: #1572B6;
-}
+.badge-python { background: #2B5B84; }
+.badge-cpp { background: #00599C; }
+.badge-vbnet { background: #512BD4; }
+.badge-nodejs { background: #339933; }
+.badge-typescript { background: #3178C6; }
+.badge-strapi { background: #4945FF; }
 
-.badge-javascript {
-  background: #F7DF1E;
-  color: #1a1a1a;
-}
+.badge-sql { background: #00758F; }
+.badge-mysql { background: #4479A1; }
+.badge-phpmyadmin { background: #6C783F; }
+.badge-pgadmin { background: #336791; }
+.badge-plpgsql { background: #2F6792; }
 
-.badge-bootstrap {
-  background: #7952B3;
-}
+.badge-n8n { background: #EA4B71; }
+.badge-telegram { background: #26A5E4; }
+.badge-sheets { background: #0F9D58; }
+.badge-webhooks { background: #18181b; border: 1px solid rgba(255, 255, 255, 0.2); }
 
-/* 2. Backend & Lenguajes */
-.badge-python {
-  background: #2B5B84;
-}
+.badge-git { background: #F05032; }
+.badge-github { background: #181717; border: 1px solid rgba(255, 255, 255, 0.2); }
+.badge-gitkraken { background: #179287; }
+.badge-vscode { background: #007ACC; }
+.badge-pycharm { background: #000000; border: 1px solid rgba(255, 255, 255, 0.2); }
+.badge-prompt { background: #8b5cf6; }
 
-.badge-cpp {
-  background: #00599C;
-}
-
-.badge-vbnet {
-  background: #512BD4;
-}
-
-.badge-nodejs {
-  background: #339933;
-}
-
-.badge-typescript {
-  background: #3178C6;
-}
-
-.badge-strapi {
-  background: #4945FF;
-}
-
-/* 3. Bases de Datos & Administración */
-.badge-sql {
-  background: #00758F;
-}
-
-.badge-mysql {
-  background: #4479A1;
-}
-
-.badge-phpmyadmin {
-  background: #6C783F;
-}
-
-.badge-pgadmin {
-  background: #336791;
-}
-
-.badge-plpgsql {
-  background: #2F6792;
-}
-
-/* 4. Automatización & Workflows */
-.badge-n8n {
-  background: #EA4B71;
-}
-
-.badge-telegram {
-  background: #26A5E4;
-}
-
-.badge-sheets {
-  background: #0F9D58;
-}
-
-.badge-webhooks {
-  background: #18181b;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* 5. Herramientas & Especialidades */
-.badge-git {
-  background: #F05032;
-}
-
-.badge-github {
-  background: #181717;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.badge-gitkraken {
-  background: #179287;
-}
-
-.badge-vscode {
-  background: #007ACC;
-}
-
-.badge-pycharm {
-  background: #000000;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.badge-prompt {
-  background: #8b5cf6;
-}
-
-/* --- Metodologías --- */
+/* --- Metodologías y Competencias --- */
 .soft-competencies-grid {
   margin-top: 3rem;
   display: grid;
