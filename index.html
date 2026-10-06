@@ -3,419 +3,463 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Henrik Anderson Oloroso García | Portafolio Personal</title>
-  <meta name="description" content="Portafolio profesional de Henrik Anderson Oloroso García, Desarrollador Full Stack Junior en formación.">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="refresh" content="86400">
+  <title>Henrik Anderson Oloroso García | Técnico en Desarrollo de Software</title>
+  <meta name="description" content="Portafolio profesional de Henrik Anderson Oloroso García - Técnico en Desarrollo de Software con enfoque en desarrollo backend, frontend, bases de datos relacionales y automatización.">
+  <meta name="keywords" content="Desarrollo de Software, Programación, Python, JavaScript, TypeScript, Node.js, MySQL, PostgreSQL, Strapi, C++, Frontend, Backend, n8n, Git, GitHub">
+  <meta name="author" content="Henrik Anderson Oloroso García">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Henrik Anderson Oloroso García | Técnico en Desarrollo de Software">
+  <meta property="og:description" content="Portafolio profesional con proyectos de software, desarrollo web y automatizaciones.">
+  <meta property="og:url" content="https://anderson-oloroso.github.io">
+
+  <!-- Estilos -->
   <link rel="stylesheet" href="CSS/style.css">
-  <link rel="icon" type="image/svg+xml" href="https://api.iconify.design/lucide:code-2.svg?color=%2300d2ff">
+  <link rel="icon" type="image/x-icon" href="Img/favicon.ico">
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- NAVEGACIÓN -->
   <header class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="#presentacion" class="logo">Portafolio Personal</a>
+      <a href="#inicio" class="brand-wrapper" aria-label="Inicio - Portafolio de Henrik Anderson">
+        <span class="brand-tag">&lt;/&gt;</span>
+        <div class="brand-info">
+          <span class="brand-name">Anderson Oloroso</span>
+          <span class="brand-role">Software Dev</span>
+        </div>
+      </a>
       
-      <button class="hamburger" id="hamburger" aria-label="Abrir menú de navegación">
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <nav class="nav-links" id="nav-links">
-        <a href="#presentacion" class="nav-link active">Presentación</a>
-        <a href="#sobreMi" class="nav-link">Sobre Mí</a>
-        <a href="#habilidades" class="nav-link">Habilidades y Ruta</a>
+      <nav class="nav-links" id="nav-links" aria-label="Navegación principal">
+        <a href="#inicio" class="nav-link active">Inicio</a>
+        <a href="#sobre-mi" class="nav-link">Sobre Mí</a>
+        <a href="#conocimientos" class="nav-link">Conocimientos</a>
         <a href="#proyectos" class="nav-link">Proyectos</a>
         <a href="#contacto" class="nav-link">Contacto</a>
+        <a href="#contacto" class="nav-cta-btn">Contactar</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="hero" id="presentacion">
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
       <div class="container hero-grid">
-        <div class="profile-card">
-          <img src="Img/Hnk.jpeg" alt="Fotografía de Henrik Anderson Oloroso García" class="profile-img">
+        <div class="profile-container">
+          <div class="profile-card">
+            <img src="Img/Hnk.jpeg" alt="Fotografía profesional de Henrik Anderson Oloroso García" class="profile-img" width="290" height="350" fetchpriority="high">
+            <div class="profile-status">
+              <span class="status-dot"></span>
+              <span>Disponible para proyectos</span>
+            </div>
+          </div>
         </div>
         
         <div class="hero-content">
-          <h1>Henrik Anderson Oloroso García</h1>
-          <p class="tagline">Desarrollador Full Stack Junior en Formación</p>
-          <p class="description">
-            Apasionado por la tecnología con experiencia en desarrollo backend y frontend, automatización con n8n, gestión de bases de datos con MySQL e Inteligencia Artificial aplicada.
+          <div class="hero-badge-role">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            <span>Técnico en Desarrollo de Software</span>
+          </div>
+
+          <h1 class="hero-title">
+            Henrik Anderson <br>
+            <span class="title-accent">Oloroso García</span>
+          </h1>
+
+          <p class="hero-description">
+            Especializado en la creación de aplicaciones estructuradas, desarrollo web moderno, arquitectura y administración de bases de datos relacionales, y automatización avanzada de flujos de trabajo.
           </p>
-          <div class="hero-buttons">
-            <a href="#contacto" class="btn btn-primary">Contáctame</a>
-            <a href="#proyectos" class="btn btn-secondary">Ver Proyectos</a>
+
+          <div class="hero-actions">
+            <a href="#proyectos" class="btn btn-primary">
+              <span>Explorar Proyectos</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="https://github.com/anderson-oloroso" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+
+          <div class="hero-quick-stack">
+            <span class="quick-stack-label">Ecosistema:</span>
+            <span class="quick-tag">Node.js</span>
+            <span class="quick-tag">TypeScript</span>
+            <span class="quick-tag">Python</span>
+            <span class="quick-tag">MySQL</span>
+            <span class="quick-tag">PostgreSQL</span>
+            <span class="quick-tag">n8n</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- SOBRE MÍ -->
-    <section class="section-padding" id="sobreMi">
+    <section class="section-padding" id="sobre-mi">
       <div class="container">
-        <h2 class="section-title">Sobre Mí</h2>
+        <div class="section-header">
+          <span class="section-badge">Trayectoria & Enfoque</span>
+          <h2 class="section-title">Perfil Profesional</h2>
+          <p class="section-desc">Desarrollo metódico orientado a resolver requerimientos reales con código limpio y mantenible.</p>
+        </div>
         
-        <div class="about-bio">
-          <h3 class="sub-title">¿Quién soy?</h3>
-          <p>
-            Soy un desarrollador en formación constante en Campuslands Guatemala. Cuento con conocimientos en reparación y soporte técnico, bases de datos relacionales con MySQL, lenguajes como C++, VB.NET, JavaScript y Python, así como desarrollo web frontend (HTML5, CSS3, Bootstrap). Domino herramientas como Git, GitHub, GitKraken, VS Code, PyCharm, ClickUp y Notion, además de automatización de flujos con n8n, integración de Inteligencia Artificial y preparación para backend con Java y Spring Boot.
-          </p>
-        </div>
-
-        <h3 class="sub-title" style="text-align: center; margin-bottom: 2rem;">¿Qué me gusta?</h3>
-        <div class="interests-grid">
-          <article class="interest-card">
-            <div class="interest-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=500&auto=format&fit=crop" alt="Mesa de estudio con libros">
-            </div>
-            <h4 class="interest-title">Leer</h4>
+        <div class="about-card-wrapper">
+          <article class="about-main-text">
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              ¿Quién soy?
+            </h3>
+            <p>
+              Soy <strong>Técnico en desarrollo de software</strong> con formación integral en el ciclo completo de creación de aplicaciones. Mi enfoque de trabajo abarca desde el diseño y estructuración de la lógica de negocio en backend y modelado de datos, hasta interfaces web interactivas y automatizaciones que optimizan tareas repetitivas.
+            </p>
+            <p>
+              Manejo tecnologías consolidadas y modernas como <strong>Node.js, TypeScript, Python, C++, JavaScript y Strapi</strong>, así como motores de bases de datos relacionales (<strong>MySQL, PostgreSQL</strong> con pgAdmin y phpMyAdmin). Integro soluciones con <strong>n8n, Webhooks y APIs</strong> para crear ecosistemas conectados y productivos.
+            </p>
           </article>
 
-          <article class="interest-card">
-            <div class="interest-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=500&auto=format&fit=crop" alt="Gaming Setup">
+          <div class="about-specs">
+            <div class="spec-box">
+              <div class="spec-box-header">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                <h4 class="spec-title">Desarrollo Backend & Frontend</h4>
+              </div>
+              <p class="spec-desc">Construcción de servicios REST, APIs modulares y maquetación web responsiva con estándares semánticos.</p>
             </div>
-            <h4 class="interest-title">Videojuegos</h4>
-          </article>
 
-          <article class="interest-card">
-            <div class="interest-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=500&auto=format&fit=crop" alt="Cancha de Futsal">
+            <div class="spec-box">
+              <div class="spec-box-header">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                <h4 class="spec-title">Persistencia & Modelado SQL</h4>
+              </div>
+              <p class="spec-desc">Diseño de esquemas relacionales, normalización y consultas optimizadas en MySQL y PostgreSQL.</p>
             </div>
-            <h4 class="interest-title">Futsal</h4>
-          </article>
 
-          <article class="interest-card">
-            <div class="interest-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=500&auto=format&fit=crop" alt="Bosque y Naturaleza">
+            <div class="spec-box">
+              <div class="spec-box-header">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                <h4 class="spec-title">Automatización & Workflows</h4>
+              </div>
+              <p class="spec-desc">Flujos con n8n, webhooks e integración de servicios de mensajería (Telegram) y hojas de cálculo.</p>
             </div>
-            <h4 class="interest-title">La naturaleza</h4>
-          </article>
-
-          <article class="interest-card">
-            <div class="interest-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=500&auto=format&fit=crop" alt="Auriculares y música">
-            </div>
-            <h4 class="interest-title">Música</h4>
-          </article>
-
-          <article class="interest-card">
-            <div class="interest-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=500&auto=format&fit=crop" alt="Laboratorio de Química">
-            </div>
-            <h4 class="interest-title">Química</h4>
-          </article>
-
-          <article class="interest-card">
-            <div class="interest-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?q=80&w=500&auto=format&fit=crop" alt="Montaña Rusa">
-            </div>
-            <h4 class="interest-title">Adrenalina</h4>
-          </article>
-
-          <article class="interest-card">
-            <div class="interest-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=500&auto=format&fit=crop" alt="Auto Deportivo">
-            </div>
-            <h4 class="interest-title">Deportivos</h4>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- HABILIDADES Y RUTA -->
-    <section class="section-padding" id="habilidades">
+    <!-- CONOCIMIENTOS ADQUIRIDOS Y HERRAMIENTAS USADAS -->
+    <section class="section-padding" id="conocimientos">
       <div class="container">
-        <h2 class="section-title">Habilidades y Ruta de Aprendizaje</h2>
-
-        <h3 class="sub-title" style="text-align: center;">Ruta de Aprendizaje y Tecnologías</h3>
-        <div class="tech-table-container">
-          <table class="tech-table">
-            <thead>
-              <tr>
-                <th>Tecnología / Herramienta</th>
-                <th>Logo</th>
-                <th>Descripción y Ámbito de Aplicación</th>
-                <th>Estado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>C++</strong></td>
-                <td class="tech-logo-cell">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="Logo C++">
-                </td>
-                <td>Fundamentos de programación, lógica algorítmica y rendimiento de sistemas.</td>
-                <td><span class="badge badge-completed">🎓 Terminado</span></td>
-              </tr>
-              <tr>
-                <td><strong>VB.NET</strong></td>
-                <td class="tech-logo-cell">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt="Logo VB.NET">
-                </td>
-                <td>Desarrollo de aplicaciones de escritorio orientadas a objetos e integración con soluciones .NET.</td>
-                <td><span class="badge badge-completed">🎓 Terminado</span></td>
-              </tr>
-              <tr>
-                <td><strong>Python</strong></td>
-                <td class="tech-logo-cell">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Logo Python">
-                </td>
-                <td>Scripting, automatización, lógica backend, manipulación de archivos y proyectos con IA.</td>
-                <td><span class="badge badge-completed">🎓 Terminado</span></td>
-              </tr>
-              <tr>
-                <td><strong>JavaScript (ES6+)</strong></td>
-                <td class="tech-logo-cell">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="Logo JavaScript">
-                </td>
-                <td>Lógica del cliente, desarrollo de interactividad en páginas web y nodos en automatizaciones.</td>
-                <td><span class="badge badge-completed">🎓 Terminado</span></td>
-              </tr>
-              <tr>
-                <td><strong>HTML5 & CSS3</strong></td>
-                <td class="tech-logo-cell">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="Logo HTML5">
-                </td>
-                <td>Maquetación web responsive, estructuras semánticas y diseño de interfaz adaptable.</td>
-                <td><span class="badge badge-completed">🎓 Terminado</span></td>
-              </tr>
-              <tr>
-                <td><strong>MySQL I</strong></td>
-                <td class="tech-logo-cell">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="Logo MySQL">
-                </td>
-                <td>Diseño de modelos relacionales, tablas, llaves primarias/foráneas y consultas SQL básicas a intermedias.</td>
-                <td><span class="badge badge-completed">🎓 Terminado</span></td>
-              </tr>
-              <tr>
-                <td><strong>n8n & Automatización</strong></td>
-                <td class="tech-logo-cell">
-                  <img src="https://api.iconify.design/simple-icons:n8n.svg?color=%23ff6d5a" alt="Logo n8n">
-                </td>
-                <td>Automatización de flujos de trabajo, integración con Telegram Bots y sincronización de datos con Google Sheets.</td>
-                <td><span class="badge badge-completed">🎓 Terminado</span></td>
-              </tr>
-              <tr>
-                <td><strong>Curso de Inteligencia Artificial</strong></td>
-                <td class="tech-logo-cell">
-                  <img src="Img/ia.svg" alt="Logo IA">
-                </td>
-                <td>Técnicas de Prompt Engineering, integración de modelos de IA en proyectos web y flujo de trabajo optimizado.</td>
-                <td><span class="badge badge-completed">🎓 Terminado</span></td>
-              </tr>
-              <tr>
-                <td><strong>Git & GitHub</strong></td>
-                <td class="tech-logo-cell">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Logo Git">
-                </td>
-                <td>Control de versiones profesional, flujo con ramas, pull requests y despliegue en GitHub Pages.</td>
-                <td><span class="badge badge-completed">🎓 Terminado</span></td>
-              </tr>
-              <tr>
-                <td><strong>MySQL II</strong></td>
-                <td class="tech-logo-cell">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="Logo MySQL">
-                </td>
-                <td>Consultas avanzadas, optimización, procedimientos almacenados, disparadores (triggers) y transacciones.</td>
-                <td><span class="badge badge-progress">📝 En curso</span></td>
-              </tr>
-              <tr>
-                <td><strong>Java</strong></td>
-                <td class="tech-logo-cell">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Logo Java">
-                </td>
-                <td>Programación orientada a objetos sólida y arquitectura para aplicaciones empresariales.</td>
-                <td><span class="badge badge-progress" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border-color: rgba(59, 130, 246, 0.3);">⏳ Por iniciar</span></td>
-              </tr>
-              <tr>
-                <td><strong>Spring Boot</strong></td>
-                <td class="tech-logo-cell">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Logo Spring Boot">
-                </td>
-                <td>Framework para desarrollo de microservicios y APIs REST robustas en el ecosistema Java.</td>
-                <td><span class="badge badge-progress" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border-color: rgba(59, 130, 246, 0.3);">⏳ Por iniciar</span></td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="section-header">
+          <span class="section-badge">Tecnologías & Dominio</span>
+          <h2 class="section-title">Conocimientos adquiridos y herramientas usadas</h2>
+          <p class="section-desc">Stack tecnológico y herramientas aplicadas en proyectos de desarrollo y producción.</p>
         </div>
 
-        <h3 class="sub-title" style="text-align: center;">Áreas Tecnológicas de Interés</h3>
-        <div class="tech-areas-grid">
-          <article class="area-card">
-            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=500&auto=format&fit=crop" alt="Ciberseguridad">
-            <h4>Ciberseguridad</h4>
-          </article>
-          <article class="area-card">
-            <img src="https://www.esneca.com/wp-content/uploads/evolucion-inteligencia-artificial.jpg" alt="Inteligencia Artificial">
-            <h4>Inteligencia Artificial</h4>
-          </article>
-          <article class="area-card">
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=500&auto=format&fit=crop" alt="Programación">
-            <h4>Programación</h4>
-          </article>
-          <article class="area-card">
-            <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=500&auto=format&fit=crop" alt="Reparación de Computadoras">
-            <h4>Reparación de Computadoras</h4>
-          </article>
-        </div>
+        <div class="stack-section-container">
+          <!-- 1. Frontend -->
+          <div class="stack-group-block">
+            <h3 class="stack-group-title">Frontend</h3>
+            <div class="badges-flex-container">
+              <div class="tech-badge badge-html5">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="tech-badge-icon" loading="lazy">
+                <span>HTML5</span>
+              </div>
+              <div class="tech-badge badge-css3">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="tech-badge-icon" loading="lazy">
+                <span>CSS3</span>
+              </div>
+              <div class="tech-badge badge-javascript">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="tech-badge-icon" loading="lazy">
+                <span>JavaScript</span>
+              </div>
+              <div class="tech-badge badge-bootstrap">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="tech-badge-icon" loading="lazy">
+                <span>Bootstrap</span>
+              </div>
+            </div>
+          </div>
 
-        <h3 class="sub-title" style="text-align: center;">Certificaciones y Formación Académica</h3>
-        <div class="soft-skills-grid" style="margin-bottom: 4rem;">
-          <div class="soft-skill-item">
-            <span class="skill-number">✓</span>
-            <span><strong>Campuslands Guatemala:</strong> Desarrollador Full-Stack Junior (Campers BI)</span>
+          <!-- 2. Backend & Lenguajes -->
+          <div class="stack-group-block">
+            <h3 class="stack-group-title">Backend & Lenguajes</h3>
+            <div class="badges-flex-container">
+              <div class="tech-badge badge-python">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="tech-badge-icon" loading="lazy">
+                <span>Python</span>
+              </div>
+              <div class="tech-badge badge-cpp">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" class="tech-badge-icon" loading="lazy">
+                <span>C++</span>
+              </div>
+              <div class="tech-badge badge-vbnet">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="VB.NET" class="tech-badge-icon" loading="lazy">
+                <span>VB.NET</span>
+              </div>
+              <div class="tech-badge badge-nodejs">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="tech-badge-icon" loading="lazy">
+                <span>Node.js</span>
+              </div>
+              <div class="tech-badge badge-typescript">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="tech-badge-icon" loading="lazy">
+                <span>TypeScript</span>
+              </div>
+              <div class="tech-badge badge-strapi">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="tech-badge-icon"><path d="M22.868 9.388c-.02-.124-.078-.24-.168-.33l-8.64-8.64a.63.63 0 0 0-.892 0L4.528 9.058a.63.63 0 0 0-.168.33.63.63 0 0 0 .168.562l8.64 8.64a.63.63 0 0 0 .892 0l8.64-8.64a.63.63 0 0 0 .168-.562zm-9.086 7.424L5.864 8.894l7.918-7.918 7.918 7.918-7.918 7.918zM12 24a2.25 2.25 0 0 1-2.25-2.25v-6.75a2.25 2.25 0 0 1 4.5 0v6.75A2.25 2.25 0 0 1 12 24z"/></svg>
+                <span>Strapi</span>
+              </div>
+            </div>
           </div>
-          <div class="soft-skill-item">
-            <span class="skill-number">✓</span>
-            <span><strong>INTECAP:</strong> IT Essentials (Certificación técnica)</span>
+
+          <!-- 3. Bases de Datos & Administración -->
+          <div class="stack-group-block">
+            <h3 class="stack-group-title">Bases de Datos & Administración</h3>
+            <div class="badges-flex-container">
+              <div class="tech-badge badge-sql">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tech-badge-icon"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                <span>SQL</span>
+              </div>
+              <div class="tech-badge badge-mysql">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="tech-badge-icon" loading="lazy">
+                <span>MySQL</span>
+              </div>
+              <div class="tech-badge badge-phpmyadmin">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="tech-badge-icon"><path d="M21.6 9.6c-.4-.5-1.1-.8-1.8-.8h-4.2V5.2c0-1.2-1-2.2-2.2-2.2H8.8C7.6 3 6.6 4 6.6 5.2v3.6H2.4C1.2 8.8.2 9.8.2 11v6c0 1.2 1 2.2 2.2 2.2h4.2v1.6c0 1.2 1 2.2 2.2 2.2h4.6c1.2 0 2.2-1 2.2-2.2v-1.6h4.2c1.2 0 2.2-1 2.2-2.2v-6c0-.6-.3-1.3-.8-1.8zM8.6 5.2c0-.1.1-.2.2-.2h4.6c.1 0 .2.1.2.2v3.6H8.6V5.2zm-6.2 6c0-.1.1-.2.2-.2h16.8c.1 0 .2.1.2.2v6c0 .1-.1.2-.2.2H2.6c-.1 0-.2-.1-.2-.2v-6zm11 9.6c0 .1-.1.2-.2.2H8.8c-.1 0-.2-.1-.2-.2v-1.6h5v1.6z"/></svg>
+                <span>phpMyAdmin</span>
+              </div>
+              <div class="tech-badge badge-pgadmin">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="pgAdmin" class="tech-badge-icon" loading="lazy">
+                <span>pgAdmin</span>
+              </div>
+              <div class="tech-badge badge-plpgsql">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg" alt="PL/pgSQL" class="tech-badge-icon" loading="lazy">
+                <span>PL/pgSQL</span>
+              </div>
+            </div>
           </div>
-          <div class="soft-skill-item">
-            <span class="skill-number">✓</span>
-            <span><strong>INTECAP:</strong> Análisis de Datos en Excel</span>
+
+          <!-- 4. Automatización & Workflows -->
+          <div class="stack-group-block">
+            <h3 class="stack-group-title">Automatización & Workflows</h3>
+            <div class="badges-flex-container">
+              <div class="tech-badge badge-n8n">
+                <img src="https://api.iconify.design/simple-icons:n8n.svg?color=%23ffffff" alt="n8n" class="tech-badge-icon" loading="lazy">
+                <span>n8n</span>
+              </div>
+              <div class="tech-badge badge-telegram">
+                <img src="https://api.iconify.design/logos:telegram.svg" alt="Telegram Bot API" class="tech-badge-icon" loading="lazy">
+                <span>Telegram Bot API</span>
+              </div>
+              <div class="tech-badge badge-sheets">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="tech-badge-icon"><rect x="3" y="2" width="18" height="20" rx="3" fill="#ffffff" fill-opacity="0.2"/><path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" fill="#0F9D58"/><path d="M8 8h8v2H8V8zm0 3.5h8v2H8v-2zm0 3.5h5.5v2H8v-2z" fill="#ffffff"/></svg>
+                <span>Google Sheets API</span>
+              </div>
+              <div class="tech-badge badge-webhooks">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tech-badge-icon"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" y1="9" x2="6" y2="21"></line></svg>
+                <span>Webhooks</span>
+              </div>
+            </div>
           </div>
-          <div class="soft-skill-item">
-            <span class="skill-number">✓</span>
-            <span><strong>INTECAP:</strong> Diseño de Bases de Datos Relacionales con MySQL</span>
-          </div>
-          <div class="soft-skill-item">
-            <span class="skill-number">✓</span>
-            <span><strong>INTECAP:</strong> Desarrollo de Aplicaciones en Visual Basic .NET</span>
-          </div>
-          <div class="soft-skill-item">
-            <span class="skill-number">✓</span>
-            <span><strong>Ministerio de la Defensa Nacional:</strong> Asistente de Informática (Práctica Supervisada)</span>
+
+          <!-- 5. Herramientas & Especialidades -->
+          <div class="stack-group-block">
+            <h3 class="stack-group-title">Herramientas & Especialidades</h3>
+            <div class="badges-flex-container">
+              <div class="tech-badge badge-git">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="tech-badge-icon" loading="lazy">
+                <span>Git</span>
+              </div>
+              <div class="tech-badge badge-github">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="tech-badge-icon"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub</span>
+              </div>
+              <div class="tech-badge badge-gitkraken">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitkraken/gitkraken-original.svg" alt="GitKraken" class="tech-badge-icon" loading="lazy">
+                <span>GitKraken</span>
+              </div>
+              <div class="tech-badge badge-vscode">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" class="tech-badge-icon" loading="lazy">
+                <span>VS Code</span>
+              </div>
+              <div class="tech-badge badge-pycharm">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pycharm/pycharm-original.svg" alt="PyCharm" class="tech-badge-icon" loading="lazy">
+                <span>PyCharm</span>
+              </div>
+              <div class="tech-badge badge-prompt">
+                <img src="Img/ia.svg" alt="Prompt Engineering" class="tech-badge-icon" loading="lazy">
+                <span>Prompt Engineering</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <h3 class="sub-title" style="text-align: center;">Habilidades Blandas y Competencias</h3>
-        <div class="soft-skills-grid">
-          <div class="soft-skill-item">
-            <span class="skill-number">1</span>
-            <span>Resolución de problemas técnicos</span>
+        <!-- Competencias Blandas y Metodologías -->
+        <div class="soft-competencies-grid">
+          <div class="soft-comp-item">
+            <span class="soft-comp-dot"></span>
+            <span>Resolución analítica de problemas</span>
           </div>
-          <div class="soft-skill-item">
-            <span class="skill-number">2</span>
-            <span>Trabajo en equipo y metodologías ágiles</span>
+          <div class="soft-comp-item">
+            <span class="soft-comp-dot"></span>
+            <span>Metodologías ágiles y Git Flow</span>
           </div>
-          <div class="soft-skill-item">
-            <span class="skill-number">3</span>
-            <span>Comunicación asertiva</span>
+          <div class="soft-comp-item">
+            <span class="soft-comp-dot"></span>
+            <span>Comunicación técnica asertiva</span>
           </div>
-          <div class="soft-skill-item">
-            <span class="skill-number">4</span>
-            <span>Adaptabilidad a nuevas tecnologías</span>
-          </div>
-          <div class="soft-skill-item">
-            <span class="skill-number">5</span>
-            <span>Inglés Nivel B2 (Intermedio-Avanzado)</span>
-          </div>
-          <div class="soft-skill-item">
-            <span class="skill-number">6</span>
-            <span>Pensamiento crítico y analítico</span>
+          <div class="soft-comp-item">
+            <span class="soft-comp-dot"></span>
+            <span>Inglés Técnico Nivel B2</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PROYECTOS -->
+    <!-- PROYECTOS DESTACADOS -->
     <section class="section-padding" id="proyectos">
       <div class="container">
-        <h2 class="section-title">Proyectos Destacados</h2>
+        <div class="section-header">
+          <span class="section-badge">Repositorios & Código</span>
+          <h2 class="section-title">Proyectos Destacados</h2>
+          <p class="section-desc">Aplicaciones desarrolladas con buenas prácticas de software y código en GitHub.</p>
+        </div>
 
         <div class="projects-grid">
+          <!-- Proyecto 1 -->
           <article class="project-card">
-            <div class="project-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=600&auto=format&fit=crop" alt="Proyecto Biblioteca">
+            <div class="project-thumbnail">
+              <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=700&auto=format&fit=crop" alt="Administrador Multimedia" loading="lazy">
+              <span class="project-badge-tag">Python & Data</span>
             </div>
-            <div class="project-body">
+            <div class="project-content">
               <h3 class="project-title">Administrador de Libros, Películas y Música</h3>
-              <p class="project-description">
-                Gestor para el control de catálogos multimedia y procesamiento de datos con persistencia estructurada.
+              <p class="project-summary">
+                Sistema modular para la administración, persistencia y control de catálogos multimedia con validación estructurada de datos.
               </p>
-              <a href="https://github.com/Anderson-Oloroso/AdminLibrosMusicasPelis.git" target="_blank" rel="noopener noreferrer" class="btn btn-secondary project-btn">
-                Ver repositorio
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-              </a>
+              <div class="project-tags">
+                <span class="project-pill">Python</span>
+                <span class="project-pill">Gestión de Datos</span>
+                <span class="project-pill">Persistencia</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Anderson-Oloroso/AdminLibrosMusicasPelis.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de Administrador Multimedia">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                  <span>Ver Repositorio</span>
+                </a>
+              </div>
             </div>
           </article>
 
+          <!-- Proyecto 2 -->
           <article class="project-card">
-            <div class="project-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1512295767273-ac109ac3acfa?q=80&w=600&auto=format&fit=crop" alt="Proyecto Galería de Fotos">
+            <div class="project-thumbnail">
+              <img src="https://images.unsplash.com/photo-1512295767273-ac109ac3acfa?q=80&w=700&auto=format&fit=crop" alt="Gestor de Galería Fotográfica" loading="lazy">
+              <span class="project-badge-tag">Frontend & DOM</span>
             </div>
-            <div class="project-body">
-              <h3 class="project-title">Gestor de Fotos & Galería</h3>
-              <p class="project-description">
-                Gestor para el control y organización visual de imágenes desarrollado para proyectos en Campuslands.
+            <div class="project-content">
+              <h3 class="project-title">Gestor de Fotos & Galería Interactiva</h3>
+              <p class="project-summary">
+                Aplicación web con renderizado dinámico, organización visual de imágenes y manipulación de eventos en el DOM.
               </p>
-              <a href="https://github.com/Anderson-Oloroso/ExamenPhotoCampus_HenrikOloroso.git" target="_blank" rel="noopener noreferrer" class="btn btn-secondary project-btn">
-                Ver repositorio
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-              </a>
+              <div class="project-tags">
+                <span class="project-pill">JavaScript ES6+</span>
+                <span class="project-pill">HTML5 / CSS3</span>
+                <span class="project-pill">DOM API</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Anderson-Oloroso/ExamenPhotoCampus_HenrikOloroso.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de Galería">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                  <span>Ver Repositorio</span>
+                </a>
+              </div>
             </div>
           </article>
 
+          <!-- Proyecto 3 -->
           <article class="project-card">
-            <div class="project-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=600&auto=format&fit=crop" alt="Proyecto Ranking Videojuegos">
+            <div class="project-thumbnail">
+              <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=700&auto=format&fit=crop" alt="Ranking de Videojuegos" loading="lazy">
+              <span class="project-badge-tag">Algoritmos</span>
             </div>
-            <div class="project-body">
-              <h3 class="project-title">Ranking de Videojuegos</h3>
-              <p class="project-description">
-                Proyecto algorítmico diseñado para clasificar listas de datos y filtrar los mejores elementos según valoración de usuarios.
+            <div class="project-content">
+              <h3 class="project-title">Ranking y Clasificador de Videojuegos</h3>
+              <p class="project-summary">
+                Algoritmos estructurados para la clasificación, filtrado y cálculo de posiciones basadas en métricas y valoraciones.
               </p>
-              <a href="https://github.com/Anderson-Oloroso/RankingVideojuegos.git" target="_blank" rel="noopener noreferrer" class="btn btn-secondary project-btn">
-                Ver repositorio
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-              </a>
+              <div class="project-tags">
+                <span class="project-pill">Python</span>
+                <span class="project-pill">Algoritmos</span>
+                <span class="project-pill">Filtrado</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Anderson-Oloroso/RankingVideojuegos.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de Ranking Videojuegos">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                  <span>Ver Repositorio</span>
+                </a>
+              </div>
             </div>
           </article>
+        </div>
+
+        <div class="projects-footer-cta">
+          <a href="https://github.com/anderson-oloroso?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <span>Ver más proyectos en GitHub</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- CONTACTO -->
     <section class="section-padding" id="contacto">
-      <div class="container">
-        <h2 class="section-title">Información de contacto</h2>
+      <div class="container contact-wrapper">
+        <div class="section-header">
+          <span class="section-badge">Canales Directos</span>
+          <h2 class="section-title">Información de Contacto</h2>
+          <p class="section-desc">Disponible para oportunidades laborales, colaboraciones y proyectos de software.</p>
+        </div>
 
-        <div class="contact-grid">
-          <a href="mailto:o.and871@gmail.com" class="contact-card">
-            <div class="contact-icon">
-              <img src="https://api.iconify.design/logos:google-gmail.svg" alt="Gmail Icon">
+        <div class="contact-cards-grid">
+          <!-- Email -->
+          <a href="mailto:o.and871@gmail.com" class="contact-tile">
+            <div class="contact-tile-icon">
+              <img src="https://api.iconify.design/logos:google-gmail.svg" alt="Gmail" loading="lazy">
             </div>
-            <p class="contact-label">Correo Electrónico</p>
-            <p class="contact-value">o.and871@gmail.com</p>
+            <span class="contact-tile-type">Correo</span>
+            <span class="contact-tile-value">o.and871@gmail.com</span>
           </a>
 
-          <a href="https://wa.me/50253172551" target="_blank" rel="noopener noreferrer" class="contact-card">
-            <div class="contact-icon">
-              <img src="https://api.iconify.design/logos:whatsapp-icon.svg" alt="WhatsApp Icon">
+          <!-- WhatsApp -->
+          <a href="https://wa.me/50253172551" target="_blank" rel="noopener noreferrer" class="contact-tile">
+            <div class="contact-tile-icon">
+              <img src="https://api.iconify.design/logos:whatsapp-icon.svg" alt="WhatsApp" loading="lazy">
             </div>
-            <p class="contact-label">WhatsApp</p>
-            <p class="contact-value">(+502) 5317-2551</p>
+            <span class="contact-tile-type">WhatsApp</span>
+            <span class="contact-tile-value">(+502) 5317-2551</span>
           </a>
 
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-card">
-            <div class="contact-icon">
-              <img src="https://api.iconify.design/logos:linkedin-icon.svg" alt="LinkedIn Icon">
+          <!-- LinkedIn -->
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-tile">
+            <div class="contact-tile-icon">
+              <img src="https://api.iconify.design/logos:linkedin-icon.svg" alt="LinkedIn" loading="lazy">
             </div>
-            <p class="contact-label">LinkedIn</p>
-            <p class="contact-value">Anderson Oloroso</p>
+            <span class="contact-tile-type">LinkedIn</span>
+            <span class="contact-tile-value">Anderson Oloroso</span>
           </a>
 
-          <a href="https://github.com/anderson-oloroso" target="_blank" rel="noopener noreferrer" class="contact-card">
-            <div class="contact-icon">
-              <img src="https://api.iconify.design/iconoir:github.svg?color=%23ffffff" alt="GitHub Icon">
+          <!-- GitHub -->
+          <a href="https://github.com/anderson-oloroso" target="_blank" rel="noopener noreferrer" class="contact-tile">
+            <div class="contact-tile-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
             </div>
-            <p class="contact-label">GitHub</p>
-            <p class="contact-value">Anderson Oloroso</p>
+            <span class="contact-tile-type">GitHub</span>
+            <span class="contact-tile-value">anderson-oloroso</span>
           </a>
         </div>
       </div>
@@ -425,12 +469,17 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-content">
-      <p>© 2026 Henrik Anderson Oloroso García. Todos los derechos reservados.</p>
-      <p>Última actualización: <span class="footer-highlight">10/04/2025</span></p>
-      <p>Hecho con HTML5, CSS3 y JavaScript | Herramientas: Visual Studio Code, Git | Hospedado en GitHub Pages</p>
+      <p class="footer-author">Henrik Anderson Oloroso García</p>
+      <p>
+        Técnico en desarrollo de software &bull; Código estructurado con HTML5, CSS3 y Vanilla JavaScript
+      </p>
+      <p>
+        © 2026 Todos los derechos reservados &bull; Desplegado en <span class="footer-highlight">GitHub Pages</span>
+      </p>
     </div>
   </footer>
 
+  <!-- Script -->
   <script src="Js/script.js"></script>
 </body>
 </html>
