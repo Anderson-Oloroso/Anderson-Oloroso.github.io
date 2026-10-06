@@ -1,51 +1,86 @@
+/**
+ * PORTAFOLIO PROFESIONAL - HENRIK ANDERSON OLOROSO GARCÍA
+ * Técnico en Desarrollo de Software
+ * Script JS Moderno, Ligero y Accesible (ES6+)
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
-  // --- Elementos del DOM ---
+  // Elementos principales del DOM
   const navbar = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
-  const navLinksList = document.querySelectorAll('.nav-link');
+  const navLinkItems = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section[id]');
 
-  // --- 1. Control del Menú Hamburguesa en Móviles ---
+  // 1. Menú Móvil con Accesibilidad (ARIA + Keyboard + Outside Click)
   if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('active');
+    const toggleMenu = (open) => {
+      const isExpanded = open !== undefined ? open : !hamburger.classList.contains('active');
+      hamburger.classList.toggle('active', isExpanded);
+      navLinks.classList.toggle('active', isExpanded);
+      hamburger.setAttribute('aria-expanded', isExpanded.toString());
+      document.body.style.overflow = isExpanded ? 'hidden' : '';
+    };
+
+    hamburger.addEventListener('click', () => toggleMenu());
+
+    navLinkItems.forEach(link => {
+      link.addEventListener('click', () => {
+        if (hamburger.classList.contains('active')) {
+          toggleMenu(false);
+        }
+      });
     });
 
-    // Cerrar menú al hacer clic en un enlace
-    navLinksList.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-      });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && hamburger.classList.contains('active')) {
+        toggleMenu(false);
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (
+        hamburger.classList.contains('active') &&
+        !navLinks.contains(e.target) &&
+        !hamburger.contains(e.target)
+      ) {
+        toggleMenu(false);
+      }
     });
   }
 
-  // --- 2. Sombra y Estilo en Navbar al hacer Scroll ---
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
+  // 2. Control de Navbar y Scroll Spy con requestAnimationFrame
+  let isScrolling = false;
+  const onScroll = () => {
+    if (!isScrolling) {
+      window.requestAnimationFrame(() => {
+        if (window.scrollY > 30) {
+          navbar?.classList.add('scrolled');
+        } else {
+          navbar?.classList.remove('scrolled');
+        }
+        updateActiveNav();
+        isScrolling = false;
+      });
+      isScrolling = true;
     }
-    
-    highlightActiveNavLink();
-  });
+  };
 
-  // --- 3. Subrayado Activo Automático según la Sección Visible ---
-  function highlightActiveNavLink() {
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // 3. Resaltado de Sección Activa
+  function updateActiveNav() {
     const scrollPosition = window.scrollY + 100;
 
     sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute('id');
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
 
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        navLinksList.forEach(link => {
+      if (scrollPosition >= top && scrollPosition < top + height) {
+        navLinkItems.forEach(link => {
           link.classList.remove('active');
-          if (link.getAttribute('href') === `#${sectionId}`) {
+          if (link.getAttribute('href') === `#${id}`) {
             link.classList.add('active');
           }
         });
@@ -53,28 +88,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 4. Animaciones de Entrada al Scroll (Intersection Observer) ---
-  const observerOptions = {
-    root: null,
-    threshold: 0.15
-  };
+  // 4. Animación de Entrada Suave con IntersectionObserver
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        observer.unobserve(entry.target);
-      }
+  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    const revealElements = document.querySelectorAll(
+      '.about-main-text, .spec-box, .stack-section-container, .project-card, .contact-tile, .soft-comp-item'
+    );
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.1,
+      rootMargin: '0px 0px -30px 0px'
     });
-  }, observerOptions);
 
-  // Aplicar transición suave a tarjetas y secciones
-  const elementsToAnimate = document.querySelectorAll('.interest-card, .project-card, .area-card, .contact-card, .about-bio, .tech-table-container');
-  elementsToAnimate.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-    revealObserver.observe(el);
-  });
+    revealElements.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.45s ease-out, transform 0.45s ease-out';
+      observer.observe(el);
+    });
+  }
 });
