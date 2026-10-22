@@ -1,0 +1,97 @@
+/* ==========================================================================
+   ANIMACIONES Y RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+
+/* Animación de entrada con IntersectionObserver */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .profile-container {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .hero-actions,
+  .hero-quick-stack {
+    justify-content: center;
+  }
+
+  .about-card-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-cta-btn {
+    display: none;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: var(--nav-height);
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: calc(100vh - var(--nav-height));
+    background: rgba(11, 13, 19, 0.98);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.5rem 1.75rem;
+    gap: 1.25rem;
+    border-left: 1px solid var(--border-regular);
+    transition: right var(--transition-normal);
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-link {
+    font-size: 1.05rem;
+    width: 100%;
+  }
+
+  .stack-section-container {
+    padding: 2rem 1.25rem;
+  }
+
+  .tech-badge {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.76rem;
+  }
+
+  .section-padding {
+    padding: 4rem 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

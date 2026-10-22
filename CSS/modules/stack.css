@@ -1,0 +1,105 @@
+/* ==========================================================================
+   SECCIÓN: CONOCIMIENTOS & STACK TECNOLÓGICO
+   ========================================================================== */
+
+.stack-section-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-regular);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  margin-bottom: 3.5rem;
+}
+
+.stack-group-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.stack-group-title {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.stack-group-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-dim);
+}
+
+.badges-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 1.15rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-regular);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+  cursor: default;
+  user-select: none;
+}
+
+.tech-badge:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-bright);
+  background: var(--bg-subtle);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+}
+
+.tech-badge-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Competencias Blandas */
+.soft-competencies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.soft-comp-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-dim);
+  padding: 1.1rem 1.35rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.soft-comp-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--accent-blue);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
