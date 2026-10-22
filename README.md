@@ -115,3 +115,9 @@ Para inspeccionar o ejecutar este portafolio en tu entorno local:
 - **GitHub:** [@Anderson-Oloroso](https://github.com/Anderson-Oloroso)  
 - **LinkedIn:** [linkedin.com/in/Anderson-oloroso](https://www.linkedin.com/in/Anderson-oloroso)  
 - **Correo:** [o.and871@gmail.com](mailto:o.and871@gmail.com)
+
+---
+
+<div align="center">
+  <sub>Última actualización: 21 de octubre de 2026</sub>
+</div>
