@@ -38,7 +38,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .hamburger {
     display: flex;
   }
@@ -54,7 +54,7 @@
     width: 80%;
     max-width: 300px;
     height: calc(100vh - var(--nav-height));
-    background: rgba(11, 13, 19, 0.98);
+    background: var(--mobile-nav-bg);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     flex-direction: column;
@@ -72,6 +72,11 @@
   .nav-link {
     font-size: 1.05rem;
     width: 100%;
+  }
+
+  .theme-toggle,
+  .language-picker {
+    margin-top: 0.25rem;
   }
 
   .stack-section-container {
