@@ -27,6 +27,7 @@ Servir como punto de convergencia profesional donde se presentan:
 - **Perfil Técnico & Especialidad:** Desarrollo de APIs REST, arquitectura y normalización de bases de datos relacionales (PostgreSQL, MySQL), contenerización con Docker, Prompt Engineering y automatización de flujos de trabajo con n8n.
 - **Catálogo de Proyectos Reales:** Demostración práctica con enlaces directos a repositorios de GitHub, tags de tecnologías y especificaciones de arquitectura.
 - **Canales de Comunicación Directa:** Enlaces vectorizados a LinkedIn, Correo y GitHub.
+- **Experiencia Personalizable:** Selector español/inglés, modo claro/oscuro y una sección dedicada a sus pasatiempos.
 
 ---
 
@@ -39,7 +40,7 @@ Servir como punto de convergencia profesional donde se presentan:
 
 ### 2. CSS3 Modular & Design Tokens
 - **Arquitectura en submódulos (`CSS/modules/`)**: Separación limpia por responsabilidades (variables, estilos base, navegación, hero, stack tecnológico, proyectos y media queries).
-- **Design Tokens con Variables CSS (`:root`)**: Control centralizado de colores de interfaz dark, radios de borde, tipografías y curvas de transición.
+- **Design Tokens con Variables CSS (`:root`)**: Control centralizado de colores para los temas claro y oscuro, radios de borde, tipografías y curvas de transición.
 - **Layout Responsivo Nativo**: CSS Grid auto-ajustable (`repeat(auto-fit, minmax(...))`) y Flexbox, evitando frameworks pesados y garantizando tiempos de carga casi instantáneos.
 - **Respeto a Preferencias del Usuario**: Soporte completo para `@media (prefers-reduced-motion: reduce)`.
 
@@ -49,6 +50,8 @@ Servir como punto de convergencia profesional donde se presentan:
   - `navigation.js`: Control del menú móvil, eventos de teclado (`Escape`) y clics fuera del contenedor.
   - `scrollSpy.js`: Detección eficiente de sección activa con `requestAnimationFrame` y estilo sticky del navbar.
   - `animations.js`: Revelado progresivo en scroll utilizando la API nativa `IntersectionObserver`.
+  - `localization.js`: Traducción de la interfaz entre español e inglés, incluidos los metadatos y etiquetas accesibles.
+  - `theme.js`: Alternancia entre los temas claro y oscuro.
 
 ---
 
@@ -73,13 +76,22 @@ Anderson-Oloroso.github.io/
 │   └── modules/                # Lógica desacoplada en módulos ES6
 │       ├── navigation.js       # Comportamiento del menú móvil y ARIA
 │       ├── scrollSpy.js        # Detección de scroll y clase de navbar
-│       └── animations.js       # IntersectionObserver para animaciones de entrada
+│       ├── animations.js       # IntersectionObserver para animaciones de entrada
+│       ├── localization.js     # Selector de idioma español/inglés
+│       └── theme.js            # Alternancia de tema claro/oscuro
 └── Img/
     ├── Hnk.jpeg                # Fotografía profesional de perfil
     ├── favicon.ico             # Favicon oficial del sitio
     ├── ia.svg                  # Icono vectorial para Prompt Engineering
-    └── tutorbot.jpg            # Activo visual del proyecto TutorBot
+    ├── tutorbot.jpg            # Activo visual del proyecto TutorBot
+    └── hobbies/                # Fotografías locales de los pasatiempos
 ```
+
+---
+
+## 🖼️ Créditos de imagen
+
+La foto de calistenia (`Img/hobbies/calisthenics.jpg`) muestra una competencia de dominadas lastradas al aire libre. Original: [Competición de Fuerza](https://commons.wikimedia.org/wiki/File:Competici%C3%B3n_de_Fuerza.jpg), de FESWC, bajo licencia [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
 ---
 

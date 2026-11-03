@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Henrik Anderson Oloroso García | Técnico en desarrollo de Software</title>
+  <title data-i18n="pageTitle">Henrik Anderson Oloroso García | Técnico en desarrollo de Software</title>
   <meta name="description" content="Portafolio profesional de Henrik Anderson Oloroso García - Técnico en desarrollo de Software enfocado en APIs REST, bases de datos relacionales, Docker, Prompt Engineering y automatización.">
   <meta name="keywords" content="Desarrollo de Software, Backend, Node.js, Express, PostgreSQL, MySQL, PL/pgSQL, Docker, Python, JavaScript, n8n, Prompt Engineering, Git, GitHub">
   <meta name="author" content="Henrik Anderson Oloroso García">
@@ -23,7 +23,7 @@
   <!-- NAVEGACIÓN -->
   <header class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="#inicio" class="brand-wrapper" aria-label="Inicio - Portafolio de Henrik Anderson">
+      <a href="#inicio" class="brand-wrapper" aria-label="Inicio - Portafolio de Henrik Anderson" data-i18n-aria-label="brandHome">
         <span class="brand-tag">&lt;/&gt;</span>
         <div class="brand-info">
           <span class="brand-name">Anderson Oloroso</span>
@@ -31,19 +31,32 @@
         </div>
       </a>
       
-      <button class="hamburger" id="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links">
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links" data-i18n-aria-label="menuOpen">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <nav class="nav-links" id="nav-links" aria-label="Navegación principal">
-        <a href="#inicio" class="nav-link active">Inicio</a>
-        <a href="#sobre-mi" class="nav-link">Sobre Mí</a>
-        <a href="#conocimientos" class="nav-link">Conocimientos</a>
-        <a href="#proyectos" class="nav-link">Proyectos</a>
-        <a href="#contacto" class="nav-link">Contacto</a>
-        <a href="#contacto" class="nav-cta-btn">Contactar</a>
+      <nav class="nav-links" id="nav-links" aria-label="Navegación principal" data-i18n-aria-label="navLabel">
+        <a href="#inicio" class="nav-link active" data-i18n="navHome">Inicio</a>
+        <a href="#sobre-mi" class="nav-link" data-i18n="navAbout">Sobre Mí</a>
+        <a href="#conocimientos" class="nav-link" data-i18n="navSkills">Conocimientos</a>
+        <a href="#proyectos" class="nav-link" data-i18n="navProjects">Proyectos</a>
+        <a href="#vida" class="nav-link" data-i18n="navLife">Mi vida</a>
+        <a href="#contacto" class="nav-link" data-i18n="navContact">Contacto</a>
+        <a href="#contacto" class="nav-cta-btn" data-i18n="navCta">Contactar</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar a modo día" aria-pressed="false">
+          <svg class="theme-icon theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
+          <svg class="theme-icon theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6.5 6.5 0 0 0 8.268 8.268c.344-.215.825-.003.803.401"></path></svg>
+          <span data-i18n="themeDay">Día</span>
+        </button>
+        <label class="language-picker">
+          <span class="visually-hidden" data-i18n="languageLabel">Idioma</span>
+          <select id="language-select" aria-label="Seleccionar idioma" data-i18n-aria-label="languageLabel">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+          </select>
+        </label>
       </nav>
     </div>
   </header>
@@ -54,10 +67,10 @@
       <div class="container hero-grid">
         <div class="profile-container">
           <div class="profile-card">
-            <img src="Img/Hnk.jpeg" alt="Fotografía profesional de Henrik Anderson Oloroso García" class="profile-img" width="290" height="350" fetchpriority="high">
+            <img src="Img/Hnk.jpeg" alt="Fotografía profesional de Henrik Anderson Oloroso García" data-i18n-alt="profileImageAlt" class="profile-img" width="290" height="350" fetchpriority="high">
             <div class="profile-status">
               <span class="status-dot"></span>
-              <span>Disponible para proyectos</span>
+              <span data-i18n="availability">Disponible para proyectos</span>
             </div>
           </div>
         </div>
@@ -65,7 +78,7 @@
         <div class="hero-content">
           <div class="hero-badge-role">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-            <span>Técnico en desarrollo de Software</span>
+            <span data-i18n="heroRole">Técnico en desarrollo de Software</span>
           </div>
 
           <h1 class="hero-title">
@@ -73,13 +86,13 @@
             <span class="title-accent">Oloroso García</span>
           </h1>
 
-          <p class="hero-description">
+          <p class="hero-description" data-i18n="heroDescription">
             Enfocado en el desarrollo de APIs REST, modelado y normalización de bases de datos relacionales, contenerización con Docker, Prompt Engineering y automatización de procesos. Con proyección hacia soluciones de software escalables y ciberseguridad.
           </p>
 
           <div class="hero-actions">
             <a href="#proyectos" class="btn btn-primary">
-              <span>Explorar Proyectos</span>
+              <span data-i18n="exploreProjects">Explorar Proyectos</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
             <a href="https://github.com/Anderson-Oloroso" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
@@ -89,7 +102,7 @@
           </div>
 
           <div class="hero-quick-stack">
-            <span class="quick-stack-label">Ecosistema:</span>
+            <span class="quick-stack-label" data-i18n="ecosystem">Ecosistema:</span>
             <span class="quick-tag">Node.js</span>
             <span class="quick-tag">Express</span>
             <span class="quick-tag">PostgreSQL</span>
@@ -106,21 +119,21 @@
     <section class="section-padding" id="sobre-mi">
       <div class="container">
         <div class="section-header">
-          <span class="section-badge">Trayectoria & Enfoque</span>
-          <h2 class="section-title">Perfil Profesional</h2>
-          <p class="section-desc">Desarrollo metódico orientado a resolver requerimientos reales con código limpio y mantenible.</p>
+          <span class="section-badge" data-i18n="profileBadge">Trayectoria & Enfoque</span>
+          <h2 class="section-title" data-i18n="profileTitle">Perfil Profesional</h2>
+          <p class="section-desc" data-i18n="profileDescription">Desarrollo metódico orientado a resolver requerimientos reales con código limpio y mantenible.</p>
         </div>
         
         <div class="about-card-wrapper">
           <article class="about-main-text">
             <h3>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-              ¿Quién soy?
+              <span data-i18n="whoAmI">¿Quién soy?</span>
             </h3>
-            <p>
+            <p data-i18n-html="aboutParagraphOne">
               Soy <strong>Técnico en desarrollo de software</strong>, curioso, resiliente y apasionado por la tecnología. Mi enfoque de trabajo abarca desde el diseño y estructuración de APIs REST y lógica de negocio en backend, hasta la arquitectura, normalización y optimización de bases de datos relacionales, contenerización con Docker y automatización de procesos.
             </p>
-            <p>
+            <p data-i18n-html="aboutParagraphTwo">
               Cuento con experiencia en el diagnóstico y mantenimiento de sistemas, gestión de inventarios y registros digitales, complementado con un nivel de <strong>Inglés C1</strong> para comunicación técnica fluida y una sólida proyección hacia la <strong>ciberseguridad</strong> y soluciones de software escalables.
             </p>
           </article>
@@ -129,25 +142,25 @@
             <div class="spec-box">
               <div class="spec-box-header">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                <h4 class="spec-title">Desarrollo de Software & APIs</h4>
+                <h4 class="spec-title" data-i18n="specApiTitle">Desarrollo de Software & APIs</h4>
               </div>
-              <p class="spec-desc">Construcción de APIs REST modulares con Node.js y Express, asincronía, middlewares y validación robusta de solicitudes.</p>
+              <p class="spec-desc" data-i18n="specApiDescription">Construcción de APIs REST modulares con Node.js y Express, asincronía, middlewares y validación robusta de solicitudes.</p>
             </div>
 
             <div class="spec-box">
               <div class="spec-box-header">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
-                <h4 class="spec-title">Modelado & Persistencia SQL</h4>
+                <h4 class="spec-title" data-i18n="specSqlTitle">Modelado & Persistencia SQL</h4>
               </div>
-              <p class="spec-desc">Diseño de esquemas relacionales, normalización, consultas optimizadas, procedimientos almacenados y PL/pgSQL en PostgreSQL y MySQL.</p>
+              <p class="spec-desc" data-i18n="specSqlDescription">Diseño de esquemas relacionales, normalización, consultas optimizadas, procedimientos almacenados y PL/pgSQL en PostgreSQL y MySQL.</p>
             </div>
 
             <div class="spec-box">
               <div class="spec-box-header">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                <h4 class="spec-title">Automatización & DevOps</h4>
+                <h4 class="spec-title" data-i18n="specDevOpsTitle">Automatización & DevOps</h4>
               </div>
-              <p class="spec-desc">Contenedores con Docker, flujos de automatización con n8n, webhooks e integración de Prompt Engineering.</p>
+              <p class="spec-desc" data-i18n="specDevOpsDescription">Contenedores con Docker, flujos de automatización con n8n, webhooks e integración de Prompt Engineering.</p>
             </div>
           </div>
         </div>
@@ -158,15 +171,15 @@
     <section class="section-padding" id="conocimientos">
       <div class="container">
         <div class="section-header">
-          <span class="section-badge">Tecnologías & Dominio</span>
-          <h2 class="section-title">Conocimientos adquiridos y herramientas usadas</h2>
-          <p class="section-desc">Stack tecnológico y herramientas aplicadas en proyectos de desarrollo y producción.</p>
+          <span class="section-badge" data-i18n="skillsBadge">Tecnologías & Dominio</span>
+          <h2 class="section-title" data-i18n="skillsTitle">Conocimientos adquiridos y herramientas usadas</h2>
+          <p class="section-desc" data-i18n="skillsDescription">Stack tecnológico y herramientas aplicadas en proyectos de desarrollo y producción.</p>
         </div>
 
         <div class="stack-section-container">
           <!-- 1. Backend & Lenguajes -->
           <div class="stack-group-block">
-            <h3 class="stack-group-title">Backend & Lenguajes</h3>
+            <h3 class="stack-group-title" data-i18n="stackBackend">Backend & Lenguajes</h3>
             <div class="badges-flex-container">
               <div class="tech-badge badge-nodejs">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="tech-badge-icon" loading="lazy">
@@ -189,7 +202,7 @@
 
           <!-- 2. Bases de Datos & Administración -->
           <div class="stack-group-block">
-            <h3 class="stack-group-title">Bases de Datos & Administración</h3>
+            <h3 class="stack-group-title" data-i18n="stackDatabases">Bases de Datos & Administración</h3>
             <div class="badges-flex-container">
               <div class="tech-badge badge-postgresql">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="tech-badge-icon" loading="lazy">
@@ -216,7 +229,7 @@
 
           <!-- 3. DevOps, Testing & Herramientas -->
           <div class="stack-group-block">
-            <h3 class="stack-group-title">DevOps, Testing & Herramientas</h3>
+            <h3 class="stack-group-title" data-i18n="stackTools">DevOps, Testing & Herramientas</h3>
             <div class="badges-flex-container">
               <div class="tech-badge badge-docker">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="tech-badge-icon" loading="lazy">
@@ -251,7 +264,7 @@
 
           <!-- 4. Frontend & Maquetación -->
           <div class="stack-group-block">
-            <h3 class="stack-group-title">Frontend & Maquetación</h3>
+            <h3 class="stack-group-title" data-i18n="stackFrontend">Frontend & Maquetación</h3>
             <div class="badges-flex-container">
               <div class="tech-badge badge-html5">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="tech-badge-icon" loading="lazy">
@@ -270,7 +283,7 @@
 
           <!-- 5. Automatización & IA -->
           <div class="stack-group-block">
-            <h3 class="stack-group-title">Automatización & IA</h3>
+            <h3 class="stack-group-title" data-i18n="stackAutomation">Automatización & IA</h3>
             <div class="badges-flex-container">
               <div class="tech-badge badge-n8n">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="tech-badge-icon" style="color: #EA4B71;">
@@ -297,7 +310,7 @@
 
           <!-- 6. En Exploración & Práctica Continua -->
           <div class="stack-group-block">
-            <h3 class="stack-group-title">En Exploración & Práctica Continua</h3>
+            <h3 class="stack-group-title" data-i18n="stackExploration">En Exploración & Práctica Continua</h3>
             <div class="badges-flex-container">
               <div class="tech-badge badge-typescript">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="tech-badge-icon" loading="lazy">
@@ -315,19 +328,19 @@
         <div class="soft-competencies-grid">
           <div class="soft-comp-item">
             <span class="soft-comp-dot"></span>
-            <span>Resolución de problemas complejos y pensamiento analítico</span>
+            <span data-i18n="softSkillOne">Resolución de problemas complejos y pensamiento analítico</span>
           </div>
           <div class="soft-comp-item">
             <span class="soft-comp-dot"></span>
-            <span>Trabajo colaborativo y comunicación efectiva</span>
+            <span data-i18n="softSkillTwo">Trabajo colaborativo y comunicación efectiva</span>
           </div>
           <div class="soft-comp-item">
             <span class="soft-comp-dot"></span>
-            <span>Adaptabilidad rápida a nuevas tecnologías</span>
+            <span data-i18n="softSkillThree">Adaptabilidad rápida a nuevas tecnologías</span>
           </div>
           <div class="soft-comp-item">
             <span class="soft-comp-dot"></span>
-            <span>Inglés Nivel C1 (Avanzado / Técnico)</span>
+            <span data-i18n="softSkillFour">Inglés Nivel C1 (Avanzado / Técnico)</span>
           </div>
         </div>
       </div>
@@ -337,9 +350,9 @@
     <section class="section-padding" id="proyectos">
       <div class="container">
         <div class="section-header">
-          <span class="section-badge">Repositorios & Código</span>
-          <h2 class="section-title">Proyectos Destacados</h2>
-          <p class="section-desc">Aplicaciones desarrolladas con buenas prácticas de software y código en GitHub.</p>
+          <span class="section-badge" data-i18n="projectsBadge">Repositorios & Código</span>
+          <h2 class="section-title" data-i18n="projectsTitle">Proyectos Destacados</h2>
+          <p class="section-desc" data-i18n="projectsDescription">Aplicaciones desarrolladas con buenas prácticas de software y código en GitHub.</p>
         </div>
 
         <div class="projects-grid">
@@ -350,8 +363,8 @@
               <span class="project-badge-tag">Full Stack & Docker</span>
             </div>
             <div class="project-content">
-              <h3 class="project-title">Minerva-lib — Gestor de libros para biblioteca (en desarrollo)</h3>
-              <p class="project-summary">
+              <h3 class="project-title" data-i18n="projectOneTitle">Minerva-lib — Gestor de libros para biblioteca (en desarrollo)</h3>
+              <p class="project-summary" data-i18n="projectOneDescription">
                 Aplicación para gestionar libros mediante una API y una interfaz web con contenedorización en Docker.
               </p>
               <div class="project-tags">
@@ -361,9 +374,9 @@
                 <span class="project-pill">Docker</span>
               </div>
               <div class="project-links">
-                <a href="https://github.com/Anderson-Oloroso/minerva-lib.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de Minerva-lib">
+                <a href="https://github.com/Anderson-Oloroso/minerva-lib.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de Minerva-lib" data-i18n-aria-label="repoOne">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-                  <span>Ver Repositorio</span>
+                  <span data-i18n="viewRepository">Ver Repositorio</span>
                 </a>
               </div>
             </div>
@@ -376,8 +389,8 @@
               <span class="project-badge-tag">API REST & DevOps</span>
             </div>
             <div class="project-content">
-              <h3 class="project-title">Countries Express Rate Limit — API REST de países</h3>
-              <p class="project-summary">
+              <h3 class="project-title" data-i18n="projectTwoTitle">Countries Express Rate Limit — API REST de países</h3>
+              <p class="project-summary" data-i18n="projectTwoDescription">
                 API con operaciones CRUD, validación de datos y límites de solicitudes. Datos almacenados en memoria y testeada con Postman e Insomnia.
               </p>
               <div class="project-tags">
@@ -387,9 +400,9 @@
                 <span class="project-pill">Rate Limit</span>
               </div>
               <div class="project-links">
-                <a href="https://github.com/Anderson-Oloroso/countries-express-rate-limit.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de Countries Express Rate Limit">
+                <a href="https://github.com/Anderson-Oloroso/countries-express-rate-limit.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de Countries Express Rate Limit" data-i18n-aria-label="repoTwo">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-                  <span>Ver Repositorio</span>
+                  <span data-i18n="viewRepository">Ver Repositorio</span>
                 </a>
               </div>
             </div>
@@ -402,8 +415,8 @@
               <span class="project-badge-tag">CLI & MySQL</span>
             </div>
             <div class="project-content">
-              <h3 class="project-title">HYDRA GYM CLI — Sistema de gestión para gimnasio</h3>
-              <p class="project-summary">
+              <h3 class="project-title" data-i18n="projectThreeTitle">HYDRA GYM CLI — Sistema de gestión para gimnasio</h3>
+              <p class="project-summary" data-i18n="projectThreeDescription">
                 Aplicación interactiva de consola para administrar clientes, planes, membresías, nutrición e ingresos/egresos con cálculos avanzados.
               </p>
               <div class="project-tags">
@@ -413,9 +426,9 @@
                 <span class="project-pill">CLI</span>
               </div>
               <div class="project-links">
-                <a href="https://github.com/Anderson-Oloroso/hydra-gym.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de HYDRA GYM">
+                <a href="https://github.com/Anderson-Oloroso/hydra-gym.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de HYDRA GYM" data-i18n-aria-label="repoThree">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-                  <span>Ver Repositorio</span>
+                  <span data-i18n="viewRepository">Ver Repositorio</span>
                 </a>
               </div>
             </div>
@@ -428,8 +441,8 @@
               <span class="project-badge-tag">PostgreSQL & PL/pgSQL</span>
             </div>
             <div class="project-content">
-              <h3 class="project-title">TechZone — Modelo de base de datos para tienda tecnológica</h3>
-              <p class="project-summary">
+              <h3 class="project-title" data-i18n="projectFourTitle">TechZone — Modelo de base de datos para tienda tecnológica</h3>
+              <p class="project-summary" data-i18n="projectFourDescription">
                 Proyecto de base de datos relacional para una empresa de tecnología, con definición de tablas, inserción, procedimientos almacenados y consultas.
               </p>
               <div class="project-tags">
@@ -438,9 +451,9 @@
                 <span class="project-pill">RDBMS</span>
               </div>
               <div class="project-links">
-                <a href="https://github.com/Anderson-Oloroso/tech-zone.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de TechZone">
+                <a href="https://github.com/Anderson-Oloroso/tech-zone.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de TechZone" data-i18n-aria-label="repoFour">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-                  <span>Ver Repositorio</span>
+                  <span data-i18n="viewRepository">Ver Repositorio</span>
                 </a>
               </div>
             </div>
@@ -453,8 +466,8 @@
               <span class="project-badge-tag">n8n & Telegram</span>
             </div>
             <div class="project-content">
-              <h3 class="project-title">TutorBot — Bot de tutorías académicas en Telegram</h3>
-              <p class="project-summary">
+              <h3 class="project-title" data-i18n="projectFiveTitle">TutorBot — Bot de tutorías académicas en Telegram</h3>
+              <p class="project-summary" data-i18n="projectFiveDescription">
                 Automatización para gestionar solicitudes de tutorías y conectar estudiantes con tutores según su disponibilidad, con seguimiento integral.
               </p>
               <div class="project-tags">
@@ -463,9 +476,9 @@
                 <span class="project-pill">Webhooks</span>
               </div>
               <div class="project-links">
-                <a href="https://github.com/Anderson-Oloroso/proyecto-tutorbot.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de TutorBot">
+                <a href="https://github.com/Anderson-Oloroso/proyecto-tutorbot.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de TutorBot" data-i18n-aria-label="repoFive">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-                  <span>Ver Repositorio</span>
+                  <span data-i18n="viewRepository">Ver Repositorio</span>
                 </a>
               </div>
             </div>
@@ -474,12 +487,12 @@
           <!-- Proyecto 6: Sistema de Gestión de Inventario -->
           <article class="project-card">
             <div class="project-thumbnail">
-              <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=700&auto=format&fit=crop" alt="Sistema de Inventario" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=700&auto=format&fit=crop" alt="Sistema de Inventario" data-i18n-alt="inventoryImageAlt" loading="lazy">
               <span class="project-badge-tag">Python CLI</span>
             </div>
             <div class="project-content">
-              <h3 class="project-title">Sistema de gestión de inventario — Python</h3>
-              <p class="project-summary">
+              <h3 class="project-title" data-i18n="projectSixTitle">Sistema de gestión de inventario — Python</h3>
+              <p class="project-summary" data-i18n="projectSixDescription">
                 Aplicación de consola para agregar, listar, actualizar y eliminar productos, además de calcular el valor total del inventario de forma ágil.
               </p>
               <div class="project-tags">
@@ -488,9 +501,9 @@
                 <span class="project-pill">Inventarios</span>
               </div>
               <div class="project-links">
-                <a href="https://github.com/Anderson-Oloroso/inventario-tienda.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de Sistema de Inventario">
+                <a href="https://github.com/Anderson-Oloroso/inventario-tienda.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de Sistema de Inventario" data-i18n-aria-label="repoSix">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-                  <span>Ver Repositorio</span>
+                  <span data-i18n="viewRepository">Ver Repositorio</span>
                 </a>
               </div>
             </div>
@@ -499,10 +512,55 @@
 
         <div class="projects-footer-cta">
           <a href="https://github.com/Anderson-Oloroso?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-            <span>Ver más proyectos en GitHub</span>
+            <span data-i18n="moreProjects">Ver más proyectos en GitHub</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
           </a>
         </div>
+      </div>
+    </section>
+
+    <!-- MI VIDA FUERA DEL CÓDIGO -->
+    <section class="section-padding" id="vida">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge" data-i18n="lifeBadge">Más allá del software</span>
+          <h2 class="section-title" data-i18n="lifeTitle">Mi vida fuera del código</h2>
+          <p class="section-desc" data-i18n="lifeDescription">También disfruto de actividades que me conectan con las personas, la naturaleza y nuevos retos.</p>
+        </div>
+        <ul class="hobbies-grid">
+          <li class="hobby-card">
+            <img src="Img/hobbies/futsal.jpg" alt="Balón y cancha de futsal" data-i18n-alt="hobbyFutsalAlt" width="800" height="500" loading="lazy" decoding="async">
+            <span data-i18n="hobbyFutsal">Futsal</span>
+          </li>
+          <li class="hobby-card">
+            <img src="Img/hobbies/codm.jpg" alt="Competencia de videojuegos" data-i18n-alt="hobbyCodmAlt" width="800" height="500" loading="lazy" decoding="async">
+            <span data-i18n="hobbyCodm">Call of Duty: Mobile (CODM)</span>
+          </li>
+          <li class="hobby-card">
+            <img src="Img/hobbies/calisthenics.jpg" alt="Atleta haciendo dominadas lastradas en una barra al aire libre" data-i18n-alt="hobbyCalisthenicsAlt" width="800" height="500" loading="lazy" decoding="async">
+            <span data-i18n="hobbyCalisthenics">Calistenia</span>
+          </li>
+          <li class="hobby-card">
+            <img src="Img/hobbies/reading.jpg" alt="Libros abiertos para leer" data-i18n-alt="hobbyReadingAlt" width="800" height="500" loading="lazy" decoding="async">
+            <span data-i18n="hobbyReading">Leer</span>
+          </li>
+          <li class="hobby-card">
+            <img src="Img/hobbies/walking.jpg" alt="Personas caminando por la naturaleza" data-i18n-alt="hobbyWalkingAlt" width="800" height="500" loading="lazy" decoding="async">
+            <span data-i18n="hobbyWalking">Caminar</span>
+          </li>
+          <li class="hobby-card">
+            <img src="Img/hobbies/family.jpg" alt="Familia compartiendo un momento juntos" data-i18n-alt="hobbyFamilyAlt" width="800" height="500" loading="lazy" decoding="async">
+            <span data-i18n="hobbyFamily">Compartir con familia y amigos</span>
+          </li>
+          <li class="hobby-card">
+            <img src="Img/hobbies/nature.jpg" alt="Bosque verde en la naturaleza" data-i18n-alt="hobbyNatureAlt" width="800" height="500" loading="lazy" decoding="async">
+            <span data-i18n="hobbyNature">Disfrutar de la naturaleza</span>
+          </li>
+          <li class="hobby-card">
+            <img src="Img/hobbies/adventure.jpg" alt="Montañas para una aventura al aire libre" data-i18n-alt="hobbyAdventureAlt" width="800" height="500" loading="lazy" decoding="async">
+            <span data-i18n="hobbyAdventure">Aventuras llenas de adrenalina</span>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -510,9 +568,9 @@
     <section class="section-padding" id="contacto">
       <div class="container contact-wrapper">
         <div class="section-header">
-          <span class="section-badge">Canales Directos</span>
-          <h2 class="section-title">Información de Contacto</h2>
-          <p class="section-desc">Disponible para oportunidades laborales, colaboraciones y proyectos de software.</p>
+          <span class="section-badge" data-i18n="contactBadge">Canales Directos</span>
+          <h2 class="section-title" data-i18n="contactTitle">Información de Contacto</h2>
+          <p class="section-desc" data-i18n="contactDescription">Disponible para oportunidades laborales, colaboraciones y proyectos de software.</p>
         </div>
 
         <div class="contact-cards-grid">
@@ -523,7 +581,7 @@
                 <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" fill="#EA4335"/>
               </svg>
             </div>
-            <span class="contact-tile-type">Correo</span>
+            <span class="contact-tile-type" data-i18n="email">Correo</span>
             <span class="contact-tile-value">o.and871@gmail.com</span>
           </a>
 
@@ -559,7 +617,7 @@
         Técnico en desarrollo de software &bull; Código estructurado con HTML5, CSS3 y Vanilla JavaScript
       </p>
       <p>
-        © 2026 Todos los derechos reservados &bull; Desplegado en <span class="footer-highlight">GitHub Pages</span>
+        <span data-i18n="copyright">© 2026 Todos los derechos reservados &bull; Desplegado en</span> <span class="footer-highlight">GitHub Pages</span>
       </p>
     </div>
   </footer>

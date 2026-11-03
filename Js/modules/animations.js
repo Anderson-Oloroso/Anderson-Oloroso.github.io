@@ -7,7 +7,7 @@ export function initAnimations() {
   if (prefersReducedMotion || !('IntersectionObserver' in window)) return;
 
   const revealElements = document.querySelectorAll(
-    '.about-main-text, .spec-box, .stack-section-container, .project-card, .contact-tile, .soft-comp-item'
+    '.about-main-text, .spec-box, .stack-section-container, .project-card, .contact-tile, .soft-comp-item, .hobby-card'
   );
 
   const observer = new IntersectionObserver((entries, obs) => {

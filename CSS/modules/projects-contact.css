@@ -132,6 +132,52 @@
   margin-top: 3rem;
 }
 
+/* Vida personal */
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+}
+
+.hobby-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-regular);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.hobby-card img {
+  width: 100%;
+  aspect-ratio: 8 / 5;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.hobby-card span {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-height: 72px;
+  padding: 0.9rem 1rem;
+  text-align: center;
+}
+
+.hobby-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-blue);
+  background: var(--bg-elevated);
+}
+
+.hobby-card:hover img {
+  transform: scale(1.04);
+}
+
 /* Contacto Centralizado */
 .contact-wrapper {
   max-width: 900px;
