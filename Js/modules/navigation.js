@@ -8,14 +8,27 @@ export function initNavigation() {
 
   if (!hamburger || !navLinks) return;
 
+  const updateMenuLabel = () => {
+    const language = document.documentElement.lang === 'en' ? 'en' : 'es';
+    const isExpanded = hamburger.classList.contains('active');
+    const labels = {
+      es: { open: 'Abrir menú de navegación', close: 'Cerrar menú de navegación' },
+      en: { open: 'Open navigation menu', close: 'Close navigation menu' }
+    };
+    hamburger.setAttribute('aria-label', isExpanded ? labels[language].close : labels[language].open);
+  };
+
   const toggleMenu = (open) => {
     const isExpanded = open !== undefined ? open : !hamburger.classList.contains('active');
     hamburger.classList.toggle('active', isExpanded);
     navLinks.classList.toggle('active', isExpanded);
     hamburger.setAttribute('aria-expanded', isExpanded.toString());
     document.body.style.overflow = isExpanded ? 'hidden' : '';
+    updateMenuLabel();
   };
 
+  document.addEventListener('languagechange', updateMenuLabel);
+  updateMenuLabel();
   hamburger.addEventListener('click', () => toggleMenu());
 
   navLinkItems.forEach(link => {
