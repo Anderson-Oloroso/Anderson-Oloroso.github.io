@@ -13,15 +13,15 @@
 
 ---
 
-## 🌐 Despliegue en Vivo
+## Despliegue en Vivo
 
 El portafolio se encuentra publicado y accesible de forma continua a través de GitHub Pages:
 
-🔗 **[anderson-oloroso.github.io](https://anderson-oloroso.github.io)**
+**[anderson-oloroso.github.io](https://anderson-oloroso.github.io)**
 
 ---
 
-## 🎯 Propósito del Proyecto
+## Propósito del Proyecto
 
 Servir como punto de convergencia profesional donde se presentan:
 - **Perfil Técnico & Especialidad:** Desarrollo de APIs REST, arquitectura y normalización de bases de datos relacionales (PostgreSQL, MySQL), contenerización con Docker, Prompt Engineering y automatización de flujos de trabajo con n8n.
@@ -31,7 +31,7 @@ Servir como punto de convergencia profesional donde se presentan:
 
 ---
 
-## 🛠️ Stack Tecnológico & Decisiones de Diseño
+## Stack Tecnológico & Decisiones de Diseño
 
 ### 1. HTML5 Semántico & Accesibilidad
 - Jerarquía semántica estricta (`<header>`, `<main>`, `<section>`, `<article>`, `<footer>`).
@@ -55,7 +55,7 @@ Servir como punto de convergencia profesional donde se presentan:
 
 ---
 
-## 📁 Arquitectura del Repositorio
+## Arquitectura del Repositorio
 
 ```text
 Anderson-Oloroso.github.io/
@@ -91,13 +91,13 @@ Anderson-Oloroso.github.io/
 
 ---
 
-## 🖼️ Créditos de imagen
+## Créditos de imagen
 
 La foto de calistenia (`img/hobbies/calisthenics.jpg`) muestra una competencia de dominadas lastradas al aire libre. Original: [Competición de Fuerza](https://commons.wikimedia.org/wiki/File:Competici%C3%B3n_de_Fuerza.jpg), de FESWC, bajo licencia [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
 ---
 
-## 🚀 Despliegue Local
+## Despliegue Local
 
 Para inspeccionar o ejecutar este portafolio en tu entorno local:
 
@@ -120,11 +120,11 @@ Para inspeccionar o ejecutar este portafolio en tu entorno local:
 
 ---
 
-## 👤 Autor
+## Autor
 
 **Henrik Anderson Oloroso García**  
 *Técnico en desarrollo de Software*  
-📍 Ciudad de Guatemala, Guatemala  
+Ciudad de Guatemala, Guatemala
 
 - **GitHub:** [@Anderson-Oloroso](https://github.com/Anderson-Oloroso)  
 - **LinkedIn:** [linkedin.com/in/Anderson-oloroso](https://www.linkedin.com/in/Anderson-oloroso)  
