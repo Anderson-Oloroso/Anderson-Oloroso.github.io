@@ -2,6 +2,44 @@
    SECCIONES: PROYECTOS DESTACADOS & CONTACTO
    ========================================================================== */
 
+/* Experiencia laboral */
+.experience-list {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.experience-card {
+  padding: 1.75rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-regular);
+  border-radius: var(--radius-lg);
+}
+
+.experience-heading {
+  margin-bottom: 0.75rem;
+}
+
+.experience-company {
+  color: var(--text-primary);
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.experience-role {
+  margin-top: 0.25rem;
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+.experience-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
 /* Proyectos */
 .projects-grid {
   display: grid;

@@ -15,8 +15,8 @@
   <meta property="og:url" content="https://anderson-oloroso.github.io">
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="CSS/style.css">
-  <link rel="icon" type="image/x-icon" href="Img/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 </head>
 <body>
 
@@ -40,11 +40,11 @@
       <nav class="nav-links" id="nav-links" aria-label="Navegación principal" data-i18n-aria-label="navLabel">
         <a href="#inicio" class="nav-link active" data-i18n="navHome">Inicio</a>
         <a href="#sobre-mi" class="nav-link" data-i18n="navAbout">Sobre Mí</a>
+        <a href="#experiencia" class="nav-link" data-i18n="navExperience">Experiencia</a>
         <a href="#conocimientos" class="nav-link" data-i18n="navSkills">Conocimientos</a>
         <a href="#proyectos" class="nav-link" data-i18n="navProjects">Proyectos</a>
         <a href="#vida" class="nav-link" data-i18n="navLife">Mi vida</a>
         <a href="#contacto" class="nav-link" data-i18n="navContact">Contacto</a>
-        <a href="#contacto" class="nav-cta-btn" data-i18n="navCta">Contactar</a>
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar a modo día" aria-pressed="false">
           <svg class="theme-icon theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
           <svg class="theme-icon theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6.5 6.5 0 0 0 8.268 8.268c.344-.215.825-.003.803.401"></path></svg>
@@ -67,11 +67,7 @@
       <div class="container hero-grid">
         <div class="profile-container">
           <div class="profile-card">
-            <img src="Img/Hnk.jpeg" alt="Fotografía profesional de Henrik Anderson Oloroso García" data-i18n-alt="profileImageAlt" class="profile-img" width="290" height="350" fetchpriority="high">
-            <div class="profile-status">
-              <span class="status-dot"></span>
-              <span data-i18n="availability">Disponible para proyectos</span>
-            </div>
+            <img src="img/Hnk.jpeg" alt="Fotografía profesional de Henrik Anderson Oloroso García" data-i18n-alt="profileImageAlt" class="profile-img" width="290" height="350" fetchpriority="high">
           </div>
         </div>
         
@@ -98,6 +94,9 @@
             <a href="https://github.com/Anderson-Oloroso" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
               <span>GitHub</span>
+            </a>
+            <a href="assets/CV_Personalizado_Henrik_Anderson_Oloroso.pdf" class="btn btn-secondary" download>
+              <span data-i18n="downloadCv">Descargar CV</span>
             </a>
           </div>
 
@@ -163,6 +162,36 @@
               <p class="spec-desc" data-i18n="specDevOpsDescription">Contenedores con Docker, flujos de automatización con n8n, webhooks e integración de Prompt Engineering.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA LABORAL -->
+    <section class="section-padding" id="experiencia">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge" data-i18n="experienceBadge">Trayectoria profesional</span>
+          <h2 class="section-title" data-i18n="experienceTitle">Experiencia laboral</h2>
+          <p class="section-desc" data-i18n="experienceDescription">Experiencia en desarrollo backend, gestión ágil y soporte técnico.</p>
+        </div>
+
+        <div class="experience-list">
+          <article class="experience-card">
+            <div class="experience-heading">
+              <h3 class="experience-company" data-i18n="experienceCampuslandsHeading">Campuslands GT – 2026 – En desarrollo</h3>
+              <p class="experience-role" data-i18n="experienceCampuslandsRole">Desarrollador Backend – Scrum Máster</p>
+            </div>
+            <p class="experience-description" data-i18n="experienceCampuslandsDescription">Desarrollo backend y gestión ágil de Alba, una plataforma de salud y adherencia farmacológica para adultos mayores, cuidadores y personal médico. Implementación de servicios con Firebase, recordatorios dinámicos, detección de caídas y vinculación de roles mediante códigos QR. Coordinación del equipo como Scrum Máster, facilitando la planificación y el seguimiento de tareas durante el desarrollo del proyecto.</p>
+          </article>
+
+          <article class="experience-card">
+            <div class="experience-heading">
+              <h3 class="experience-company" data-i18n="experienceSoftplusHeading">SoftPlus – 2026 - En desarrollo</h3>
+              <p class="experience-role" data-i18n="experienceSoftplusRole">Desarrollador Backend</p>
+            </div>
+            <p class="experience-description" data-i18n="experienceSoftplusDescription">OMS Backend – Sistema de gestión de órdenes: Desarrollo de Backend/API en el cual se realizó una implementación a la medida, normalizando una base de datos. En la cual se implementaron validaciones y manejo centralizado de errores utilizando modelos, redis, websocket, realtime; configuración del entorno de trabajo y despliegue con Docker y documentación de las pruebas en cada servicio con testing a la medida de cada api.</p>
+          </article>
+
         </div>
       </div>
     </section>
@@ -302,7 +331,7 @@
                 <span>Google Sheets API</span>
               </div>
               <div class="tech-badge badge-prompt">
-                <img src="Img/ia.svg" alt="Prompt Engineering" class="tech-badge-icon" loading="lazy">
+                <img src="img/ia.svg" alt="Prompt Engineering" class="tech-badge-icon" loading="lazy">
                 <span>Prompt Engineering</span>
               </div>
             </div>
@@ -363,7 +392,7 @@
               <span class="project-badge-tag">Full Stack & Docker</span>
             </div>
             <div class="project-content">
-              <h3 class="project-title" data-i18n="projectOneTitle">Minerva-lib — Gestor de libros para biblioteca (en desarrollo)</h3>
+              <h3 class="project-title" data-i18n="projectOneTitle">Minerva-lib — Sistema de gestión de libros para bibliotecas</h3>
               <p class="project-summary" data-i18n="projectOneDescription">
                 Aplicación para gestionar libros mediante una API y una interfaz web con contenedorización en Docker.
               </p>
@@ -462,7 +491,7 @@
           <!-- Proyecto 5: TutorBot -->
           <article class="project-card">
             <div class="project-thumbnail">
-              <img src="Img/tutorbot.jpg" alt="TutorBot" loading="lazy">
+              <img src="img/tutorbot.jpg" alt="TutorBot" loading="lazy">
               <span class="project-badge-tag">n8n & Telegram</span>
             </div>
             <div class="project-content">
@@ -529,35 +558,35 @@
         </div>
         <ul class="hobbies-grid">
           <li class="hobby-card">
-            <img src="Img/hobbies/futsal.jpg" alt="Balón y cancha de futsal" data-i18n-alt="hobbyFutsalAlt" width="800" height="500" loading="lazy" decoding="async">
+            <img src="img/hobbies/futsal.jpg" alt="Balón y cancha de futsal" data-i18n-alt="hobbyFutsalAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyFutsal">Futsal</span>
           </li>
           <li class="hobby-card">
-            <img src="Img/hobbies/codm.jpg" alt="Competencia de videojuegos" data-i18n-alt="hobbyCodmAlt" width="800" height="500" loading="lazy" decoding="async">
+            <img src="img/hobbies/codm.jpg" alt="Competencia de videojuegos" data-i18n-alt="hobbyCodmAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyCodm">Call of Duty: Mobile (CODM)</span>
           </li>
           <li class="hobby-card">
-            <img src="Img/hobbies/calisthenics.jpg" alt="Atleta haciendo dominadas lastradas en una barra al aire libre" data-i18n-alt="hobbyCalisthenicsAlt" width="800" height="500" loading="lazy" decoding="async">
+            <img src="img/hobbies/calisthenics.jpg" alt="Atleta haciendo dominadas lastradas en una barra al aire libre" data-i18n-alt="hobbyCalisthenicsAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyCalisthenics">Calistenia</span>
           </li>
           <li class="hobby-card">
-            <img src="Img/hobbies/reading.jpg" alt="Libros abiertos para leer" data-i18n-alt="hobbyReadingAlt" width="800" height="500" loading="lazy" decoding="async">
+            <img src="img/hobbies/reading.jpg" alt="Libros abiertos para leer" data-i18n-alt="hobbyReadingAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyReading">Leer</span>
           </li>
           <li class="hobby-card">
-            <img src="Img/hobbies/walking.jpg" alt="Personas caminando por la naturaleza" data-i18n-alt="hobbyWalkingAlt" width="800" height="500" loading="lazy" decoding="async">
+            <img src="img/hobbies/walking.jpg" alt="Personas caminando por la naturaleza" data-i18n-alt="hobbyWalkingAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyWalking">Caminar</span>
           </li>
           <li class="hobby-card">
-            <img src="Img/hobbies/family.jpg" alt="Familia compartiendo un momento juntos" data-i18n-alt="hobbyFamilyAlt" width="800" height="500" loading="lazy" decoding="async">
+            <img src="img/hobbies/family.jpg" alt="Familia compartiendo un momento juntos" data-i18n-alt="hobbyFamilyAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyFamily">Compartir con familia y amigos</span>
           </li>
           <li class="hobby-card">
-            <img src="Img/hobbies/nature.jpg" alt="Bosque verde en la naturaleza" data-i18n-alt="hobbyNatureAlt" width="800" height="500" loading="lazy" decoding="async">
+            <img src="img/hobbies/nature.jpg" alt="Bosque verde en la naturaleza" data-i18n-alt="hobbyNatureAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyNature">Disfrutar de la naturaleza</span>
           </li>
           <li class="hobby-card">
-            <img src="Img/hobbies/adventure.jpg" alt="Montañas para una aventura al aire libre" data-i18n-alt="hobbyAdventureAlt" width="800" height="500" loading="lazy" decoding="async">
+            <img src="img/hobbies/adventure.jpg" alt="Montañas para una aventura al aire libre" data-i18n-alt="hobbyAdventureAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyAdventure">Aventuras llenas de adrenalina</span>
           </li>
         </ul>
@@ -623,6 +652,6 @@
   </footer>
 
   <!-- Script Modular (ES6 Modules) -->
-  <script type="module" src="Js/script.js"></script>
+  <script type="module" src="js/script.js"></script>
 </body>
 </html>
