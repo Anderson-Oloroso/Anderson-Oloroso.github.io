@@ -39,14 +39,14 @@ Servir como punto de convergencia profesional donde se presentan:
 - Atributos ARIA (`aria-expanded`, `aria-controls`, `aria-label`) para compatibilidad con lectores de pantalla.
 
 ### 2. CSS3 Modular & Design Tokens
-- **Arquitectura en submódulos (`CSS/modules/`)**: Separación limpia por responsabilidades (variables, estilos base, navegación, hero, stack tecnológico, proyectos y media queries).
+- **Arquitectura en submódulos (`css/modules/`)**: Separación limpia por responsabilidades (variables, estilos base, navegación, hero, stack tecnológico, proyectos y media queries).
 - **Design Tokens con Variables CSS (`:root`)**: Control centralizado de colores para los temas claro y oscuro, radios de borde, tipografías y curvas de transición.
 - **Layout Responsivo Nativo**: CSS Grid auto-ajustable (`repeat(auto-fit, minmax(...))`) y Flexbox, evitando frameworks pesados y garantizando tiempos de carga casi instantáneos.
 - **Respeto a Preferencias del Usuario**: Soporte completo para `@media (prefers-reduced-motion: reduce)`.
 
 ### 3. JavaScript Moderno (ES6+ Modules)
 - **Cero dependencias externas**: Código Vanilla puro ejecutado con `<script type="module">`.
-- **Módulos desacoplados (`Js/modules/`)**:
+- **Módulos desacoplados (`js/modules/`)**:
   - `navigation.js`: Control del menú móvil, eventos de teclado (`Escape`) y clics fuera del contenedor.
   - `scrollSpy.js`: Detección eficiente de sección activa con `requestAnimationFrame` y estilo sticky del navbar.
   - `animations.js`: Revelado progresivo en scroll utilizando la API nativa `IntersectionObserver`.
@@ -61,7 +61,7 @@ Servir como punto de convergencia profesional donde se presentan:
 Anderson-Oloroso.github.io/
 ├── index.html                  # Estructura semántica principal y metadatos
 ├── README.md                   # Documentación técnica del proyecto
-├── CSS/
+├── css/
 │   ├── style.css               # Orquestador principal de importaciones
 │   └── modules/                # Submódulos organizados por responsabilidad
 │       ├── variables.css       # Design tokens y variables de diseño (:root)
@@ -71,7 +71,7 @@ Anderson-Oloroso.github.io/
 │       ├── stack.css           # Grid y flexbox de tecnologías y competencias
 │       ├── projects-contact.css# Tarjetas de proyectos y canales de contacto
 │       └── responsive.css      # Media queries y accesibilidad de movimiento
-├── Js/
+├── js/
 │   ├── script.js               # Punto de entrada orquestador
 │   └── modules/                # Lógica desacoplada en módulos ES6
 │       ├── navigation.js       # Comportamiento del menú móvil y ARIA
@@ -79,7 +79,7 @@ Anderson-Oloroso.github.io/
 │       ├── animations.js       # IntersectionObserver para animaciones de entrada
 │       ├── localization.js     # Selector de idioma español/inglés
 │       └── theme.js            # Alternancia de tema claro/oscuro
-└── Img/
+└── img/
     ├── Hnk.jpeg                # Fotografía profesional de perfil
     ├── favicon.ico             # Favicon oficial del sitio
     ├── ia.svg                  # Icono vectorial para Prompt Engineering
@@ -91,7 +91,7 @@ Anderson-Oloroso.github.io/
 
 ## 🖼️ Créditos de imagen
 
-La foto de calistenia (`Img/hobbies/calisthenics.jpg`) muestra una competencia de dominadas lastradas al aire libre. Original: [Competición de Fuerza](https://commons.wikimedia.org/wiki/File:Competici%C3%B3n_de_Fuerza.jpg), de FESWC, bajo licencia [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+La foto de calistenia (`img/hobbies/calisthenics.jpg`) muestra una competencia de dominadas lastradas al aire libre. Original: [Competición de Fuerza](https://commons.wikimedia.org/wiki/File:Competici%C3%B3n_de_Fuerza.jpg), de FESWC, bajo licencia [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
 ---
 
