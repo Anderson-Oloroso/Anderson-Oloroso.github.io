@@ -61,6 +61,8 @@ Servir como punto de convergencia profesional donde se presentan:
 Anderson-Oloroso.github.io/
 ├── index.html                  # Estructura semántica principal y metadatos
 ├── README.md                   # Documentación técnica del proyecto
+├── assets/
+│   └── CV_Personalizado_Henrik_Anderson_Oloroso.pdf  # Currículum descargable
 ├── css/
 │   ├── style.css               # Orquestador principal de importaciones
 │   └── modules/                # Submódulos organizados por responsabilidad
