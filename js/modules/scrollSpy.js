@@ -3,6 +3,7 @@
  */
 export function initScrollSpy() {
   const navbar = document.getElementById('navbar');
+  const progressBar = document.getElementById('scroll-progress');
   const navLinkItems = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section[id]');
 
@@ -29,6 +30,14 @@ export function initScrollSpy() {
     });
   };
 
+  // Se escribe el transform del propio elemento: evita invalidar estilos de toda la página
+  const updateProgress = () => {
+    if (!progressBar) return;
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollable > 0 ? Math.min(1, window.scrollY / scrollable) : 0;
+    progressBar.style.transform = `scaleX(${progress.toFixed(4)})`;
+  };
+
   const onScroll = () => {
     if (!isScrolling) {
       window.requestAnimationFrame(() => {
@@ -38,6 +47,7 @@ export function initScrollSpy() {
           navbar?.classList.remove('scrolled');
         }
         updateActiveNav();
+        updateProgress();
         isScrolling = false;
       });
       isScrolling = true;
@@ -45,4 +55,6 @@ export function initScrollSpy() {
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  onScroll();
 }
