@@ -58,9 +58,9 @@
 }
 
 .project-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(var(--lift-md));
   border-color: var(--border-bright);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-hover);
 }
 
 .project-thumbnail {
@@ -253,10 +253,10 @@
 }
 
 .contact-tile:hover {
-  transform: translateY(-4px);
+  transform: translateY(var(--lift-md));
   border-color: var(--border-bright);
   background: var(--bg-elevated);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-hover);
 }
 
 .contact-tile-icon {

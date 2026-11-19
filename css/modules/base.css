@@ -142,7 +142,7 @@ ul {
 
 .btn-primary:hover {
   background: #2563eb;
-  transform: translateY(-2px);
+  transform: translateY(var(--lift-sm));
   box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
 }
 
@@ -155,5 +155,5 @@ ul {
 .btn-secondary:hover {
   background: var(--bg-subtle);
   border-color: var(--border-bright);
-  transform: translateY(-2px);
+  transform: translateY(var(--lift-sm));
 }

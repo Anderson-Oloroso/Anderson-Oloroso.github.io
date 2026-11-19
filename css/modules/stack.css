@@ -64,10 +64,10 @@
 }
 
 .tech-badge:hover {
-  transform: translateY(-2px);
+  transform: translateY(var(--lift-sm));
   border-color: var(--border-bright);
   background: var(--bg-subtle);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--shadow-hover);
 }
 
 .tech-badge-icon {
