@@ -36,10 +36,12 @@
   --accent-amber: #f59e0b;
   --accent-violet: #8b5cf6;
 
-  /* Efectos inmersivos: cursor */
+  /* Efectos inmersivos: cursor y orbes */
   --cursor-glow: rgba(59, 130, 246, 0.11);
   --cursor-ring: rgba(6, 182, 212, 0.75);
   --cursor-ring-fill: rgba(6, 182, 212, 0.14);
+  --orb-a: rgba(59, 130, 246, 0.2);
+  --orb-b: rgba(6, 182, 212, 0.16);
 
   /* Dimensiones y Radios */
   --nav-height: 68px;
@@ -74,8 +76,10 @@
   --text-secondary: #4b5568;
   --text-tertiary: #687386;
 
-  /* Efectos inmersivos: cursor en modo claro */
+  /* Efectos inmersivos: cursor y orbes en modo claro */
   --cursor-glow: rgba(59, 130, 246, 0.13);
   --cursor-ring: rgba(8, 145, 178, 0.8);
   --cursor-ring-fill: rgba(8, 145, 178, 0.12);
+  --orb-a: rgba(59, 130, 246, 0.14);
+  --orb-b: rgba(8, 145, 178, 0.12);
 }

@@ -7,6 +7,30 @@
   padding-top: calc(var(--nav-height) + 4.5rem);
   padding-bottom: 5.5rem;
   position: relative;
+  overflow: clip;
+}
+
+/* Orbes ambientales de profundidad (unificados desde main) */
+.hero-orb {
+  position: absolute;
+  z-index: 0;
+  width: min(560px, 70vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+}
+
+.hero-orb--a {
+  top: -160px;
+  left: -180px;
+  background: radial-gradient(circle, var(--orb-a, rgba(59, 130, 246, 0.2)), transparent 65%);
+}
+
+.hero-orb--b {
+  right: -200px;
+  bottom: -40px;
+  background: radial-gradient(circle, var(--orb-b, rgba(6, 182, 212, 0.16)), transparent 65%);
 }
 
 .hero-grid {
