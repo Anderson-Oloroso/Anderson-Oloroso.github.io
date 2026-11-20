@@ -113,6 +113,7 @@ export function initDiscoveryQuest() {
   initNodesOnPage();
   initQuestNavbarTrigger();
   initQuestModal();
+  initQuestToast();
   initLanguageSync();
   applyOverclockState(questState.overclock);
   updateQuestUI();
@@ -281,7 +282,53 @@ function spawnCyberSparks(element) {
 }
 
 /**
- * Muestra el toast flotante con la información técnica del fragmento
+ * Inicializa los eventos del toast flotante (botón de cierre)
+ */
+function initQuestToast() {
+  const closeBtn = document.getElementById('quest-toast-close');
+  closeBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    hideQuestToast();
+  });
+}
+
+/**
+ * Oculta el toast flotante con animación y limpia estilos inline
+ */
+export function hideQuestToast() {
+  const toast = document.getElementById('quest-toast');
+  if (!toast) return;
+
+  clearTimeout(toast._hideTimeout);
+  if (toast._timerAnime) {
+    toast._timerAnime.pause();
+  }
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReduced && typeof window.anime === 'function') {
+    window.anime({
+      targets: toast,
+      opacity: [1, 0],
+      translateY: [0, -20],
+      scale: [1, 0.94],
+      duration: 300,
+      easing: 'easeInCubic',
+      complete: () => {
+        toast.classList.remove('visible');
+        toast.style.opacity = '';
+        toast.style.transform = '';
+      }
+    });
+  } else {
+    toast.classList.remove('visible');
+    toast.style.opacity = '';
+    toast.style.transform = '';
+  }
+}
+
+/**
+ * Muestra el toast flotante con la información técnica del fragmento y barra de tiempo
  */
 function showQuestToast(nodeData) {
   const isEn = document.documentElement.lang === 'en';
@@ -291,6 +338,7 @@ function showQuestToast(nodeData) {
   const tagEl = toast.querySelector('.quest-toast-tag');
   const titleEl = toast.querySelector('.quest-toast-title');
   const loreEl = toast.querySelector('.quest-toast-lore');
+  const timerBar = document.getElementById('quest-toast-timer-bar');
 
   const countUnlocked = questState.unlocked.length;
   const total = CORE_NODES.length;
@@ -307,9 +355,17 @@ function showQuestToast(nodeData) {
     loreEl.textContent = isEn ? nodeData.lore.en : nodeData.lore.es;
   }
 
+  // Cancelar temporizador previo si existía
+  clearTimeout(toast._hideTimeout);
+  if (toast._timerAnime) {
+    toast._timerAnime.pause();
+  }
+
   toast.classList.add('visible');
 
+  const DURATION_MS = 6000;
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   if (!prefersReduced && typeof window.anime === 'function') {
     window.anime({
       targets: toast,
@@ -319,12 +375,21 @@ function showQuestToast(nodeData) {
       duration: 400,
       easing: 'easeOutBack'
     });
+
+    if (timerBar) {
+      timerBar.style.transform = 'scaleX(1)';
+      toast._timerAnime = window.anime({
+        targets: timerBar,
+        scaleX: [1, 0],
+        duration: DURATION_MS,
+        easing: 'linear'
+      });
+    }
   }
 
-  clearTimeout(toast._hideTimeout);
   toast._hideTimeout = setTimeout(() => {
-    toast.classList.remove('visible');
-  }, 6000);
+    hideQuestToast();
+  }, DURATION_MS);
 }
 
 /**
