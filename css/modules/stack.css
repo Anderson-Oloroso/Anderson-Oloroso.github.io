@@ -61,62 +61,44 @@
   transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
   cursor: default;
   user-select: none;
-  /* Necesario para contener el pseudo-elemento del destello */
   position: relative;
   overflow: hidden;
 }
 
-/* ── Destello aleatorio (sparkle / shimmer) ───────────────────────────────── */
-/* El barrido diagonal se anima mediante --sparkle-delay asignado por JS */
-.tech-badge::after {
-  content: '';
+/* ── Destello puntual (badge glint) ────────────────────────────────────────
+   Un pequeño punto de luz que aparece y desaparece al azar en cada badge.
+   - JS inyecta un <span class="badge-glint"> con posición y color aleatorios
+   - La animación es solo: escala + opacidad, muy sutil
+   ─────────────────────────────────────────────────────────────────────── */
+@keyframes glintPulse {
+  0%   { transform: translate(-50%, -50%) scale(0);   opacity: 0; }
+  30%  { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+  65%  { transform: translate(-50%, -50%) scale(0.9); opacity: 0.7; }
+  100% { transform: translate(-50%, -50%) scale(0);   opacity: 0; }
+}
+
+.badge-glint {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    105deg,
-    transparent 20%,
-    rgba(255, 255, 255, 0.18) 50%,
-    rgba(6, 182, 212, 0.14) 60%,
-    transparent 80%
-  );
-  transform: translateX(-130%) skewX(-15deg);
-  animation: badgeSparkle 1.5s ease-in-out var(--sparkle-delay, 0s) infinite;
-  animation-play-state: paused; /* JS lo activa al detectar no-reduced-motion */
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
   pointer-events: none;
-  border-radius: inherit;
+  /* posición inyectada por JS con custom props --gx / --gy */
+  left: var(--gx, 50%);
+  top:  var(--gy, 50%);
+  background: radial-gradient(circle, #fff 0%, rgba(6,182,212,0.85) 50%, transparent 100%);
+  box-shadow: 0 0 7px 2px rgba(6, 182, 212, 0.65);
+  animation: glintPulse 0.55s ease-out forwards;
+  will-change: transform, opacity;
 }
 
-/* Activar animación cuando el body tenga la clase correspondiente */
-body.sparkle-active .tech-badge::after {
-  animation-play-state: running;
+[data-theme="light"] .badge-glint {
+  background: radial-gradient(circle, #fff 0%, rgba(59,130,246,0.85) 55%, transparent 100%);
+  box-shadow: 0 0 7px 2px rgba(59,130,246,0.55);
 }
 
-@keyframes badgeSparkle {
-  0%   { transform: translateX(-130%) skewX(-15deg); opacity: 0; }
-  10%  { opacity: 1; }
-  90%  { opacity: 1; }
-  100% { transform: translateX(260%)  skewX(-15deg); opacity: 0; }
-}
-
-/* Modo claro: destello más cálido y sutil */
-[data-theme="light"] .tech-badge::after {
-  background: linear-gradient(
-    105deg,
-    transparent 20%,
-    rgba(255, 255, 255, 0.35) 50%,
-    rgba(59, 130, 246, 0.12) 60%,
-    transparent 80%
-  );
-}
-
-/* Respetar prefers-reduced-motion: eliminar completamente el pseudo-elemento */
 @media (prefers-reduced-motion: reduce) {
-  .tech-badge::after {
-    display: none;
-  }
+  .badge-glint { display: none; }
 }
 
 .tech-badge:hover {
