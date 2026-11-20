@@ -618,36 +618,63 @@
           <h2 class="section-title" data-i18n="lifeTitle">Mi vida fuera del código</h2>
           <p class="section-desc" data-i18n="lifeDescription">También disfruto de actividades que me conectan con las personas, la naturaleza y nuevos retos.</p>
         </div>
-        <ul class="hobbies-grid">
-          <li class="hobby-card">
+
+        <!-- Visor Cinematográfico Interactivo -->
+        <div class="hobby-spotlight" id="hobby-spotlight">
+          <div class="hobby-spotlight-bg" id="hobby-spotlight-bg"></div>
+          <div class="hobby-spotlight-scrim"></div>
+          
+          <div class="hobby-spotlight-content">
+            <div class="hobby-spotlight-meta">
+              <span class="hobby-tag-badge" id="hobby-spotlight-tag">Deporte & Trabajo en Equipo</span>
+              <span class="hobby-counter" id="hobby-spotlight-counter">1 / 8</span>
+            </div>
+            <h3 class="hobby-spotlight-title" id="hobby-spotlight-title">Futsal — Agilidad, toma de decisiones y sincronización</h3>
+            <p class="hobby-spotlight-story" id="hobby-spotlight-story">En espacios reducidos cada segundo cuenta...</p>
+            
+            <div class="hobby-spotlight-controls">
+              <button class="hobby-nav-btn prev" id="hobby-prev-btn" aria-label="Hobby anterior" title="Anterior">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <div class="hobby-dots-indicator" id="hobby-dots-indicator"></div>
+              <button class="hobby-nav-btn next" id="hobby-next-btn" aria-label="Siguiente hobby" title="Siguiente">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Galería interactiva de hobbies -->
+        <ul class="hobbies-grid" id="hobbies-grid" role="tablist" aria-label="Intereses personales">
+          <li class="hobby-card active-hobby" data-hobby-index="0" role="tab" tabindex="0" aria-selected="true">
             <img src="img/hobbies/futsal.jpg" alt="Balón y cancha de futsal" data-i18n-alt="hobbyFutsalAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyFutsal">Futsal</span>
           </li>
-          <li class="hobby-card">
+          <li class="hobby-card" data-hobby-index="1" role="tab" tabindex="0" aria-selected="false">
             <img src="img/hobbies/codm.jpg" alt="Competencia de videojuegos" data-i18n-alt="hobbyCodmAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyCodm">Call of Duty: Mobile (CODM)</span>
           </li>
-          <li class="hobby-card">
+          <li class="hobby-card" data-hobby-index="2" role="tab" tabindex="0" aria-selected="false">
             <img src="img/hobbies/calisthenics.jpg" alt="Atleta haciendo dominadas lastradas en una barra al aire libre" data-i18n-alt="hobbyCalisthenicsAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyCalisthenics">Calistenia</span>
           </li>
-          <li class="hobby-card">
+          <li class="hobby-card" data-hobby-index="3" role="tab" tabindex="0" aria-selected="false">
             <img src="img/hobbies/reading.jpg" alt="Libros abiertos para leer" data-i18n-alt="hobbyReadingAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyReading">Leer</span>
           </li>
-          <li class="hobby-card">
+          <li class="hobby-card" data-hobby-index="4" role="tab" tabindex="0" aria-selected="false">
             <img src="img/hobbies/walking.jpg" alt="Personas caminando por la naturaleza" data-i18n-alt="hobbyWalkingAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyWalking">Caminar</span>
           </li>
-          <li class="hobby-card">
+          <li class="hobby-card" data-hobby-index="5" role="tab" tabindex="0" aria-selected="false">
             <img src="img/hobbies/family.jpg" alt="Familia compartiendo un momento juntos" data-i18n-alt="hobbyFamilyAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyFamily">Compartir con familia y amigos</span>
           </li>
-          <li class="hobby-card">
+          <li class="hobby-card" data-hobby-index="6" role="tab" tabindex="0" aria-selected="false">
             <img src="img/hobbies/nature.jpg" alt="Bosque verde en la naturaleza" data-i18n-alt="hobbyNatureAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyNature">Disfrutar de la naturaleza</span>
           </li>
-          <li class="hobby-card">
+          <li class="hobby-card" data-hobby-index="7" role="tab" tabindex="0" aria-selected="false">
             <img src="img/hobbies/adventure.jpg" alt="Montañas para una aventura al aire libre" data-i18n-alt="hobbyAdventureAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyAdventure">Aventuras llenas de adrenalina</span>
           </li>

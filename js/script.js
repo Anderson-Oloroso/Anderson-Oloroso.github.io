@@ -10,6 +10,7 @@ import { initTheme } from './modules/theme.js';
 import { initCinematic } from './modules/cinematic.js';
 import { initInteractive } from './modules/interactive.js';
 import { initProjects } from './modules/projects.js';
+import { initLifeExperience } from './modules/lifeExperience.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initLocalization();
@@ -20,4 +21,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCinematic();
   initInteractive();
   initProjects();
+  initLifeExperience();
 });
