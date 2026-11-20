@@ -36,6 +36,13 @@
   --accent-amber: #f59e0b;
   --accent-violet: #8b5cf6;
 
+  /* Efectos inmersivos: cursor y orbes */
+  --cursor-glow: rgba(59, 130, 246, 0.11);
+  --cursor-ring: rgba(6, 182, 212, 0.75);
+  --cursor-ring-fill: rgba(6, 182, 212, 0.14);
+  --orb-a: rgba(59, 130, 246, 0.2);
+  --orb-b: rgba(6, 182, 212, 0.16);
+
   /* Dimensiones y Radios */
   --nav-height: 68px;
   --radius-xs: 4px;

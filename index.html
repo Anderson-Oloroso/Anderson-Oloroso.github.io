@@ -23,6 +23,12 @@
   <!-- Estilos -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
+  <!-- Marca de JS activo + red de seguridad para revelado cinemático -->
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () { document.documentElement.classList.add('is-ready'); }, 3000);
+  </script>
 </head>
 <body>
 
@@ -47,7 +53,6 @@
       </button>
 
       <nav class="nav-links" id="nav-links" aria-label="Navegación principal" data-i18n-aria-label="navLabel">
-        <a href="#inicio" class="nav-link active" data-i18n="navHome">Inicio</a>
         <a href="#sobre-mi" class="nav-link" data-i18n="navAbout">Sobre Mí</a>
         <a href="#experiencia" class="nav-link" data-i18n="navExperience">Experiencia</a>
         <a href="#conocimientos" class="nav-link" data-i18n="navSkills">Conocimientos</a>
@@ -398,6 +403,25 @@
           <p class="section-desc" data-i18n="projectsDescription">Aplicaciones desarrolladas con buenas prácticas de software y código en GitHub.</p>
         </div>
 
+        <!-- Filtros interactivos por categoría -->
+        <div class="project-filters-container" role="toolbar" aria-label="Filtros por categoría de proyecto">
+          <button type="button" class="project-filter-btn active" data-filter="all" aria-pressed="true">
+            <span data-i18n="filterAll">Todos</span>
+          </button>
+          <button type="button" class="project-filter-btn" data-filter="backend" aria-pressed="false">
+            <span data-i18n="filterBackend">Backend & APIs</span>
+          </button>
+          <button type="button" class="project-filter-btn" data-filter="databases" aria-pressed="false">
+            <span data-i18n="filterDatabases">Bases de Datos & SQL</span>
+          </button>
+          <button type="button" class="project-filter-btn" data-filter="devops" aria-pressed="false">
+            <span data-i18n="filterDevops">DevOps & Automatización</span>
+          </button>
+          <button type="button" class="project-filter-btn" data-filter="cli" aria-pressed="false">
+            <span data-i18n="filterCli">CLI & Python</span>
+          </button>
+        </div>
+
         <div class="projects-grid">
           <!-- Proyecto 1: Minerva-lib -->
           <article class="project-card" data-tilt="6" data-spotlight>
@@ -570,36 +594,63 @@
           <h2 class="section-title" data-i18n="lifeTitle">Mi vida fuera del código</h2>
           <p class="section-desc" data-i18n="lifeDescription">También disfruto de actividades que me conectan con las personas, la naturaleza y nuevos retos.</p>
         </div>
-        <ul class="hobbies-grid">
-          <li class="hobby-card">
+
+        <!-- Visor Cinematográfico Interactivo -->
+        <div class="hobby-spotlight" id="hobby-spotlight">
+          <div class="hobby-spotlight-bg" id="hobby-spotlight-bg"></div>
+          <div class="hobby-spotlight-scrim"></div>
+          
+          <div class="hobby-spotlight-content">
+            <div class="hobby-spotlight-meta">
+              <span class="hobby-tag-badge" id="hobby-spotlight-tag">Deporte & Trabajo en Equipo</span>
+              <span class="hobby-counter" id="hobby-spotlight-counter">1 / 8</span>
+            </div>
+            <h3 class="hobby-spotlight-title" id="hobby-spotlight-title">Futsal — Agilidad, toma de decisiones y sincronización</h3>
+            <p class="hobby-spotlight-story" id="hobby-spotlight-story">En espacios reducidos cada segundo cuenta...</p>
+            
+            <div class="hobby-spotlight-controls">
+              <button class="hobby-nav-btn prev" id="hobby-prev-btn" aria-label="Hobby anterior" title="Anterior">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <div class="hobby-dots-indicator" id="hobby-dots-indicator"></div>
+              <button class="hobby-nav-btn next" id="hobby-next-btn" aria-label="Siguiente hobby" title="Siguiente">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Galería interactiva de hobbies -->
+        <ul class="hobbies-grid" id="hobbies-grid" role="tablist" aria-label="Intereses personales">
+          <li class="hobby-card active-hobby" data-hobby-index="0" role="tab" tabindex="0" aria-selected="true">
             <img src="img/hobbies/futsal.jpg" alt="Balón y cancha de futsal" data-i18n-alt="hobbyFutsalAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyFutsal">Futsal</span>
           </li>
-          <li class="hobby-card">
+          <li class="hobby-card" data-hobby-index="1" role="tab" tabindex="0" aria-selected="false">
             <img src="img/hobbies/codm.jpg" alt="Competencia de videojuegos" data-i18n-alt="hobbyCodmAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyCodm">Call of Duty: Mobile (CODM)</span>
           </li>
-          <li class="hobby-card">
+          <li class="hobby-card" data-hobby-index="2" role="tab" tabindex="0" aria-selected="false">
             <img src="img/hobbies/calisthenics.jpg" alt="Atleta haciendo dominadas lastradas en una barra al aire libre" data-i18n-alt="hobbyCalisthenicsAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyCalisthenics">Calistenia</span>
           </li>
-          <li class="hobby-card">
+          <li class="hobby-card" data-hobby-index="3" role="tab" tabindex="0" aria-selected="false">
             <img src="img/hobbies/reading.jpg" alt="Libros abiertos para leer" data-i18n-alt="hobbyReadingAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyReading">Leer</span>
           </li>
-          <li class="hobby-card">
+          <li class="hobby-card" data-hobby-index="4" role="tab" tabindex="0" aria-selected="false">
             <img src="img/hobbies/walking.jpg" alt="Personas caminando por la naturaleza" data-i18n-alt="hobbyWalkingAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyWalking">Caminar</span>
           </li>
-          <li class="hobby-card">
+          <li class="hobby-card" data-hobby-index="5" role="tab" tabindex="0" aria-selected="false">
             <img src="img/hobbies/family.jpg" alt="Familia compartiendo un momento juntos" data-i18n-alt="hobbyFamilyAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyFamily">Compartir con familia y amigos</span>
           </li>
-          <li class="hobby-card">
+          <li class="hobby-card" data-hobby-index="6" role="tab" tabindex="0" aria-selected="false">
             <img src="img/hobbies/nature.jpg" alt="Bosque verde en la naturaleza" data-i18n-alt="hobbyNatureAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyNature">Disfrutar de la naturaleza</span>
           </li>
-          <li class="hobby-card">
+          <li class="hobby-card" data-hobby-index="7" role="tab" tabindex="0" aria-selected="false">
             <img src="img/hobbies/adventure.jpg" alt="Montañas para una aventura al aire libre" data-i18n-alt="hobbyAdventureAlt" width="800" height="500" loading="lazy" decoding="async">
             <span data-i18n="hobbyAdventure">Aventuras llenas de adrenalina</span>
           </li>
@@ -664,6 +715,85 @@
       </p>
     </div>
   </footer>
+
+  <!-- TERMINAL CLI INTERACTIVA (EASTER EGG & DEV CONSOLE) -->
+  <div class="dev-terminal-modal" id="dev-terminal-modal" aria-hidden="true" role="dialog" aria-labelledby="terminal-title">
+    <div class="dev-terminal-backdrop" id="dev-terminal-backdrop"></div>
+    <div class="dev-terminal-window">
+      <div class="dev-terminal-header">
+        <div class="dev-terminal-dots">
+          <span class="terminal-dot dot-red" id="terminal-close-btn" title="Cerrar terminal"></span>
+          <span class="terminal-dot dot-yellow"></span>
+          <span class="terminal-dot dot-green"></span>
+        </div>
+        <div class="dev-terminal-title" id="terminal-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+          <span>henrik@dev-box: ~/portfolio</span>
+        </div>
+        <button class="terminal-header-close" id="terminal-header-close" aria-label="Cerrar terminal">&times;</button>
+      </div>
+      <div class="dev-terminal-body" id="dev-terminal-output" tabindex="0">
+        <!-- Contenido dinámico del CLI -->
+      </div>
+      <div class="dev-terminal-prompt-line">
+        <span class="terminal-prompt-sym">guest@henrik-portfolio:~$</span>
+        <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" spellcheck="false" placeholder="Escribe 'help' o 'bio'...">
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE INSPECCIÓN RÁPIDA DE ARQUITECTURA -->
+  <div class="project-inspector-modal" id="project-inspector-modal" aria-hidden="true" role="dialog" aria-labelledby="inspector-title">
+    <div class="project-inspector-backdrop" id="project-inspector-backdrop"></div>
+    <div class="project-inspector-dialog">
+      <div class="project-inspector-header">
+        <div class="inspector-header-left">
+          <span class="inspector-badge" id="inspector-badge">Full Stack</span>
+          <h3 class="inspector-modal-title" id="inspector-title">Proyecto</h3>
+        </div>
+        <button class="inspector-close-btn" id="project-inspector-close" aria-label="Cerrar modal de inspección">&times;</button>
+      </div>
+      <div class="project-inspector-body">
+        <div class="inspector-hero-banner">
+          <img src="" alt="" id="inspector-img">
+        </div>
+        <div class="inspector-block">
+          <h4 class="inspector-block-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            <span data-i18n="inspectorScope">Objetivo & Alcance</span>
+          </h4>
+          <p class="inspector-block-desc" id="inspector-overview"></p>
+        </div>
+        <div class="inspector-block">
+          <h4 class="inspector-block-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            <span data-i18n="inspectorArchitecture">Arquitectura & Flujo de Datos</span>
+          </h4>
+          <p class="inspector-block-desc" id="inspector-arch"></p>
+        </div>
+        <div class="inspector-block">
+          <h4 class="inspector-block-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span data-i18n="inspectorHighlights">Aspectos Técnicos Destacados</span>
+          </h4>
+          <ul class="inspector-highlights-list" id="inspector-highlights"></ul>
+        </div>
+        <div class="inspector-block">
+          <h4 class="inspector-block-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            <span data-i18n="inspectorStack">Stack & Tecnologías Clave</span>
+          </h4>
+          <div class="inspector-tags-container" id="inspector-tags"></div>
+        </div>
+      </div>
+      <div class="project-inspector-footer">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="inspector-repo-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+          <span data-i18n="viewRepository">Ver Repositorio</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Script Modular (ES6 Modules) -->
   <script type="module" src="js/script.js"></script>
