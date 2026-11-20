@@ -12,7 +12,8 @@ export function initCinematic() {
   initHeroParallax();
   initSmoothScroll();
   initCustomCursor();
-  initBadgeSparkle();
+  initCursorParticles();
+  initBadgeGlint();
 }
 
 /**
@@ -348,24 +349,105 @@ function initCustomCursor() {
 }
 
 /**
- * Destello aleatorio ("sparkle") en los tech-badges de #conocimientos
- * - Asigna --sparkle-delay aleatorio (0–9s) a cada badge
- * - La animación infinita produce un barrido luminoso escalonado
- * - Respeta prefers-reduced-motion (manejado en CSS; no activa la clase)
+ * Partículas de luz atraídas por el cursor
+ * - Se generan en la posición del mouse con pequeño offset aleatorio
+ * - Flotan hacia arriba/alrededor y se desvanecen
+ * - Respeta prefers-reduced-motion y solo activo en non-touch
  */
-function initBadgeSparkle() {
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return;
+function initCursorParticles() {
+  if (window.matchMedia('(hover: none)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  const badges = document.querySelectorAll('#conocimientos .tech-badge');
+  // Paleta de colores (cyan / azul / blanco frío)
+  const palette = [
+    'rgba(6,182,212,0.85)',
+    'rgba(56,189,248,0.8)',
+    'rgba(99,179,237,0.75)',
+    'rgba(255,255,255,0.9)',
+    'rgba(147,210,255,0.8)',
+  ];
+
+  let lastSpawn = 0;
+  const THROTTLE_MS = 38; // ≈ 26 partículas/s máximo
+
+  function spawnParticle(x, y) {
+    const el = document.createElement('div');
+    el.className = 'cursor-particle';
+
+    // Offset de destino aleatorio (la partícula "orbita" hacia afuera)
+    const angle  = Math.random() * Math.PI * 2;
+    const dist   = 10 + Math.random() * 22;
+    const px     = Math.cos(angle) * dist;
+    const py     = Math.sin(angle) * dist - 10; // sesgo hacia arriba
+    const size   = (3 + Math.random() * 4).toFixed(1) + 'px';
+    const color  = palette[Math.floor(Math.random() * palette.length)];
+    const dur    = (0.45 + Math.random() * 0.4).toFixed(2) + 's';
+
+    el.style.cssText = `
+      left:${x}px; top:${y}px;
+      --px:${px.toFixed(1)}px; --py:${py.toFixed(1)}px;
+      --ps:${size}; --pc:${color}; --pd:${dur};
+    `;
+
+    document.body.appendChild(el);
+
+    // Limpiar el DOM tras la animación
+    el.addEventListener('animationend', () => el.remove(), { once: true });
+    // Fallback: eliminar si animationend no dispara (pestaña oculta, etc.)
+    setTimeout(() => el.remove(), 1200);
+  }
+
+  window.addEventListener('mousemove', (e) => {
+    const now = performance.now();
+    if (now - lastSpawn < THROTTLE_MS) return;
+    lastSpawn = now;
+
+    // Generar 1-2 partículas por evento (aleatoriamente)
+    const count = Math.random() < 0.4 ? 2 : 1;
+    for (let i = 0; i < count; i++) spawnParticle(e.clientX, e.clientY);
+  }, { passive: true });
+}
+
+/**
+ * Destello puntual aleatorio en los tech-badges de #conocimientos
+ * - Inyecta un pequeño <span> con animación glintPulse en posición aleatoria
+ * - Intervalo de disparo por badge: aleatorio entre 1.5 s y 6 s
+ * - Sobrio y no invasivo; respeta prefers-reduced-motion
+ */
+function initBadgeGlint() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const badges = Array.from(document.querySelectorAll('#conocimientos .tech-badge'));
   if (!badges.length) return;
 
-  badges.forEach((badge) => {
-    // Delay inicial aleatorio entre 0 y 9 s, con resolución de 0.1 s
-    const delay = (Math.random() * 9).toFixed(1);
-    badge.style.setProperty('--sparkle-delay', `${delay}s`);
-  });
+  function fireGlint(badge) {
+    const glint = document.createElement('span');
+    glint.className = 'badge-glint';
 
-  // Activar la animación mediante clase en body
-  document.body.classList.add('sparkle-active');
+    // Posición aleatoria dentro del badge (evitar bordes extremos)
+    const gx = (15 + Math.random() * 70).toFixed(1) + '%';
+    const gy = (20 + Math.random() * 60).toFixed(1) + '%';
+    glint.style.setProperty('--gx', gx);
+    glint.style.setProperty('--gy', gy);
+
+    badge.appendChild(glint);
+    glint.addEventListener('animationend', () => glint.remove(), { once: true });
+    // Fallback limpieza
+    setTimeout(() => glint.remove(), 800);
+  }
+
+  function scheduleGlint(badge) {
+    // Retraso aleatorio: entre 1.2 s y 6 s
+    const delay = 1200 + Math.random() * 4800;
+    setTimeout(() => {
+      fireGlint(badge);
+      scheduleGlint(badge); // reprogramar para el siguiente destello
+    }, delay);
+  }
+
+  // Offset inicial aleatorio para que no todos disparen al mismo tiempo
+  badges.forEach((badge) => {
+    const initDelay = Math.random() * 5000;
+    setTimeout(() => scheduleGlint(badge), initDelay);
+  });
 }
