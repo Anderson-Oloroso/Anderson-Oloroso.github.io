@@ -13,6 +13,7 @@ export function initInteractive() {
   initDevTerminal();
   initMagnetic();
   initRipple();
+  initCosmicSparks();
 }
 
 /**
@@ -74,23 +75,50 @@ function initCardTilt() {
 }
 
 /**
- * HUD de exploración en tiempo real
+ * HUD de exploración en tiempo real con Anime.js
+ * Actualiza fluidamente con el scroll y las secciones visitadas
  */
 function initExplorationHUD() {
   const hudProgressText = document.getElementById('hud-progress-text');
   const hudPill = document.getElementById('hud-pill');
-  const sections = document.querySelectorAll('section[id]');
+  const sections = Array.from(document.querySelectorAll('section[id]'));
   if (!hudProgressText || !sections.length) return;
 
   const totalSections = sections.length;
   const visited = new Set();
+  // El usuario inicia en la sección principal
+  if (sections[0]) visited.add(sections[0].id);
+
   let toastTriggered = false;
+  let displayedProgress = { val: 0 };
+  let animeInstance = null;
 
   const updateHUD = () => {
-    const progress = Math.round((visited.size / totalSections) * 100);
-    hudProgressText.textContent = `${progress}%`;
+    const scrollY = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPct = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+    const sectionPct = (visited.size / totalSections) * 100;
 
-    if (progress >= 100) {
+    // Progreso continuo y fiel: el mayor entre el scroll y las secciones descubiertas
+    const targetProgress = Math.min(100, Math.max(0, Math.round(Math.max(scrollPct, sectionPct))));
+
+    if (typeof window.anime === 'function') {
+      if (animeInstance) animeInstance.pause();
+      animeInstance = window.anime({
+        targets: displayedProgress,
+        val: targetProgress,
+        round: 1,
+        duration: 250,
+        easing: 'linear',
+        update: () => {
+          hudProgressText.textContent = `${Math.round(displayedProgress.val)}%`;
+        }
+      });
+    } else {
+      hudProgressText.textContent = `${targetProgress}%`;
+    }
+
+    if (targetProgress >= 98) {
       hudPill?.classList.add('completed');
       if (!toastTriggered) {
         toastTriggered = true;
@@ -99,6 +127,7 @@ function initExplorationHUD() {
     }
   };
 
+  // Observador de secciones para registrar hitos
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -107,10 +136,36 @@ function initExplorationHUD() {
       }
     });
   }, {
-    threshold: 0.25
+    threshold: 0.15
   });
 
   sections.forEach(sec => observer.observe(sec));
+
+  // Escuchar scroll para actualización fluida continua
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateHUD();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener('resize', updateHUD, { passive: true });
+  // Llamada inicial para que nunca quede estático en 0%
+  updateHUD();
+
+  // Clic en la píldora HUD: salta a la siguiente sección no explorada
+  hudPill?.addEventListener('click', () => {
+    const nextUnvisited = sections.find(s => !visited.has(s.id));
+    if (nextUnvisited) {
+      nextUnvisited.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      showCompletionToast();
+    }
+  });
 
   function showCompletionToast() {
     let toast = document.getElementById('hud-toast');
@@ -430,4 +485,53 @@ function initRipple() {
     ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
     host.appendChild(ripple);
   });
+}
+
+/**
+ * Micro-interacción lúdica: chispas cósmicas efímeras al hacer clic con Anime.js
+ */
+function initCosmicSparks() {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  const colors = ['#06b6d4', '#3b82f6', '#38bdf8', '#10b981', '#ffffff'];
+
+  window.addEventListener('pointerdown', (e) => {
+    if (typeof window.anime !== 'function') return;
+    if (e.target && e.target.closest('input, textarea, select')) return;
+
+    const count = 6;
+    const container = document.createElement('div');
+    container.style.cssText = `position:fixed;left:${e.clientX}px;top:${e.clientY}px;pointer-events:none;z-index:99999;`;
+    document.body.appendChild(container);
+
+    const sparks = [];
+    for (let i = 0; i < count; i++) {
+      const spark = document.createElement('div');
+      const size = Math.random() * 3 + 2;
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      spark.style.cssText = `
+        position:absolute;
+        width:${size.toFixed(1)}px;
+        height:${size.toFixed(1)}px;
+        border-radius:50%;
+        background:${color};
+        box-shadow: 0 0 6px ${color};
+        transform: translate(-50%, -50%);
+      `;
+      container.appendChild(spark);
+      sparks.push(spark);
+    }
+
+    window.anime({
+      targets: sparks,
+      translateX: () => (Math.random() - 0.5) * 55,
+      translateY: () => (Math.random() - 0.5) * 55 - 6,
+      scale: [1, 0],
+      opacity: [1, 0],
+      duration: () => 380 + Math.random() * 180,
+      easing: 'easeOutExpo',
+      complete: () => container.remove()
+    });
+  }, { passive: true });
 }

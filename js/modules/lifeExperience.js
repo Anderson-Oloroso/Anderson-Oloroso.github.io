@@ -174,19 +174,44 @@ export function initLifeExperience() {
     const data = hobbiesData[currentIndex];
     const lang = document.documentElement.lang === 'en' ? 'en' : 'es';
 
-    // Transición suave en spotlight
+    // Transición cinematográfica en fondo de spotlight con Anime.js
     if (spotlightBg) {
-      spotlightBg.style.opacity = '0.35';
-      setTimeout(() => {
-        spotlightBg.style.backgroundImage = `url('${data.img}')`;
-        spotlightBg.style.opacity = '0.9';
-      }, 150);
+      if (typeof window.anime === 'function') {
+        window.anime({
+          targets: spotlightBg,
+          opacity: [0.3, 0.9],
+          scale: [1.06, 1],
+          duration: 520,
+          easing: 'easeOutQuad',
+          begin: () => {
+            spotlightBg.style.backgroundImage = `url('${data.img}')`;
+          }
+        });
+      } else {
+        spotlightBg.style.opacity = '0.35';
+        setTimeout(() => {
+          spotlightBg.style.backgroundImage = `url('${data.img}')`;
+          spotlightBg.style.opacity = '0.9';
+        }, 120);
+      }
     }
 
     if (tagEl) tagEl.textContent = data.tag[lang];
     if (counterEl) counterEl.textContent = `${currentIndex + 1} / ${total}`;
     if (titleEl) titleEl.textContent = data.title[lang];
     if (storyEl) storyEl.textContent = data.story[lang];
+
+    // Animación escalonada del contenido textual
+    if (typeof window.anime === 'function') {
+      window.anime({
+        targets: [tagEl, titleEl, storyEl],
+        opacity: [0, 1],
+        translateY: [10, 0],
+        delay: window.anime.stagger(40),
+        duration: 380,
+        easing: 'easeOutCubic'
+      });
+    }
 
     // Actualizar dots
     const dots = dotsContainer?.querySelectorAll('.hobby-dot');

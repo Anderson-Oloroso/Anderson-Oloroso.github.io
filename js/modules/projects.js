@@ -207,7 +207,7 @@ export function initProjects() {
 }
 
 /**
- * Filtros interactivos por categoría de tecnología
+ * Filtros interactivos por categoría de tecnología con Anime.js
  */
 function initProjectFilters() {
   const filterButtons = document.querySelectorAll('.project-filter-btn');
@@ -227,29 +227,81 @@ function initProjectFilters() {
       btn.classList.add('active');
       btn.setAttribute('aria-pressed', 'true');
 
-      // Filtrar tarjetas
+      // Micro-rebote cinemático en el botón activo
+      if (typeof window.anime === 'function') {
+        window.anime({
+          targets: btn,
+          scale: [0.94, 1.05, 1],
+          duration: 300,
+          easing: 'easeOutBack'
+        });
+      }
+
+      // Separar tarjetas coincidentes y no coincidentes
+      const matched = [];
+      const unmatched = [];
+
       projectCards.forEach(card => {
         const categories = (card.dataset.category || '').split(' ');
         const isMatch = selectedCategory === 'all' || categories.includes(selectedCategory);
+        if (isMatch) matched.push(card);
+        else unmatched.push(card);
+      });
 
-        if (isMatch) {
+      // Animación suave con Anime.js
+      if (typeof window.anime === 'function') {
+        // Desvanecer no coincidentes
+        if (unmatched.length) {
+          window.anime({
+            targets: unmatched,
+            opacity: [1, 0],
+            scale: [1, 0.92],
+            duration: 200,
+            easing: 'easeInQuad',
+            complete: () => {
+              unmatched.forEach(card => {
+                card.classList.add('filter-hidden');
+                card.style.display = 'none';
+              });
+            }
+          });
+        }
+
+        // Mostrar y animar en cascada (stagger) los coincidentes
+        matched.forEach(card => {
           card.classList.remove('filter-hidden');
           card.style.display = 'flex';
-          requestAnimationFrame(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0) scale(1)';
-          });
-        } else {
           card.style.opacity = '0';
-          card.style.transform = 'translateY(12px) scale(0.96)';
+        });
+
+        window.anime({
+          targets: matched,
+          opacity: [0, 1],
+          translateY: [16, 0],
+          scale: [0.94, 1],
+          delay: window.anime.stagger(60, { start: 90 }),
+          duration: 380,
+          easing: 'easeOutCubic',
+          complete: () => {
+            matched.forEach(c => {
+              c.style.transform = '';
+              c.style.translate = '';
+              c.style.opacity = '1';
+            });
+          }
+        });
+      } else {
+        // Fallback nativo
+        unmatched.forEach(card => {
           card.classList.add('filter-hidden');
-          setTimeout(() => {
-            if (card.classList.contains('filter-hidden')) {
-              card.style.display = 'none';
-            }
-          }, 300);
-        }
-      });
+          card.style.display = 'none';
+        });
+        matched.forEach(card => {
+          card.classList.remove('filter-hidden');
+          card.style.display = 'flex';
+          card.style.opacity = '1';
+        });
+      }
     });
   });
 }
