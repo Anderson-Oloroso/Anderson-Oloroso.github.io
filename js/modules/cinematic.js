@@ -11,6 +11,7 @@ export function initCinematic() {
   initAmbientCanvas();
   initHeroParallax();
   initSmoothScroll();
+  initCustomCursor();
 }
 
 /**
@@ -273,4 +274,74 @@ function initHeroParallax() {
   }
 
   requestAnimationFrame(update);
+}
+
+/**
+ * Cursor cinematográfico personalizado (dot + ring con easing)
+ * - Activo solo en dispositivos non-touch
+ * - Desactivado con prefers-reduced-motion
+ * - Se expande en hover sobre elementos interactivos
+ */
+function initCustomCursor() {
+  // No activar en dispositivos táctiles
+  if (window.matchMedia('(hover: none)').matches) return;
+
+  // No activar si el usuario prefiere movimiento reducido
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  const dot  = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  if (!dot || !ring) return;
+
+  // Mostrar cursores y ocultar el nativo
+  dot.style.opacity  = '1';
+  ring.style.opacity = '1';
+  document.body.classList.add('custom-cursor-active');
+
+  let mouseX = 0, mouseY = 0;
+  let ringX  = 0, ringY  = 0;
+  let rafId  = null;
+
+  // Dot sigue al cursor directamente
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    dot.style.transform = `translate(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%))`;
+  }, { passive: true });
+
+  // Ring sigue con easing (efecto lag cinematográfico)
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
+    ring.style.transform = `translate(calc(${ringX}px - 50%), calc(${ringY}px - 50%))`;
+    rafId = requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  // Hover sobre elementos interactivos: expande ring y cambia color dot
+  const interactiveSelector = 'a, button, [role="button"], .tech-badge, .project-card, .filter-btn, .tilt-card, label[for], .nav-link, .btn';
+
+  function onEnter() { document.body.classList.add('cursor-hover'); }
+  function onLeave() { document.body.classList.remove('cursor-hover'); }
+
+  // Delegación de eventos en document
+  document.addEventListener('mouseover', (e) => {
+    if (e.target.closest(interactiveSelector)) onEnter();
+  }, { passive: true });
+
+  document.addEventListener('mouseout', (e) => {
+    if (e.target.closest(interactiveSelector)) onLeave();
+  }, { passive: true });
+
+  // Ocultar cursores si el mouse sale de la ventana
+  document.addEventListener('mouseleave', () => {
+    dot.style.opacity  = '0';
+    ring.style.opacity = '0';
+  }, { passive: true });
+
+  document.addEventListener('mouseenter', () => {
+    dot.style.opacity  = '1';
+    ring.style.opacity = '1';
+  }, { passive: true });
 }

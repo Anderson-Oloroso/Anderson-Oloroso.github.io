@@ -112,6 +112,78 @@ ul {
   border: 0;
 }
 
+/* ============================================================
+   CURSOR CINEMATOGRÁFICO PERSONALIZADO
+   - Dot: círculo relleno pequeño que sigue al cursor exacto
+   - Ring: anillo traslúcido con easing suave (lag visual)
+   - Oculta cursor nativo en dispositivos non-touch
+   - Se desactiva con prefers-reduced-motion
+   ============================================================ */
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10000;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  will-change: transform, opacity;
+  /* Oculto por defecto; JS lo activa solo en non-touch */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.8), 0 0 20px rgba(6, 182, 212, 0.4);
+  transition: transform 0.08s ease, background 0.25s ease,
+              box-shadow 0.25s ease, opacity 0.3s ease;
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(6, 182, 212, 0.55);
+  background: transparent;
+  transition: width 0.3s var(--ease-smooth), height 0.3s var(--ease-smooth),
+              border-color 0.3s ease, background 0.3s ease,
+              opacity 0.3s ease;
+}
+
+/* Estado hover sobre elementos interactivos */
+body.cursor-hover .cursor-dot {
+  transform: translate(-50%, -50%) scale(1.8);
+  background: var(--accent-blue);
+  box-shadow: 0 0 14px rgba(59, 130, 246, 0.9), 0 0 28px rgba(59, 130, 246, 0.4);
+}
+
+body.cursor-hover .cursor-ring {
+  width: 56px;
+  height: 56px;
+  border-color: rgba(59, 130, 246, 0.45);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+/* Modo claro: tonalidad azul en lugar de cyan */
+[data-theme="light"] .cursor-dot {
+  background: var(--accent-blue);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+[data-theme="light"] .cursor-ring {
+  border-color: rgba(59, 130, 246, 0.45);
+}
+
+/* Ocultar cursor nativo cuando el custom cursor está activo */
+body.custom-cursor-active,
+body.custom-cursor-active * {
+  cursor: none !important;
+}
+
 /* Contenedores y Secciones Generales */
 .container {
   width: 100%;
