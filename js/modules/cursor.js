@@ -1,6 +1,6 @@
 import { prefersReducedMotion, hasFinePointer, lerp } from './utils.js';
 
-const INTERACTIVE = 'a, button, [role="button"], summary, [data-cursor="link"], .btn, .filter-btn, .inspect-btn, .cli-easter-btn';
+const INTERACTIVE = 'a, button, [role="button"], summary, [data-cursor="link"], .btn, .filter-btn, .inspect-btn, .inspector-close-btn, .terminal-dot, .cli-easter-btn';
 const CARD = '[data-spotlight], [data-tilt], .hobby-card, .project-card, .profile-card, .tilt-card, .life-spotlight-card, .tech-badge';
 const NATIVE = 'select, input, textarea';
 

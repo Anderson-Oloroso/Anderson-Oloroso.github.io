@@ -192,10 +192,12 @@
   background: rgba(7, 9, 15, 0.75);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  z-index: 0;
 }
 
 .dev-terminal-window {
   position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 680px;
   height: 480px;

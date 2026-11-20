@@ -171,7 +171,7 @@ ul {
   margin: -18px 0 0 -18px;
   border: 1.5px solid var(--cursor-ring);
   border-radius: 50%;
-  z-index: 1999;
+  z-index: 100000;
   transition:
     opacity 0.3s ease,
     scale 0.35s var(--ease-smooth),
@@ -185,7 +185,7 @@ ul {
   margin: -4px 0 0 -4px;
   border-radius: 50%;
   background: var(--accent-cyan);
-  z-index: 2000;
+  z-index: 100001;
   transition: opacity 0.3s ease, scale 0.25s var(--ease-smooth);
 }
 
