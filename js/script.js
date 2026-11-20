@@ -11,6 +11,7 @@ import { initCinematic } from './modules/cinematic.js';
 import { initInteractive } from './modules/interactive.js';
 import { initProjects } from './modules/projects.js';
 import { initLifeExperience } from './modules/lifeExperience.js';
+import { initCursor } from './modules/cursor.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initLocalization();
@@ -22,4 +23,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initInteractive();
   initProjects();
   initLifeExperience();
+  initCursor();
 });

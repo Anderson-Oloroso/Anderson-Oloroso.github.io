@@ -112,102 +112,101 @@ ul {
   border: 0;
 }
 
-/* ============================================================
-   CURSOR CINEMATOGRÁFICO PERSONALIZADO
-   - Dot: círculo relleno pequeño que sigue al cursor exacto
-   - Ring: anillo traslúcido con easing suave (lag visual)
-   - Oculta cursor nativo en dispositivos non-touch
-   - Se desactiva con prefers-reduced-motion
-   ============================================================ */
-
+/* --------------------------------------------------------------------------
+   Cursor personalizado (solo punteros finos: ratón / trackpad - idéntico a main)
+   -------------------------------------------------------------------------- */
 .cursor-dot,
-.cursor-ring {
+.cursor-ring,
+.cursor-glow {
   position: fixed;
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 10000;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  will-change: transform, opacity;
-  /* Oculto por defecto; JS lo activa solo en non-touch */
   opacity: 0;
   transition: opacity 0.3s ease;
+  will-change: translate;
 }
 
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--accent-cyan);
-  box-shadow: 0 0 10px rgba(6, 182, 212, 0.8), 0 0 20px rgba(6, 182, 212, 0.4);
-  transition: transform 0.08s ease, background 0.25s ease,
-              box-shadow 0.25s ease, opacity 0.3s ease;
+.cursor-glow {
+  width: 640px;
+  height: 640px;
+  margin: -320px 0 0 -320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--cursor-glow) 0%, transparent 62%);
+  z-index: 0;
 }
 
 .cursor-ring {
   width: 36px;
   height: 36px;
-  border: 1.5px solid rgba(6, 182, 212, 0.55);
-  background: transparent;
-  transition: width 0.3s var(--ease-smooth), height 0.3s var(--ease-smooth),
-              border-color 0.3s ease, background 0.3s ease,
-              opacity 0.3s ease;
+  margin: -18px 0 0 -18px;
+  border: 1.5px solid var(--cursor-ring);
+  border-radius: 50%;
+  z-index: 1999;
+  transition:
+    opacity 0.3s ease,
+    scale 0.35s var(--ease-smooth),
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 }
 
-/* Estado hover sobre elementos interactivos */
-body.cursor-hover .cursor-dot {
-  transform: translate(-50%, -50%) scale(1.8);
-  background: var(--accent-blue);
-  box-shadow: 0 0 14px rgba(59, 130, 246, 0.9), 0 0 28px rgba(59, 130, 246, 0.4);
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  z-index: 2000;
+  transition: opacity 0.3s ease, scale 0.25s var(--ease-smooth);
 }
 
-body.cursor-hover .cursor-ring {
-  width: 56px;
-  height: 56px;
-  border-color: rgba(59, 130, 246, 0.45);
-  background: rgba(59, 130, 246, 0.05);
+.cursor-visible .cursor-dot,
+.cursor-visible .cursor-ring,
+.cursor-visible .cursor-glow {
+  opacity: 1;
 }
 
-/* Modo claro: tonalidad azul en lugar de cyan */
-[data-theme="light"] .cursor-dot {
-  background: var(--accent-blue);
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(59, 130, 246, 0.3);
+.cursor-ring.is-card {
+  scale: 1.35;
 }
 
-[data-theme="light"] .cursor-ring {
-  border-color: rgba(59, 130, 246, 0.45);
+.cursor-ring.is-link {
+  scale: 1.8;
+  background: var(--cursor-ring-fill);
+  border-color: transparent;
 }
 
-/* Ocultar cursor nativo cuando el custom cursor está activo */
-body.custom-cursor-active,
-body.custom-cursor-active * {
+.cursor-ring.is-down {
+  scale: 0.8;
+}
+
+.cursor-ring.is-link.is-down {
+  scale: 1.35;
+}
+
+.cursor-ring.is-link ~ .cursor-dot {
+  scale: 0;
+}
+
+/* Se oculta el cursor nativo solo cuando el personalizado está activo */
+.has-custom-cursor,
+.has-custom-cursor * {
   cursor: none !important;
 }
 
-/* ── Partículas atraídas por el cursor ──────────────────────────────────── */
-@keyframes cursorSparkle {
-  0%   { transform: translate(-50%, -50%) scale(1);    opacity: 0.9; }
-  60%  { opacity: 0.5; }
-  100% { transform: translate(calc(-50% + var(--px, 0px)), calc(-50% + var(--py, -18px))) scale(0); opacity: 0; }
+/* Controles nativos (select): se devuelve el cursor del sistema */
+.has-custom-cursor.cursor-native,
+.has-custom-cursor.cursor-native * {
+  cursor: auto !important;
 }
 
-.cursor-particle {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: var(--ps, 5px);
-  height: var(--ps, 5px);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  background: radial-gradient(circle, #ffffff 0%, var(--pc, rgba(6,182,212,0.9)) 55%, transparent 100%);
-  box-shadow: 0 0 6px 2px var(--pc, rgba(6,182,212,0.6));
-  animation: cursorSparkle var(--pd, 0.65s) ease-out forwards;
-  will-change: transform, opacity;
+.has-custom-cursor.cursor-native select {
+  cursor: pointer !important;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .cursor-particle { display: none; }
+.cursor-native .cursor-dot,
+.cursor-native .cursor-ring {
+  opacity: 0;
 }
 
 /* Contenedores y Secciones Generales */
