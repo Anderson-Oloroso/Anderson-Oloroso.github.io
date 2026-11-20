@@ -79,22 +79,22 @@
 
 .badge-glint {
   position: absolute;
-  width: 5px;
-  height: 5px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   pointer-events: none;
   /* posición inyectada por JS con custom props --gx / --gy */
   left: var(--gx, 50%);
   top:  var(--gy, 50%);
-  background: radial-gradient(circle, #fff 0%, rgba(6,182,212,0.85) 50%, transparent 100%);
-  box-shadow: 0 0 7px 2px rgba(6, 182, 212, 0.65);
-  animation: glintPulse 0.55s ease-out forwards;
+  background: radial-gradient(circle, #fff 0%, rgba(6,182,212,0.95) 45%, transparent 100%);
+  box-shadow: 0 0 10px 4px rgba(6, 182, 212, 0.75), 0 0 20px 6px rgba(6,182,212,0.3);
+  animation: glintPulse 0.65s ease-out forwards;
   will-change: transform, opacity;
 }
 
 [data-theme="light"] .badge-glint {
-  background: radial-gradient(circle, #fff 0%, rgba(59,130,246,0.85) 55%, transparent 100%);
-  box-shadow: 0 0 7px 2px rgba(59,130,246,0.55);
+  background: radial-gradient(circle, #fff 0%, rgba(59,130,246,0.95) 50%, transparent 100%);
+  box-shadow: 0 0 10px 4px rgba(59,130,246,0.7), 0 0 20px 6px rgba(59,130,246,0.25);
 }
 
 @media (prefers-reduced-motion: reduce) {

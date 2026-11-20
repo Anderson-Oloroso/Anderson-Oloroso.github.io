@@ -437,8 +437,8 @@ function initBadgeGlint() {
   }
 
   function scheduleGlint(badge) {
-    // Retraso aleatorio: entre 1.2 s y 6 s
-    const delay = 1200 + Math.random() * 4800;
+    // Retraso aleatorio: entre 0.6 s y 1.8 s (~cada segundo)
+    const delay = 600 + Math.random() * 1200;
     setTimeout(() => {
       fireGlint(badge);
       scheduleGlint(badge); // reprogramar para el siguiente destello
@@ -447,7 +447,7 @@ function initBadgeGlint() {
 
   // Offset inicial aleatorio para que no todos disparen al mismo tiempo
   badges.forEach((badge) => {
-    const initDelay = Math.random() * 5000;
+    const initDelay = Math.random() * 1500;
     setTimeout(() => scheduleGlint(badge), initDelay);
   });
 }
