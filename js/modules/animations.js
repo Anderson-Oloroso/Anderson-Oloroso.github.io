@@ -1,7 +1,7 @@
 import { prefersReducedMotion } from './utils.js';
 
 /**
- * Elementos que se revelan cinemáticamente al entrar en pantalla.
+ * Elementos que se revelan al entrar en pantalla.
  * Variante por atributo: data-reveal="up | left | right | scale" (up por defecto).
  */
 const REVEAL_TARGETS = [
@@ -15,17 +15,14 @@ const REVEAL_TARGETS = [
   '.project-card',
   '.projects-footer-cta',
   '.hobby-card',
-  '.hobby-spotlight',
-  '.project-filters-container',
   '.contact-tile'
 ].join(', ');
 
-/** Variante por defecto cuando el elemento no declara data-reveal */
+/** Variante por defecto cuando el HTML no declara data-reveal */
 const DEFAULT_VARIANTS = {
   '.stack-section-container': 'scale',
   '.tech-badge': 'scale',
-  '.hobby-card': 'scale',
-  '.hobby-spotlight': 'scale'
+  '.hobby-card': 'scale'
 };
 
 /**
@@ -49,10 +46,10 @@ export function initAnimations() {
 
   const elements = document.querySelectorAll(REVEAL_TARGETS);
 
-  // Escalonado fijo dentro de cada grupo de insignias (40 ms entre una y otra)
+  // Escalonado fijo dentro de cada grupo de insignias (45 ms entre una y otra)
   document.querySelectorAll('.badges-flex-container').forEach((group) => {
     [...group.children].forEach((badge, index) => {
-      badge.style.setProperty('--reveal-delay', `${Math.min(index, 8) * 40}ms`);
+      badge.style.setProperty('--reveal-delay', `${Math.min(index, 8) * 45}ms`);
     });
   });
 

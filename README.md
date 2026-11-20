@@ -49,13 +49,23 @@ Servir como punto de convergencia profesional donde se presentan:
 - **Módulos desacoplados (`js/modules/`)**:
   - `navigation.js`: Control del menú móvil, eventos de teclado (`Escape`) y clics fuera del contenedor.
   - `scrollSpy.js`: Detección eficiente de sección activa con `requestAnimationFrame` y estilo sticky del navbar.
-  - `cinematic.js`: Barra superior de progreso de lectura, fondo ambiental interactivo con canvas 2D, parallax cinemático en Hero y smooth scroll con Lenis.
-  - `animations.js`: Revelado progresivo escalonado (Staggered Reveal) en scroll utilizando la API nativa `IntersectionObserver`.
-  - `interactive.js`: 3D Tilt suave con reflejo especular (glare) en tarjetas, HUD radar de exploración del portafolio y consola interactiva para desarrolladores (Easter egg CLI con atajos `~` y `Ctrl+K`).
-  - `projects.js`: Filtros reactivos por categoría tecnológica y panel/modal de inspección rápida de arquitectura y flujo de datos.
-  - `lifeExperience.js`: Showcase interactivo y cinematográfico de pasatiempos ("Mi vida fuera del código") con visor dinámico y rotación táctil/teclado.
-  - `localization.js`: Traducción completa en tiempo real de la interfaz entre español e inglés, incluidos metadatos, tags y diálogos modales.
-  - `theme.js`: Alternancia entre los temas claro y oscuro con persistencia visual.
+  - `animations.js`: Revelado progresivo en scroll (`IntersectionObserver`) con variantes y escalonado, más la entrada orquestada del hero.
+  - `localization.js`: Traducción de la interfaz entre español e inglés, con fundido de textos, metadatos y etiquetas accesibles.
+  - `theme.js`: Alternancia entre los temas claro y oscuro con revelado circular (View Transitions API) y fundido como respaldo.
+  - `heroCanvas.js`, `parallax.js`, `cursor.js`, `cardEffects.js`, `interactions.js`: capa inmersiva descrita más abajo.
+
+### 4. Capa inmersiva (sin librerías)
+Todo está escrito en JavaScript vanilla y CSS: no se añade ninguna dependencia. Cada efecto es una mejora progresiva, se pausa fuera de pantalla y se desactiva con `prefers-reduced-motion`; los efectos de puntero solo se activan con ratón o trackpad.
+
+| Atributo | Efecto |
+| --- | --- |
+| `data-reveal="up \| left \| right \| scale"` | Variante del revelado en scroll (`up` por defecto) |
+| `data-spotlight` | Brillo interior y borde luminoso que siguen al puntero |
+| `data-tilt="6"` | Inclinación 3D de hasta 6°; `data-tilt-lift` ajusta la elevación en hover |
+| `data-magnetic="0.3"` | El elemento se acerca al puntero (la cifra es la fuerza) |
+| `data-parallax="0.2"` / `data-depth="24"` | Parallax del hero por scroll / por posición del puntero |
+
+Además: cursor personalizado con aro de inercia, glow ambiental, barra de progreso de lectura, ripple en botones y un fondo en canvas con una red de nodos y paquetes que viajan entre ellos. Los tokens (colores del canvas, spotlight, elevación y sombras) viven en `css/modules/variables.css`.
 
 ---
 
@@ -75,9 +85,9 @@ Anderson-Oloroso.github.io/
 │       ├── navigation.css      # Header, navbar blur, menú móvil y footer
 │       ├── hero-about.css      # Hero interactivo y perfil profesional
 │       ├── stack.css           # Grid y flexbox de tecnologías y competencias
-│       ├── projects-contact.css# Filtros, modal de arquitectura, showcase de vida y contacto
-│       ├── interactive.css     # Estilos para 3D Tilt, HUD de lectura y Terminal CLI
-│       └── responsive.css      # Media queries y accesibilidad de movimiento
+│       ├── projects-contact.css# Tarjetas de proyectos y canales de contacto
+│       ├── effects.css         # Cursor, spotlight, tilt, magnético, ripple y transición de tema
+│       └── responsive.css      # Revelado en scroll, media queries y accesibilidad de movimiento
 ├── js/
 │   ├── script.js               # Punto de entrada orquestador
 │   └── modules/                # Lógica desacoplada en módulos ES6
@@ -87,9 +97,15 @@ Anderson-Oloroso.github.io/
 │       ├── lifeExperience.js   # Visor cinemático de vida personal y pasatiempos
 │       ├── navigation.js       # Comportamiento del menú móvil y ARIA
 │       ├── scrollSpy.js        # Detección de scroll y clase de navbar
-│       ├── animations.js       # IntersectionObserver con ritmo escalonado
-│       ├── localization.js     # Selector de idioma español/inglés reactivo
-│       └── theme.js            # Alternancia de tema claro/oscuro
+│       ├── animations.js       # Revelado en scroll y entrada del hero
+│       ├── localization.js     # Selector de idioma español/inglés (con fundido)
+│       ├── theme.js            # Alternancia de tema claro/oscuro (con transición)
+│       ├── utils.js            # Helpers compartidos (reduced-motion, puntero fino, lerp)
+│       ├── heroCanvas.js       # Fondo interactivo del hero (red de nodos)
+│       ├── parallax.js         # Parallax por scroll y puntero en el hero
+│       ├── cursor.js           # Cursor personalizado y glow ambiental
+│       ├── cardEffects.js      # Spotlight y tilt 3D de tarjetas
+│       └── interactions.js     # Botones magnéticos y ripple
 └── img/
     ├── Hnk.jpeg                # Fotografía profesional de perfil
     ├── favicon.ico             # Favicon oficial del sitio
@@ -142,5 +158,5 @@ Ciudad de Guatemala, Guatemala
 ---
 
 <div align="center">
-  <sub>Última actualización: 21 de octubre de 2026</sub>
+  <sub>Última actualización: 18 de noviembre de 2026</sub>
 </div>

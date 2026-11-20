@@ -22,7 +22,10 @@
 /* 6. Proyectos Destacados y Contacto */
 @import url('./modules/projects-contact.css');
 
-/* 7. Animaciones y Media Queries Responsive */
+/* 7. Efectos inmersivos (cursor, spotlight, tilt, magnético, transiciones) */
+@import url('./modules/effects.css');
+
+/* 8. Animaciones de revelado y Media Queries Responsive */
 @import url('./modules/responsive.css');
 
 /* 8. Micro-interacciones, 3D Tilt, HUD y Terminal Dev */
