@@ -12,6 +12,7 @@ export function initCinematic() {
   initHeroParallax();
   initSmoothScroll();
   initCustomCursor();
+  initBadgeSparkle();
 }
 
 /**
@@ -344,4 +345,27 @@ function initCustomCursor() {
     dot.style.opacity  = '1';
     ring.style.opacity = '1';
   }, { passive: true });
+}
+
+/**
+ * Destello aleatorio ("sparkle") en los tech-badges de #conocimientos
+ * - Asigna --sparkle-delay aleatorio (0–9s) a cada badge
+ * - La animación infinita produce un barrido luminoso escalonado
+ * - Respeta prefers-reduced-motion (manejado en CSS; no activa la clase)
+ */
+function initBadgeSparkle() {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  const badges = document.querySelectorAll('#conocimientos .tech-badge');
+  if (!badges.length) return;
+
+  badges.forEach((badge) => {
+    // Delay inicial aleatorio entre 0 y 9 s, con resolución de 0.1 s
+    const delay = (Math.random() * 9).toFixed(1);
+    badge.style.setProperty('--sparkle-delay', `${delay}s`);
+  });
+
+  // Activar la animación mediante clase en body
+  document.body.classList.add('sparkle-active');
 }
