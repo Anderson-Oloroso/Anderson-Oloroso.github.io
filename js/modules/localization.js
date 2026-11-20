@@ -105,7 +105,10 @@ const translations = {
     contactTitle: 'Información de Contacto',
     contactDescription: 'Disponible para oportunidades laborales, colaboraciones y proyectos de software.',
     email: 'Correo',
-    copyright: '© 2026 Todos los derechos reservados • Desplegado en'
+    copyright: '© 2026 Todos los derechos reservados • Desplegado en',
+    terminalBtnLabel: 'Abrir terminal CLI interactiva',
+    hudToastTitle: '¡100% Explorado!',
+    hudToastDesc: 'Has recorrido todas las secciones del portafolio.'
   },
   en: {
     pageTitle: 'Henrik Anderson Oloroso García | Software Development Technician',
@@ -213,7 +216,10 @@ const translations = {
     contactTitle: 'Contact Information',
     contactDescription: 'Available for job opportunities, collaborations, and software projects.',
     email: 'Email',
-    copyright: '© 2026 All rights reserved • Hosted on'
+    copyright: '© 2026 All rights reserved • Hosted on',
+    terminalBtnLabel: 'Open interactive CLI terminal',
+    hudToastTitle: '100% Explored!',
+    hudToastDesc: 'You have explored all portfolio sections.'
   }
 };
 
