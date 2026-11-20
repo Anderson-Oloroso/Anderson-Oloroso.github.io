@@ -1,0 +1,783 @@
+/* ==========================================================================
+   COMPONENTE LÚDICO: MISIÓN DE DESCUBRIMIENTO "PROTOCOLO NÚCLEO"
+   Estilos modulares para Nodos de Datos, HUD Quest, Dossier Modal y Overclock
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Nodos de Datos Interactivos en las Secciones (.core-node)
+   -------------------------------------------------------------------------- */
+.core-node {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(245, 158, 11, 0.6);
+  border-radius: var(--radius-full, 9999px);
+  color: #f59e0b;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+  transition: transform 0.25s var(--ease-smooth, ease),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease,
+              background-color 0.25s ease,
+              color 0.25s ease;
+  z-index: 5;
+}
+
+:root[data-theme="light"] .core-node {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(217, 119, 6, 0.7);
+  color: #b45309;
+}
+
+.core-node:hover {
+  transform: translateY(-2px) scale(1.05);
+  border-color: #f59e0b;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.45);
+  color: #fbbf24;
+}
+
+.core-node:focus-visible {
+  outline: 2px solid var(--accent-cyan, #06b6d4);
+  outline-offset: 2px;
+}
+
+/* Pulso de radar para nodo encriptado */
+.core-node-pulse {
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: inherit;
+  border: 1px dashed rgba(245, 158, 11, 0.6);
+  pointer-events: none;
+  animation: nodeRadar 2.5s infinite linear;
+}
+
+@keyframes nodeRadar {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.core-node-icon {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.core-node-num {
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+
+/* Estado: Desencriptado (Unlocked) */
+.core-node.is-unlocked {
+  border-color: rgba(16, 185, 129, 0.8);
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.35);
+}
+
+:root[data-theme="light"] .core-node.is-unlocked {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: #059669;
+  color: #047857;
+}
+
+.core-node.is-unlocked .core-node-pulse {
+  border-color: rgba(16, 185, 129, 0.4);
+  animation-duration: 4s;
+}
+
+.core-node.is-unlocked:hover {
+  border-color: #34d399;
+  box-shadow: 0 0 18px rgba(16, 185, 129, 0.55);
+}
+
+/* Variante para nodo dentro del terminal */
+.core-node--terminal {
+  padding: 0.15rem 0.5rem;
+  margin-left: auto;
+  margin-right: 0.5rem;
+  font-size: 0.68rem;
+}
+
+/* --------------------------------------------------------------------------
+   2. Botón Disparador del Protocolo en Navbar (.quest-trigger-btn)
+   -------------------------------------------------------------------------- */
+.quest-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  background: var(--bg-surface, rgba(30, 41, 59, 0.6));
+  border: 1px solid var(--border-regular, rgba(255, 255, 255, 0.12));
+  border-radius: var(--radius-full, 9999px);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary, #94a3b8);
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transition-fast, 0.2s ease);
+}
+
+.quest-trigger-btn:hover {
+  border-color: #f59e0b;
+  color: #fbbf24;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.3);
+  transform: translateY(-1px);
+}
+
+.quest-trigger-btn:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+.quest-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
+  animation: questDotPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes questDotPulse {
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 1;
+    box-shadow: 0 0 12px #f59e0b;
+  }
+}
+
+.quest-counter {
+  padding: 0.1rem 0.35rem;
+  background: rgba(245, 158, 11, 0.18);
+  border-radius: 4px;
+  color: #f59e0b;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+}
+
+.quest-trigger-btn.is-completed {
+  border-color: var(--accent-emerald, #10b981);
+  color: var(--accent-emerald, #10b981);
+}
+
+.quest-trigger-btn.is-completed .quest-pulse-dot {
+  background: var(--accent-emerald, #10b981);
+  box-shadow: 0 0 8px var(--accent-emerald, #10b981);
+}
+
+.quest-trigger-btn.is-completed .quest-counter {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--accent-emerald, #10b981);
+}
+
+/* --------------------------------------------------------------------------
+   3. Modal Dossier del Protocolo Núcleo (.quest-modal)
+   -------------------------------------------------------------------------- */
+.quest-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease-smooth, ease);
+}
+
+.quest-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.quest-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 0;
+}
+
+.quest-window {
+  position: relative;
+  z-index: 1;
+  width: 92%;
+  max-width: 680px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface, #0f172a);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: var(--radius-lg, 16px);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.8),
+              0 0 30px rgba(245, 158, 11, 0.15);
+  overflow: hidden;
+  transform: scale(0.95) translateY(12px);
+  transition: transform 0.3s var(--ease-smooth, ease);
+}
+
+.quest-modal.active .quest-window {
+  transform: scale(1) translateY(0);
+}
+
+:root[data-theme="light"] .quest-window {
+  background: #ffffff;
+  border-color: rgba(217, 119, 6, 0.35);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.2),
+              0 0 30px rgba(217, 119, 6, 0.12);
+}
+
+/* Header del modal */
+.quest-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.4rem;
+  border-bottom: 1px solid var(--border-regular, rgba(255, 255, 255, 0.08));
+  background: rgba(15, 23, 42, 0.4);
+}
+
+:root[data-theme="light"] .quest-header {
+  background: rgba(248, 250, 252, 0.8);
+}
+
+.quest-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.quest-badge {
+  align-self: flex-start;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.12);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.quest-modal-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary, #f8fafc);
+}
+
+.quest-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--text-secondary, #94a3b8);
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.quest-close-btn:hover {
+  color: var(--text-primary, #ffffff);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Cuerpo del modal */
+.quest-body {
+  padding: 1.25rem 1.4rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.quest-subtitle {
+  font-size: 0.88rem;
+  color: var(--text-secondary, #94a3b8);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Barra de progreso global */
+.quest-progress-box {
+  background: var(--bg-primary, rgba(2, 6, 23, 0.5));
+  border: 1px solid var(--border-regular, rgba(255, 255, 255, 0.08));
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+}
+
+:root[data-theme="light"] .quest-progress-box {
+  background: #f1f5f9;
+}
+
+.quest-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.quest-progress-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary, #f8fafc);
+}
+
+.quest-progress-val {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #f59e0b;
+}
+
+.quest-progress-track {
+  width: 100%;
+  height: 7px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+:root[data-theme="light"] .quest-progress-track {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.quest-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b, #10b981);
+  border-radius: 9999px;
+  transition: width 0.4s var(--ease-smooth, ease);
+}
+
+/* Cuadrícula de 5 Nodos */
+.quest-nodes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 0.65rem;
+}
+
+.quest-node-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.85rem 0.5rem;
+  background: var(--bg-primary, rgba(2, 6, 23, 0.4));
+  border: 1px solid var(--border-regular, rgba(255, 255, 255, 0.1));
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s var(--ease-smooth, ease);
+  text-align: center;
+}
+
+:root[data-theme="light"] .quest-node-item {
+  background: #f8fafc;
+}
+
+.quest-node-item:hover {
+  transform: translateY(-2px);
+  border-color: #f59e0b;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+}
+
+.quest-node-item.active-item {
+  border-color: var(--accent-cyan, #06b6d4);
+  box-shadow: 0 0 14px rgba(6, 182, 212, 0.3);
+}
+
+.quest-node-item-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+  border: 1px dashed rgba(245, 158, 11, 0.5);
+  transition: all 0.25s ease;
+}
+
+.quest-node-item-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-primary, #f8fafc);
+}
+
+.quest-node-item-status {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--text-secondary, #94a3b8);
+  letter-spacing: 0.05em;
+}
+
+/* Nodo item desbloqueado */
+.quest-node-item.is-unlocked {
+  border-color: rgba(16, 185, 129, 0.5);
+}
+
+.quest-node-item.is-unlocked .quest-node-item-icon {
+  background: rgba(16, 185, 129, 0.18);
+  border: 1px solid #10b981;
+  color: #10b981;
+}
+
+.quest-node-item.is-unlocked .quest-node-item-status {
+  color: #10b981;
+  font-weight: 600;
+}
+
+/* Panel Dossier / Detalle del nodo seleccionado */
+.quest-dossier-panel {
+  background: var(--bg-primary, rgba(2, 6, 23, 0.6));
+  border: 1px solid var(--border-regular, rgba(255, 255, 255, 0.1));
+  border-radius: 12px;
+  padding: 1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+:root[data-theme="light"] .quest-dossier-panel {
+  background: #f8fafc;
+}
+
+.dossier-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dossier-status-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #f59e0b;
+}
+
+.dossier-status-tag.unlocked-tag {
+  color: #10b981;
+}
+
+.dossier-node-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary, #f8fafc);
+}
+
+.dossier-node-desc {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-secondary, #cbd5e1);
+}
+
+:root[data-theme="light"] .dossier-node-desc {
+  color: #475569;
+}
+
+.dossier-actions {
+  margin-top: 0.4rem;
+  display: flex;
+  gap: 0.6rem;
+}
+
+/* Recompensa Endgame: Modo Overclock */
+.quest-overclock-reward {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.15));
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+}
+
+.overclock-info {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.overclock-icon {
+  font-size: 1.5rem;
+  color: #10b981;
+  animation: overclockPulse 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes overclockPulse {
+  from { transform: scale(1); filter: drop-shadow(0 0 2px #10b981); }
+  to { transform: scale(1.2); filter: drop-shadow(0 0 10px #06b6d4); }
+}
+
+.overclock-title {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary, #f8fafc);
+}
+
+.overclock-desc {
+  margin: 0;
+  font-size: 0.76rem;
+  color: var(--text-secondary, #94a3b8);
+}
+
+.overclock-toggle-btn {
+  padding: 0.45rem 1rem;
+  background: #10b981;
+  border: none;
+  border-radius: var(--radius-full, 9999px);
+  color: #022c22;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.overclock-toggle-btn:hover {
+  background: #34d399;
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.6);
+  transform: scale(1.04);
+}
+
+.overclock-toggle-btn.is-active {
+  background: #06b6d4;
+  color: #083344;
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.6);
+}
+
+/* Footer del modal */
+.quest-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.4rem;
+  border-top: 1px solid var(--border-regular, rgba(255, 255, 255, 0.08));
+  background: rgba(15, 23, 42, 0.4);
+}
+
+:root[data-theme="light"] .quest-footer {
+  background: rgba(248, 250, 252, 0.8);
+}
+
+.quest-reset-link {
+  background: transparent;
+  border: none;
+  font-size: 0.75rem;
+  color: var(--text-secondary, #94a3b8);
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0.2rem 0;
+  transition: color 0.2s ease;
+}
+
+.quest-reset-link:hover {
+  color: #ef4444;
+}
+
+/* --------------------------------------------------------------------------
+   4. Toast Flotante de Desencriptación (.quest-toast)
+   -------------------------------------------------------------------------- */
+.quest-toast {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 10000;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  max-width: 380px;
+  padding: 0.9rem 1.15rem;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(16, 185, 129, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.7),
+              0 0 25px rgba(16, 185, 129, 0.3);
+  color: #f8fafc;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-20px) scale(0.95);
+  transition: opacity 0.35s var(--ease-smooth, ease),
+              transform 0.35s var(--ease-smooth, ease);
+}
+
+:root[data-theme="light"] .quest-toast {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #059669;
+  color: #0f172a;
+  box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.15),
+              0 0 25px rgba(16, 185, 129, 0.2);
+}
+
+.quest-toast.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.quest-toast-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #10b981;
+}
+
+.quest-toast-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.quest-toast-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #10b981;
+}
+
+.quest-toast-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary, #ffffff);
+}
+
+:root[data-theme="light"] .quest-toast-title {
+  color: #0f172a;
+}
+
+.quest-toast-lore {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text-secondary, #94a3b8);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. Efecto Overclock Visual en Todo el Portafolio (body.overclock-active)
+   -------------------------------------------------------------------------- */
+body.overclock-active {
+  --accent-cyan: #00f2fe;
+  --accent-blue: #4facfe;
+  position: relative;
+}
+
+body.overclock-active::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 242, 254, 0.025) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 9998;
+  opacity: 0.8;
+}
+
+body.overclock-active .navbar {
+  border-bottom-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.15);
+}
+
+body.overclock-active .project-card,
+body.overclock-active .spec-box,
+body.overclock-active .experience-card {
+  border-color: rgba(6, 182, 212, 0.35);
+}
+
+/* Partículas dinámicas generadas con Anime.js */
+.quest-particle {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10001;
+}
+
+/* Respeto estricto de accesibilidad y prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .core-node-pulse,
+  .quest-pulse-dot,
+  .overclock-icon,
+  .core-node {
+    animation: none !important;
+    transition: none !important;
+  }
+  .quest-modal,
+  .quest-window,
+  .quest-toast {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .quest-trigger-btn .quest-label {
+    display: none;
+  }
+  .quest-window {
+    width: 95%;
+    max-height: 92vh;
+  }
+  .quest-toast {
+    top: auto;
+    bottom: 1.5rem;
+    right: 1rem;
+    left: 1rem;
+    max-width: none;
+  }
+}

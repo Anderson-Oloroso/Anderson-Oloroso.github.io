@@ -64,6 +64,12 @@
           <span class="hud-text" id="hud-progress-text">0%</span>
         </div>
 
+        <button class="quest-trigger-btn" id="quest-trigger" type="button" aria-label="Misión de descubrimiento: Protocolo Núcleo" data-i18n-aria-label="questTriggerAria" title="Protocolo Núcleo">
+          <span class="quest-pulse-dot" aria-hidden="true"></span>
+          <span class="quest-label" data-i18n="questNavLabel">Núcleo</span>
+          <span class="quest-counter" id="quest-nav-counter">0/5</span>
+        </button>
+
         <button class="terminal-trigger-btn" id="terminal-trigger" type="button" aria-label="Abrir terminal CLI interactiva" data-i18n-aria-label="terminalBtnLabel">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
           <span>CLI</span>
@@ -103,6 +109,11 @@
           <div class="hero-badge-role hero-anim" style="--i: 1">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
             <span data-i18n="heroRole">Técnico en desarrollo de Software</span>
+            <button type="button" class="core-node" data-node-id="node-hero" aria-label="Descifrar Nodo 01: Arquitectura" title="Descifrar Fragmento de Datos 01">
+              <span class="core-node-pulse" aria-hidden="true"></span>
+              <span class="core-node-icon" aria-hidden="true">◆</span>
+              <span class="core-node-num">01</span>
+            </button>
           </div>
 
           <h1 class="hero-title">
@@ -259,7 +270,14 @@
 
           <!-- 2. Bases de Datos & Administración -->
           <div class="stack-group-block">
-            <h3 class="stack-group-title" data-i18n="stackDatabases">Bases de Datos & Administración</h3>
+            <h3 class="stack-group-title">
+              <span data-i18n="stackDatabases">Bases de Datos & Administración</span>
+              <button type="button" class="core-node" data-node-id="node-stack" aria-label="Descifrar Nodo 02: Persistencia SQL" title="Descifrar Fragmento de Datos 02">
+                <span class="core-node-pulse" aria-hidden="true"></span>
+                <span class="core-node-icon" aria-hidden="true">◆</span>
+                <span class="core-node-num">02</span>
+              </button>
+            </h3>
             <div class="badges-flex-container">
               <div class="tech-badge badge-postgresql">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="tech-badge-icon" loading="lazy">
@@ -467,6 +485,11 @@
             <div class="project-thumbnail">
               <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=700&auto=format&fit=crop" alt="Countries Express Rate Limit" loading="lazy">
               <span class="project-badge-tag">API REST & DevOps</span>
+              <button type="button" class="core-node" data-node-id="node-project" aria-label="Descifrar Nodo 03: Blindaje de API" title="Descifrar Fragmento de Datos 03">
+                <span class="core-node-pulse" aria-hidden="true"></span>
+                <span class="core-node-icon" aria-hidden="true">◆</span>
+                <span class="core-node-num">03</span>
+              </button>
             </div>
             <div class="project-content">
               <h3 class="project-title" data-i18n="projectTwoTitle">Countries Express Rate Limit — API REST de países</h3>
@@ -623,7 +646,14 @@
     <section class="section-padding" id="vida">
       <div class="container">
         <div class="section-header">
-          <span class="section-badge" data-i18n="lifeBadge">Más allá del software</span>
+          <div style="display: inline-flex; align-items: center; justify-content: center; gap: 0.25rem;">
+            <span class="section-badge" data-i18n="lifeBadge">Más allá del software</span>
+            <button type="button" class="core-node" data-node-id="node-hobby" aria-label="Descifrar Nodo 04: Automatización & Vida" title="Descifrar Fragmento de Datos 04">
+              <span class="core-node-pulse" aria-hidden="true"></span>
+              <span class="core-node-icon" aria-hidden="true">◆</span>
+              <span class="core-node-num">04</span>
+            </button>
+          </div>
           <h2 class="section-title" data-i18n="lifeTitle">Mi vida fuera del código</h2>
           <p class="section-desc" data-i18n="lifeDescription">También disfruto de actividades que me conectan con las personas, la naturaleza y nuevos retos.</p>
         </div>
@@ -763,6 +793,11 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
           <span>henrik@dev-box: ~/portfolio</span>
         </div>
+        <button type="button" class="core-node core-node--terminal" data-node-id="node-terminal" aria-label="Descifrar Nodo 05: Shell Kernel" title="Descifrar Fragmento de Datos 05">
+          <span class="core-node-pulse" aria-hidden="true"></span>
+          <span class="core-node-icon" aria-hidden="true">◆</span>
+          <span class="core-node-num">05</span>
+        </button>
         <button class="terminal-header-close" id="terminal-header-close" aria-label="Cerrar terminal">&times;</button>
       </div>
       <div class="dev-terminal-body" id="dev-terminal-output" tabindex="0">
@@ -825,6 +860,78 @@
           <span data-i18n="viewRepository">Ver Repositorio</span>
         </a>
       </div>
+    </div>
+  </div>
+
+  <!-- MODAL DOSSIER DEL PROTOCOLO NÚCLEO (COMPONENTE LÚDICO) -->
+  <div class="quest-modal" id="quest-modal" aria-hidden="true" role="dialog" aria-labelledby="quest-modal-title">
+    <div class="quest-backdrop" id="quest-backdrop"></div>
+    <div class="quest-window">
+      <div class="quest-header">
+        <div class="quest-header-left">
+          <span class="quest-badge">Protocolo Núcleo</span>
+          <h3 class="quest-modal-title" id="quest-modal-title" data-i18n="questModalTitle">Protocolo Núcleo: Archivos del Desarrollador</h3>
+        </div>
+        <button class="quest-close-btn" id="quest-modal-close" aria-label="Cerrar modal">&times;</button>
+      </div>
+      <div class="quest-body">
+        <p class="quest-subtitle" data-i18n="questModalSubtitle">Desencripta los 5 nodos de datos ocultos en el portafolio para revelar la arquitectura completa.</p>
+        
+        <div class="quest-progress-box">
+          <div class="quest-progress-header">
+            <span class="quest-progress-title" data-i18n="questProgressLabel">Progreso de Desencriptación</span>
+            <span class="quest-progress-val" id="quest-progress-val">0% (0/5)</span>
+          </div>
+          <div class="quest-progress-track">
+            <div class="quest-progress-fill" id="quest-progress-fill" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <div class="quest-nodes-grid" id="quest-nodes-grid">
+          <!-- Renderizado dinámico desde discoveryQuest.js -->
+        </div>
+
+        <div class="quest-dossier-panel" id="quest-dossier-panel">
+          <div class="dossier-header">
+            <span class="dossier-status-tag" id="dossier-status-tag">[SELECCIONA UN NODO]</span>
+            <h4 class="dossier-node-title" id="dossier-node-title">Detalles del Fragmento</h4>
+          </div>
+          <p class="dossier-node-desc" id="dossier-node-desc">Haz clic en cualquier nodo para consultar su telemetría, pista de búsqueda o conocimiento desencriptado.</p>
+          <div class="dossier-actions" id="dossier-actions">
+            <button type="button" class="btn btn-secondary btn-sm" id="dossier-track-btn" style="display: none;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+              <span>Rastrear en página</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="quest-overclock-reward" id="quest-overclock-reward" style="display: none;">
+          <div class="overclock-info">
+            <div class="overclock-icon">⚡</div>
+            <div>
+              <h4 class="overclock-title" data-i18n="questOverclockTitle">Modo Overclock / Cyber-Matrix</h4>
+              <p class="overclock-desc" data-i18n="questOverclockDesc">Sobrecarga visual de alta tecnología con acentos reactivos y aura holográfica.</p>
+            </div>
+          </div>
+          <button type="button" class="overclock-toggle-btn" id="overclock-toggle-btn">
+            <span>Activar</span>
+          </button>
+        </div>
+      </div>
+      <div class="quest-footer">
+        <button type="button" class="quest-reset-link" id="quest-reset-btn" data-i18n="questResetBtn">Reiniciar Misión</button>
+        <button type="button" class="btn btn-secondary btn-sm" id="quest-footer-close" data-i18n="questCloseBtn">Cerrar Protocolo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST FLOTANTE DE RECOMPENSA Y DESENCRIPTACIÓN -->
+  <div class="quest-toast" id="quest-toast" role="status" aria-live="polite">
+    <div class="quest-toast-icon">⚡</div>
+    <div class="quest-toast-content">
+      <div class="quest-toast-tag">NODO DESENCRIPTADO [1/5]</div>
+      <h4 class="quest-toast-title">Título del Nodo</h4>
+      <p class="quest-toast-lore">Texto del fragmento técnico...</p>
     </div>
   </div>
 

@@ -119,7 +119,16 @@ const translations = {
     inspectorArchitecture: 'Arquitectura & Flujo de Datos',
     inspectorHighlights: 'Aspectos Técnicos Destacados',
     inspectorStack: 'Stack & Tecnologías Clave',
-    closeInspector: 'Cerrar'
+    closeInspector: 'Cerrar',
+    questNavLabel: 'Núcleo',
+    questTriggerAria: 'Misión de descubrimiento: Protocolo Núcleo',
+    questModalTitle: 'Protocolo Núcleo: Archivos del Desarrollador',
+    questModalSubtitle: 'Desencripta los 5 nodos de datos ocultos en el portafolio para revelar la arquitectura completa.',
+    questProgressLabel: 'Progreso de Desencriptación',
+    questOverclockTitle: 'Modo Overclock / Cyber-Matrix',
+    questOverclockDesc: 'Sobrecarga visual de alta tecnología con acentos reactivos y aura holográfica.',
+    questResetBtn: 'Reiniciar Misión',
+    questCloseBtn: 'Cerrar Protocolo'
   },
   en: {
     pageTitle: 'Henrik Anderson Oloroso García | Software Development Technician',
@@ -241,7 +250,16 @@ const translations = {
     inspectorArchitecture: 'Architecture & Data Flow',
     inspectorHighlights: 'Key Technical Highlights',
     inspectorStack: 'Stack & Core Technologies',
-    closeInspector: 'Close'
+    closeInspector: 'Close',
+    questNavLabel: 'Core',
+    questTriggerAria: 'Discovery Mission: Core Protocol',
+    questModalTitle: 'Core Protocol: Developer Dossier',
+    questModalSubtitle: 'Decrypt the 5 data nodes hidden across the portfolio to reveal the complete architecture.',
+    questProgressLabel: 'Decryption Progress',
+    questOverclockTitle: 'Overclock / Cyber-Matrix Mode',
+    questOverclockDesc: 'High-tech visual overdrive with reactive accents and holographic aura.',
+    questResetBtn: 'Reset Mission',
+    questCloseBtn: 'Close Protocol'
   }
 };
 

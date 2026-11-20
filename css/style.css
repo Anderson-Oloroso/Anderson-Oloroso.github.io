@@ -27,3 +27,6 @@
 
 /* 8. Micro-interacciones, 3D Tilt, HUD y Terminal Dev */
 @import url('./modules/interactive.css');
+
+/* 9. Misión de Descubrimiento Lúdico: Protocolo Núcleo */
+@import url('./modules/quest.css');

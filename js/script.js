@@ -12,6 +12,7 @@ import { initInteractive } from './modules/interactive.js';
 import { initProjects } from './modules/projects.js';
 import { initLifeExperience } from './modules/lifeExperience.js';
 import { initCursor } from './modules/cursor.js';
+import { initDiscoveryQuest } from './modules/discoveryQuest.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initLocalization();
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnimations();
   initCinematic();
   initInteractive();
+  initDiscoveryQuest();
   initProjects();
   initLifeExperience();
   initCursor();

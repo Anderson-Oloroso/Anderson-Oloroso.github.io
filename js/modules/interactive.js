@@ -6,6 +6,7 @@
  */
 
 import { getTranslation } from './localization.js';
+import { handleQuestCliCommand, unlockNode, toggleOverclock } from './discoveryQuest.js';
 
 export function initInteractive() {
   initCardTilt();
@@ -289,6 +290,9 @@ function initDevTerminal() {
         appendLine('  <span class="cyan">cv</span>         : Download Curriculum Vitae (PDF)');
         appendLine('  <span class="cyan">theme</span>      : Toggle light / dark mode');
         appendLine('  <span class="cyan">matrix</span>     : Cyber matrix visual effect');
+        appendLine('  <span class="cyan">quest</span>      : Core Protocol status & clues');
+        appendLine('  <span class="cyan">decode</span>     : Decrypt terminal data fragment');
+        appendLine('  <span class="cyan">overclock</span>  : Toggle Overclock mode (upon 5/5 completion)');
         appendLine('  <span class="cyan">clear</span>      : Clear the terminal output');
         appendLine('  <span class="cyan">exit</span>       : Close the terminal');
       } else {
@@ -300,6 +304,9 @@ function initDevTerminal() {
         appendLine('  <span class="cyan">cv</span>         : Descargar Currículum Vitae (PDF)');
         appendLine('  <span class="cyan">theme</span>      : Alternar modo día / noche');
         appendLine('  <span class="cyan">matrix</span>     : Efecto visual cyber matrix');
+        appendLine('  <span class="cyan">quest</span>      : Protocolo Núcleo (progreso y pistas)');
+        appendLine('  <span class="cyan">decode</span>     : Desencriptar fragmento del terminal');
+        appendLine('  <span class="cyan">overclock</span>  : Alternar modo visual Overclock (al completar 5/5)');
         appendLine('  <span class="cyan">clear</span>      : Limpiar pantalla de la consola');
         appendLine('  <span class="cyan">exit</span>       : Cerrar la terminal');
       }
@@ -369,6 +376,18 @@ function initDevTerminal() {
         }
       }, 100);
     },
+    quest: (rawArg) => {
+      const isEn = document.documentElement.lang === 'en';
+      handleQuestCliCommand(rawArg || 'quest', appendLine, isEn);
+    },
+    decode: () => {
+      const isEn = document.documentElement.lang === 'en';
+      handleQuestCliCommand('decode', appendLine, isEn);
+    },
+    overclock: () => {
+      const isEn = document.documentElement.lang === 'en';
+      handleQuestCliCommand('overclock', appendLine, isEn);
+    },
     clear: () => {
       output.innerHTML = '';
       printWelcome();
@@ -394,7 +413,11 @@ function initDevTerminal() {
       appendLine(`<span class="terminal-prompt-sym">guest@henrik-portfolio:~$</span> ${escapeHTML(rawCmd)}`, 'cmd-echo');
 
       const cmdKey = rawCmd.toLowerCase();
-      if (commands[cmdKey]) {
+      const firstWord = rawCmd.split(/\s+/)[0].toLowerCase();
+
+      if (commands[firstWord]) {
+        commands[firstWord](rawCmd);
+      } else if (commands[cmdKey]) {
         commands[cmdKey]();
       } else {
         appendLine(`Comando no reconocido: "${escapeHTML(rawCmd)}". Escribe <span class="cyan">'help'</span> para ver comandos.`, 'error');
