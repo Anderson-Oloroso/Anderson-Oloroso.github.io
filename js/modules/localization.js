@@ -1,5 +1,3 @@
-import { prefersReducedMotion } from './utils.js';
-
 const translations = {
   es: {
     pageTitle: 'Henrik Anderson Oloroso García | Técnico en desarrollo de Software',
@@ -287,60 +285,12 @@ function translate(language) {
   document.dispatchEvent(new CustomEvent('languagechange', { detail: { language } }));
 }
 
-const FADE_OUT_MS = 150;
-const FADE_IN_MS = 280;
-let activeFades = [];
-let fadeToken = 0;
-
-/** Elementos traducibles cercanos al viewport: los únicos que vale la pena animar */
-function getVisibleTranslatable() {
-  const margin = 120;
-  return [...document.querySelectorAll('[data-i18n], [data-i18n-html]')].filter(element => {
-    const rect = element.getBoundingClientRect();
-    return rect.bottom > -margin && rect.top < window.innerHeight + margin && rect.width > 0;
-  });
-}
-
-/**
- * Cambio de idioma con fundido: los textos visibles se desvanecen, se traducen
- * todos y vuelven a aparecer. Usa la Web Animations API para no interferir con
- * las animaciones CSS de entrada (hero, revelado en scroll).
- */
-function switchLanguage(language) {
-  activeFades.forEach(animation => animation.cancel());
-  activeFades = [];
-
-  if (prefersReducedMotion() || typeof Element.prototype.animate !== 'function') {
-    translate(language);
-    return;
-  }
-
-  const token = ++fadeToken;
-  const elements = getVisibleTranslatable();
-  const fadeOut = elements.map(element => element.animate(
-    [{ opacity: 1 }, { opacity: 0 }],
-    { duration: FADE_OUT_MS, easing: 'ease-in', fill: 'forwards' }
-  ));
-  activeFades = fadeOut;
-
-  Promise.all(fadeOut.map(animation => animation.finished)).then(() => {
-    if (token !== fadeToken) return;
-    translate(language);
-    const fadeIn = elements.map(element => element.animate(
-      [{ opacity: 0 }, { opacity: 1 }],
-      { duration: FADE_IN_MS, easing: 'ease-out' }
-    ));
-    fadeOut.forEach(animation => animation.cancel());
-    activeFades = fadeIn;
-  }).catch(() => {});
-}
-
 export function initLocalization() {
   const languageSelect = document.getElementById('language-select');
   if (!languageSelect) {
     throw new Error('Language selector was not found');
   }
 
-  languageSelect.addEventListener('change', () => switchLanguage(languageSelect.value));
+  languageSelect.addEventListener('change', () => translate(languageSelect.value));
   translate(languageSelect.value);
 }

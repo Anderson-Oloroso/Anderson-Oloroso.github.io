@@ -7,22 +7,10 @@
   padding-top: calc(var(--nav-height) + 4.5rem);
   padding-bottom: 5.5rem;
   position: relative;
-  isolation: isolate;
   overflow: clip;
 }
 
-/* Capas de fondo (canvas de red + orbes). Se mueven con parallax.js */
-.hero-canvas {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
-}
-
+/* Orbes ambientales de profundidad (unificados desde main) */
 .hero-orb {
   position: absolute;
   z-index: 0;
@@ -30,23 +18,22 @@
   aspect-ratio: 1;
   border-radius: 50%;
   pointer-events: none;
+  filter: blur(80px);
 }
 
 .hero-orb--a {
-  top: -180px;
-  left: -200px;
-  background: radial-gradient(circle, var(--orb-a), transparent 65%);
+  top: -160px;
+  left: -180px;
+  background: radial-gradient(circle, var(--orb-a, rgba(59, 130, 246, 0.2)), transparent 65%);
 }
 
 .hero-orb--b {
-  right: -220px;
-  bottom: 0;
-  background: radial-gradient(circle, var(--orb-b), transparent 65%);
+  right: -200px;
+  bottom: -40px;
+  background: radial-gradient(circle, var(--orb-b, rgba(6, 182, 212, 0.16)), transparent 65%);
 }
 
 .hero-grid {
-  position: relative;
-  z-index: 1;
   display: grid;
   grid-template-columns: 310px 1fr;
   gap: 3.5rem;
@@ -100,7 +87,7 @@
   margin-bottom: 1.25rem;
 }
 
-/* Cada línea del título es una "máscara": el texto sube desde abajo */
+/* Cada línea del título es una máscara para revelado */
 .hero-title .line {
   display: block;
   overflow: hidden;
@@ -109,6 +96,39 @@
 
 .hero-title .line > span {
   display: inline-block;
+}
+
+/* Entrada orquestada del hero al cargar */
+@media (prefers-reduced-motion: no-preference) {
+  .js .hero-anim {
+    opacity: 0;
+  }
+
+  .js .hero-title .line > span {
+    transform: translateY(110%);
+  }
+
+  .js.is-ready .hero-anim {
+    animation: hero-in 0.95s var(--ease-smooth) calc(var(--i, 0) * 110ms + 80ms) both;
+  }
+
+  .js.is-ready .hero-title .line > span {
+    animation: line-in 1.05s var(--ease-smooth) calc(var(--i, 1) * 110ms + 140ms) both;
+  }
+
+  .js.is-ready .hero-title .line:nth-child(2) > span {
+    animation-delay: calc(var(--i, 1) * 110ms + 260ms);
+  }
+}
+
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes line-in {
+  from { transform: translateY(110%); }
+  to   { transform: translateY(0); }
 }
 
 .title-accent {
@@ -160,47 +180,6 @@
   padding: 0.25rem 0.6rem;
   border-radius: var(--radius-xs);
   color: var(--text-secondary);
-  transition: color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
-}
-
-.quick-tag:hover {
-  color: var(--text-primary);
-  border-color: var(--accent-cyan);
-  transform: translateY(var(--lift-sm));
-}
-
-/* Entrada orquestada del hero: un único momento al cargar.
-   Solo se oculta si JS está activo (.js) y el usuario admite movimiento. */
-@media (prefers-reduced-motion: no-preference) {
-  .js .hero-anim {
-    opacity: 0;
-  }
-
-  .js .hero-title .line > span {
-    transform: translateY(110%);
-  }
-
-  .js.is-ready .hero-anim {
-    animation: hero-in 0.95s var(--ease-smooth) calc(var(--i, 0) * 110ms + 80ms) both;
-  }
-
-  .js.is-ready .hero-title .line > span {
-    animation: line-in 1.05s var(--ease-smooth) calc(var(--i, 1) * 110ms + 140ms) both;
-  }
-
-  .js.is-ready .hero-title .line:nth-child(2) > span {
-    animation-delay: calc(var(--i, 1) * 110ms + 260ms);
-  }
-}
-
-@keyframes hero-in {
-  from { opacity: 0; transform: translateY(26px); }
-  to   { opacity: 1; transform: none; }
-}
-
-@keyframes line-in {
-  from { transform: translateY(110%); }
-  to   { transform: translateY(0); }
 }
 
 /* Sobre Mí */
@@ -249,7 +228,7 @@
 }
 
 .spec-box:hover {
-  transform: translateY(var(--lift-sm));
+  transform: translateY(-2px);
   border-color: var(--border-regular);
 }
 

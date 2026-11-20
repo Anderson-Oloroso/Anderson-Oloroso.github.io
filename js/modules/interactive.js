@@ -11,6 +11,8 @@ export function initInteractive() {
   initCardTilt();
   initExplorationHUD();
   initDevTerminal();
+  initMagnetic();
+  initRipple();
 }
 
 /**
@@ -371,4 +373,61 @@ function initDevTerminal() {
       }[tag] || tag)
     );
   }
+}
+
+/**
+ * Botones magnéticos: atracción suave hacia el puntero (unificado de main)
+ */
+function initMagnetic() {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (prefersReduced || !isFinePointer) return;
+
+  document.querySelectorAll('[data-magnetic]').forEach((element) => {
+    const strength = Number.parseFloat(element.dataset.magnetic) || 0.25;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    element.addEventListener('pointermove', (event) => {
+      const rect = element.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2 - offsetX;
+      const centerY = rect.top + rect.height / 2 - offsetY;
+      offsetX = (event.clientX - centerX) * strength;
+      offsetY = (event.clientY - centerY) * strength;
+      element.style.translate = `${offsetX.toFixed(1)}px ${offsetY.toFixed(1)}px`;
+    }, { passive: true });
+
+    element.addEventListener('pointerleave', () => {
+      offsetX = 0;
+      offsetY = 0;
+      element.style.translate = '';
+    });
+  });
+}
+
+/**
+ * Efecto Ripple de onda al pulsar botones y controles (unificado de main)
+ */
+function initRipple() {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  const SELECTOR = '.btn, .project-link-btn, .theme-toggle, .contact-tile, .filter-btn, .inspect-btn';
+
+  document.addEventListener('pointerdown', (event) => {
+    if (!(event.target instanceof Element) || event.button > 0) return;
+    const host = event.target.closest(SELECTOR);
+    if (!host) return;
+
+    const rect = host.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height) * 2;
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple';
+    ripple.setAttribute('aria-hidden', 'true');
+    ripple.style.width = ripple.style.height = `${size}px`;
+    ripple.style.left = `${event.clientX - rect.left - size / 2}px`;
+    ripple.style.top = `${event.clientY - rect.top - size / 2}px`;
+    ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
+    host.appendChild(ripple);
+  });
 }

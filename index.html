@@ -17,6 +17,12 @@
   <!-- Estilos -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
+  <!-- Marca de JS activo + red de seguridad para revelado cinemático -->
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () { document.documentElement.classList.add('is-ready'); }, 3000);
+  </script>
 </head>
 <body>
 
@@ -35,7 +41,7 @@
         <span class="brand-tag">&lt;/&gt;</span>
         <div class="brand-info">
           <span class="brand-name">Anderson Oloroso</span>
-          <span class="brand-role">Software Dev</span>
+          <span class="brand-role">Mejora continua</span>
         </div>
       </a>
       
@@ -46,7 +52,6 @@
       </button>
 
       <nav class="nav-links" id="nav-links" aria-label="Navegación principal" data-i18n-aria-label="navLabel">
-        <a href="#inicio" class="nav-link active" data-i18n="navHome">Inicio</a>
         <a href="#sobre-mi" class="nav-link" data-i18n="navAbout">Sobre Mí</a>
         <a href="#experiencia" class="nav-link" data-i18n="navExperience">Experiencia</a>
         <a href="#conocimientos" class="nav-link" data-i18n="navSkills">Conocimientos</a>
@@ -83,43 +88,47 @@
   <main>
     <!-- HERO SECTION -->
     <section class="hero" id="inicio">
+      <!-- Orbes luminosos ambientales de fondo -->
+      <div class="hero-orb hero-orb--a" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb--b" aria-hidden="true"></div>
+
       <div class="container hero-grid">
-        <div class="profile-container">
+        <div class="profile-container hero-anim" style="--i: 0">
           <div class="profile-card">
             <img src="img/Hnk.jpeg" alt="Fotografía profesional de Henrik Anderson Oloroso García" data-i18n-alt="profileImageAlt" class="profile-img" width="290" height="350" fetchpriority="high">
           </div>
         </div>
         
         <div class="hero-content">
-          <div class="hero-badge-role">
+          <div class="hero-badge-role hero-anim" style="--i: 1">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
             <span data-i18n="heroRole">Técnico en desarrollo de Software</span>
           </div>
 
           <h1 class="hero-title">
-            Henrik Anderson <br>
-            <span class="title-accent">Oloroso García</span>
+            <span class="line"><span>Henrik Anderson</span></span>
+            <span class="line"><span class="title-accent">Oloroso García</span></span>
           </h1>
 
-          <p class="hero-description" data-i18n="heroDescription">
+          <p class="hero-description hero-anim" style="--i: 2" data-i18n="heroDescription">
             Enfocado en el desarrollo de APIs REST, modelado y normalización de bases de datos relacionales, contenerización con Docker, Prompt Engineering y automatización de procesos. Con proyección hacia soluciones de software escalables y ciberseguridad.
           </p>
 
-          <div class="hero-actions">
-            <a href="#proyectos" class="btn btn-primary">
+          <div class="hero-actions hero-anim" style="--i: 3">
+            <a href="#proyectos" class="btn btn-primary" data-magnetic="0.25">
               <span data-i18n="exploreProjects">Explorar Proyectos</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
-            <a href="https://github.com/Anderson-Oloroso" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <a href="https://github.com/Anderson-Oloroso" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-magnetic="0.25">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
               <span>GitHub</span>
             </a>
-            <a href="assets/CV_Personalizado_Henrik_Anderson_Oloroso.pdf" class="btn btn-secondary" download>
+            <a href="assets/CV_Personalizado_Henrik_Anderson_Oloroso.pdf" class="btn btn-secondary" data-magnetic="0.25" download>
               <span data-i18n="downloadCv">Descargar CV</span>
             </a>
           </div>
 
-          <div class="hero-quick-stack">
+          <div class="hero-quick-stack hero-anim" style="--i: 4">
             <span class="quick-stack-label" data-i18n="ecosystem">Ecosistema:</span>
             <span class="quick-tag">Node.js</span>
             <span class="quick-tag">Express</span>

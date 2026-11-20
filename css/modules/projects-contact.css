@@ -102,9 +102,9 @@
 }
 
 .project-card:hover {
-  transform: translateY(var(--lift-md));
+  transform: translateY(-4px);
   border-color: var(--border-bright);
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 .project-thumbnail {
@@ -529,24 +529,7 @@
 }
 
 .hobby-nav-btn {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-regular);
-  color: var(--text-primary);
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.hobby-nav-btn:hover {
-  background: var(--accent-blue);
-  border-color: var(--accent-blue);
-  color: #fff;
-  transform: scale(1.08);
+  display: none !important;
 }
 
 .hobby-dots-indicator {
@@ -675,10 +658,10 @@
 }
 
 .contact-tile:hover {
-  transform: translateY(var(--lift-md));
+  transform: translateY(-4px);
   border-color: var(--border-bright);
   background: var(--bg-elevated);
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 .contact-tile-icon {

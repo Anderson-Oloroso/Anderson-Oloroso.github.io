@@ -2,6 +2,44 @@
    MICRO-INTERACCIONES, EFECTOS 3D TILT, HUD DE EXPLORACIÓN Y TERMINAL CLI
    ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   Botones magnéticos y Ripple interactivo (unificados desde main)
+   -------------------------------------------------------------------------- */
+[data-magnetic] {
+  transition:
+    translate 0.4s var(--ease-smooth),
+    transform var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.btn,
+.project-link-btn,
+.theme-toggle,
+.contact-tile {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.22;
+  pointer-events: none;
+  transform: scale(0);
+  animation: ripple 0.65s var(--ease-smooth) forwards;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
 /* 1. HUD de Exploración en Navbar */
 .hud-pill {
   display: inline-flex;

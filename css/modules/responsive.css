@@ -1,11 +1,11 @@
 /* ==========================================================================
-   ANIMACIONES Y RESPONSIVE MEDIA QUERIES
+   ANIMACIONES DE REVELADO EN SCROLL (Unificadas desde main)
    ========================================================================== */
 
-/* Revelado en scroll.
+/* Revelado cinemático en scroll.
    animations.js añade .reveal-on-scroll y, al entrar en pantalla, .visible.
    Se usan las propiedades individuales `translate` y `scale` (no `transform`)
-   para no pisar el tilt 3D ni los hover de cada tarjeta, y fill-mode
+   para no interferir con el tilt 3D ni los hovers de cada tarjeta, y fill-mode
    `backwards` para que al terminar el elemento vuelva a sus estilos normales. */
 .reveal-on-scroll {
   opacity: 0;
@@ -13,7 +13,7 @@
 
 .reveal-on-scroll.visible {
   opacity: 1;
-  animation: reveal-up var(--duration-reveal) var(--ease-smooth) var(--reveal-delay, 0ms) backwards;
+  animation: reveal-up var(--duration-reveal, 0.75s) var(--ease-smooth) var(--reveal-delay, 0ms) backwards;
 }
 
 .reveal-on-scroll[data-reveal="left"].visible  { animation-name: reveal-left; }
@@ -21,7 +21,7 @@
 .reveal-on-scroll[data-reveal="scale"].visible { animation-name: reveal-scale; }
 
 @keyframes reveal-up {
-  from { opacity: 0; translate: 0 28px; }
+  from { opacity: 0; translate: 0 32px; }
   to   { opacity: 1; translate: 0 0; }
 }
 
@@ -36,8 +36,15 @@
 }
 
 @keyframes reveal-scale {
-  from { opacity: 0; scale: 0.92; translate: 0 14px; }
+  from { opacity: 0; scale: 0.92; translate: 0 16px; }
   to   { opacity: 1; scale: 1; translate: 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    animation: none !important;
+  }
 }
 
 /* Responsive Media Queries */

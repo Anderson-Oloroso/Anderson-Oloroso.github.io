@@ -11,6 +11,7 @@ export function initCinematic() {
   initAmbientCanvas();
   initHeroParallax();
   initSmoothScroll();
+  initBadgeGlint();
 }
 
 /**
@@ -106,9 +107,11 @@ function initAmbientCanvas() {
   const isLight = () => document.documentElement.dataset.theme === 'light';
 
   // Configuración de partículas
-  const count = Math.min(45, Math.max(18, Math.floor(width / 35)));
+  const count = Math.min(55, Math.max(22, Math.floor(width / 32)));
   const particles = [];
-  const mouse = { x: null, y: null, radius: 120 };
+  const packets = [];
+  let sincePacket = 0;
+  const mouse = { x: null, y: null, radius: 175 };
 
   class Particle {
     constructor() {
@@ -117,28 +120,36 @@ function initAmbientCanvas() {
     reset() {
       this.x = Math.random() * width;
       this.y = Math.random() * height;
-      this.vx = (Math.random() - 0.5) * 0.45;
-      this.vy = (Math.random() - 0.5) * 0.45;
-      this.radius = Math.random() * 1.5 + 0.8;
-      this.baseAlpha = Math.random() * 0.4 + 0.2;
+      this.vx = (Math.random() - 0.5) * 0.4;
+      this.vy = (Math.random() - 0.5) * 0.4;
+      this.radius = Math.random() * 1.5 + 0.9;
+      this.baseAlpha = Math.random() * 0.4 + 0.25;
     }
     update() {
-      this.x += this.vx;
-      this.y += this.vy;
-
-      if (this.x < 0 || this.x > width) this.vx *= -1;
-      if (this.y < 0 || this.y > height) this.vy *= -1;
-
-      // Interacción con mouse
+      // Interacción con mouse: atracción suave ("arañita" que se adhiere al puntero)
       if (mouse.x !== null && mouse.y !== null) {
         const dx = mouse.x - this.x;
         const dy = mouse.y - this.y;
         const dist = Math.hypot(dx, dy);
-        if (dist < mouse.radius) {
-          const force = (mouse.radius - dist) / mouse.radius;
-          this.x -= (dx / dist) * force * 1.2;
-          this.y -= (dy / dist) * force * 1.2;
+        if (dist < mouse.radius && dist > 5) {
+          const pull = (1 - dist / mouse.radius) * 0.035;
+          this.vx += (dx / dist) * pull;
+          this.vy += (dy / dist) * pull;
         }
+      }
+
+      this.vx *= 0.985;
+      this.vy *= 0.985;
+      this.x += this.vx;
+      this.y += this.vy;
+
+      if (this.x < 0 || this.x > width) {
+        this.vx *= -1;
+        this.x = Math.max(0, Math.min(width, this.x));
+      }
+      if (this.y < 0 || this.y > height) {
+        this.vy *= -1;
+        this.y = Math.max(0, Math.min(height, this.y));
       }
     }
     draw() {
@@ -182,7 +193,7 @@ function initAmbientCanvas() {
     }
   });
 
-  const connectionDist = 110;
+  const connectionDist = 125;
 
   function loop() {
     if (!isVisible) {
@@ -194,12 +205,17 @@ function initAmbientCanvas() {
 
     const light = isLight();
     const lineColor = light ? '59, 130, 246' : '56, 189, 248';
+    const activeEdges = [];
 
+    // Actualizar y dibujar partículas
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].update();
+      particles[i].draw();
+    }
+
+    // Enlaces entre partículas cercanas
     for (let i = 0; i < particles.length; i++) {
       const p1 = particles[i];
-      p1.update();
-      p1.draw();
-
       for (let j = i + 1; j < particles.length; j++) {
         const p2 = particles[j];
         const dx = p1.x - p2.x;
@@ -207,15 +223,61 @@ function initAmbientCanvas() {
         const dist = Math.hypot(dx, dy);
 
         if (dist < connectionDist) {
-          const alpha = (1 - dist / connectionDist) * (light ? 0.08 : 0.14);
+          const alpha = (1 - dist / connectionDist) * (light ? 0.1 : 0.16);
           ctx.beginPath();
           ctx.moveTo(p1.x, p1.y);
           ctx.lineTo(p2.x, p2.y);
           ctx.strokeStyle = `rgba(${lineColor}, ${alpha})`;
-          ctx.lineWidth = 0.8;
+          ctx.lineWidth = 0.85;
+          ctx.stroke();
+          activeEdges.push([p1, p2]);
+        }
+      }
+    }
+
+    // CONEXIÓN AL CURSOR: Pequeñas líneas que se adhieren al puntero ("arañita")
+    if (mouse.x !== null && mouse.y !== null) {
+      const spiderColor = light ? '59, 130, 246' : '6, 182, 212';
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - p.y;
+        const dist = Math.hypot(dx, dy);
+
+        if (dist < mouse.radius) {
+          const alpha = (1 - dist / mouse.radius) * (light ? 0.45 : 0.65);
+          ctx.beginPath();
+          ctx.moveTo(mouse.x, mouse.y);
+          ctx.lineTo(p.x, p.y);
+          ctx.strokeStyle = `rgba(${spiderColor}, ${alpha.toFixed(3)})`;
+          ctx.lineWidth = 1.2;
           ctx.stroke();
         }
       }
+    }
+
+    // Generar pulsos / paquetes de datos viajando entre nodos
+    sincePacket++;
+    if (sincePacket > 25 && packets.length < 6 && activeEdges.length > 0) {
+      sincePacket = 0;
+      const [from, to] = activeEdges[Math.floor(Math.random() * activeEdges.length)];
+      packets.push({ from, to, t: 0 });
+    }
+
+    // Dibujar paquetes en tránsito
+    for (let i = packets.length - 1; i >= 0; i--) {
+      const pkt = packets[i];
+      pkt.t += 0.022;
+      if (pkt.t >= 1) {
+        packets.splice(i, 1);
+        continue;
+      }
+      const px = pkt.from.x + (pkt.to.x - pkt.from.x) * pkt.t;
+      const py = pkt.from.y + (pkt.to.y - pkt.from.y) * pkt.t;
+      ctx.beginPath();
+      ctx.arc(px, py, 2.2, 0, Math.PI * 2);
+      ctx.fillStyle = light ? 'rgba(37, 99, 235, 0.9)' : 'rgba(16, 185, 129, 0.95)';
+      ctx.fill();
     }
 
     animationFrameId = requestAnimationFrame(loop);
@@ -273,4 +335,48 @@ function initHeroParallax() {
   }
 
   requestAnimationFrame(update);
+}
+
+/**
+ * Destello puntual aleatorio en los tech-badges de #conocimientos
+ * - Inyecta un pequeño <span> con animación glintPulse en posición aleatoria
+ * - Intervalo de disparo por badge: aleatorio entre 1.5 s y 6 s
+ * - Sobrio y no invasivo; respeta prefers-reduced-motion
+ */
+function initBadgeGlint() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const badges = Array.from(document.querySelectorAll('#conocimientos .tech-badge'));
+  if (!badges.length) return;
+
+  function fireGlint(badge) {
+    const glint = document.createElement('span');
+    glint.className = 'badge-glint';
+
+    // Posición aleatoria dentro del badge (evitar bordes extremos)
+    const gx = (15 + Math.random() * 70).toFixed(1) + '%';
+    const gy = (20 + Math.random() * 60).toFixed(1) + '%';
+    glint.style.setProperty('--gx', gx);
+    glint.style.setProperty('--gy', gy);
+
+    badge.appendChild(glint);
+    glint.addEventListener('animationend', () => glint.remove(), { once: true });
+    // Fallback limpieza
+    setTimeout(() => glint.remove(), 800);
+  }
+
+  function scheduleGlint(badge) {
+    // Retraso aleatorio: entre 3 s y 7 s — sutil, no invasivo
+    const delay = 3000 + Math.random() * 4000;
+    setTimeout(() => {
+      fireGlint(badge);
+      scheduleGlint(badge);
+    }, delay);
+  }
+
+  // Offset inicial escalonado para evitar que todos disparen juntos
+  badges.forEach((badge) => {
+    const initDelay = Math.random() * 6000;
+    setTimeout(() => scheduleGlint(badge), initDelay);
+  });
 }

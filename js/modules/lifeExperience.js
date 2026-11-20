@@ -247,7 +247,7 @@ export function initLifeExperience() {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) return;
     stopTimer();
-    timer = setInterval(next, 7000);
+    timer = setInterval(next, 5000);
   };
 
   const restartTimer = () => {

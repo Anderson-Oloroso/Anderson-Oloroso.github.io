@@ -61,13 +61,51 @@
   transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
   cursor: default;
   user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Destello puntual (badge glint) ────────────────────────────────────────
+   Un pequeño punto de luz que aparece y desaparece al azar en cada badge.
+   - JS inyecta un <span class="badge-glint"> con posición y color aleatorios
+   - La animación es solo: escala + opacidad, muy sutil
+   ─────────────────────────────────────────────────────────────────────── */
+@keyframes glintPulse {
+  0%   { transform: translate(-50%, -50%) scale(0);   opacity: 0; }
+  30%  { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+  65%  { transform: translate(-50%, -50%) scale(0.9); opacity: 0.7; }
+  100% { transform: translate(-50%, -50%) scale(0);   opacity: 0; }
+}
+
+.badge-glint {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  pointer-events: none;
+  /* posición inyectada por JS con custom props --gx / --gy */
+  left: var(--gx, 50%);
+  top:  var(--gy, 50%);
+  background: radial-gradient(circle, #fff 0%, rgba(6,182,212,0.95) 45%, transparent 100%);
+  box-shadow: 0 0 10px 4px rgba(6, 182, 212, 0.75), 0 0 20px 6px rgba(6,182,212,0.3);
+  animation: glintPulse 0.65s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+[data-theme="light"] .badge-glint {
+  background: radial-gradient(circle, #fff 0%, rgba(59,130,246,0.95) 50%, transparent 100%);
+  box-shadow: 0 0 10px 4px rgba(59,130,246,0.7), 0 0 20px 6px rgba(59,130,246,0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge-glint { display: none; }
 }
 
 .tech-badge:hover {
-  transform: translateY(var(--lift-sm));
+  transform: translateY(-2px);
   border-color: var(--border-bright);
   background: var(--bg-subtle);
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
 }
 
 .tech-badge-icon {
