@@ -44,14 +44,18 @@ Servir como punto de convergencia profesional donde se presentan:
 - **Layout Responsivo Nativo**: CSS Grid auto-ajustable (`repeat(auto-fit, minmax(...))`) y Flexbox, evitando frameworks pesados y garantizando tiempos de carga casi instantáneos.
 - **Respeto a Preferencias del Usuario**: Soporte completo para `@media (prefers-reduced-motion: reduce)`.
 
-### 3. JavaScript Moderno (ES6+ Modules)
-- **Cero dependencias externas**: Código Vanilla puro ejecutado con `<script type="module">`.
+### 3. JavaScript Moderno (ES6+ Modules) & Experiencia Cinemática
+- **Cero dependencias pesadas**: Código Vanilla puro ejecutado con `<script type="module">`, complementado con librerías hiper-ligeras como Lenis para smooth scrolling.
 - **Módulos desacoplados (`js/modules/`)**:
   - `navigation.js`: Control del menú móvil, eventos de teclado (`Escape`) y clics fuera del contenedor.
   - `scrollSpy.js`: Detección eficiente de sección activa con `requestAnimationFrame` y estilo sticky del navbar.
-  - `animations.js`: Revelado progresivo en scroll utilizando la API nativa `IntersectionObserver`.
-  - `localization.js`: Traducción de la interfaz entre español e inglés, incluidos los metadatos y etiquetas accesibles.
-  - `theme.js`: Alternancia entre los temas claro y oscuro.
+  - `cinematic.js`: Barra superior de progreso de lectura, fondo ambiental interactivo con canvas 2D, parallax cinemático en Hero y smooth scroll con Lenis.
+  - `animations.js`: Revelado progresivo escalonado (Staggered Reveal) en scroll utilizando la API nativa `IntersectionObserver`.
+  - `interactive.js`: 3D Tilt suave con reflejo especular (glare) en tarjetas, HUD radar de exploración del portafolio y consola interactiva para desarrolladores (Easter egg CLI con atajos `~` y `Ctrl+K`).
+  - `projects.js`: Filtros reactivos por categoría tecnológica y panel/modal de inspección rápida de arquitectura y flujo de datos.
+  - `lifeExperience.js`: Showcase interactivo y cinematográfico de pasatiempos ("Mi vida fuera del código") con visor dinámico y rotación táctil/teclado.
+  - `localization.js`: Traducción completa en tiempo real de la interfaz entre español e inglés, incluidos metadatos, tags y diálogos modales.
+  - `theme.js`: Alternancia entre los temas claro y oscuro con persistencia visual.
 
 ---
 
@@ -67,19 +71,24 @@ Anderson-Oloroso.github.io/
 │   ├── style.css               # Orquestador principal de importaciones
 │   └── modules/                # Submódulos organizados por responsabilidad
 │       ├── variables.css       # Design tokens y variables de diseño (:root)
-│       ├── base.css            # Resets, tipografía base y componentes globales
+│       ├── base.css            # Resets, tipografía, barra de progreso y canvas ambiental
 │       ├── navigation.css      # Header, navbar blur, menú móvil y footer
 │       ├── hero-about.css      # Hero interactivo y perfil profesional
 │       ├── stack.css           # Grid y flexbox de tecnologías y competencias
-│       ├── projects-contact.css# Tarjetas de proyectos y canales de contacto
+│       ├── projects-contact.css# Filtros, modal de arquitectura, showcase de vida y contacto
+│       ├── interactive.css     # Estilos para 3D Tilt, HUD de lectura y Terminal CLI
 │       └── responsive.css      # Media queries y accesibilidad de movimiento
 ├── js/
 │   ├── script.js               # Punto de entrada orquestador
 │   └── modules/                # Lógica desacoplada en módulos ES6
+│       ├── cinematic.js        # Smooth scroll, barra de lectura, ambient canvas y parallax
+│       ├── interactive.js      # 3D Tilt con glare, HUD de progreso y terminal CLI
+│       ├── projects.js         # Filtros por categoría y modal de arquitectura técnica
+│       ├── lifeExperience.js   # Visor cinemático de vida personal y pasatiempos
 │       ├── navigation.js       # Comportamiento del menú móvil y ARIA
 │       ├── scrollSpy.js        # Detección de scroll y clase de navbar
-│       ├── animations.js       # IntersectionObserver para animaciones de entrada
-│       ├── localization.js     # Selector de idioma español/inglés
+│       ├── animations.js       # IntersectionObserver con ritmo escalonado
+│       ├── localization.js     # Selector de idioma español/inglés reactivo
 │       └── theme.js            # Alternancia de tema claro/oscuro
 └── img/
     ├── Hnk.jpeg                # Fotografía profesional de perfil
