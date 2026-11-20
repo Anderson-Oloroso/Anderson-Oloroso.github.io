@@ -108,7 +108,18 @@ const translations = {
     copyright: '© 2026 Todos los derechos reservados • Desplegado en',
     terminalBtnLabel: 'Abrir terminal CLI interactiva',
     hudToastTitle: '¡100% Explorado!',
-    hudToastDesc: 'Has recorrido todas las secciones del portafolio.'
+    hudToastDesc: 'Has recorrido todas las secciones del portafolio.',
+    filterAll: 'Todos',
+    filterBackend: 'Backend & APIs',
+    filterDatabases: 'Bases de Datos & SQL',
+    filterDevops: 'DevOps & Automatización',
+    filterCli: 'CLI & Python',
+    inspectProject: 'Ver Arquitectura',
+    inspectorScope: 'Objetivo & Alcance',
+    inspectorArchitecture: 'Arquitectura & Flujo de Datos',
+    inspectorHighlights: 'Aspectos Técnicos Destacados',
+    inspectorStack: 'Stack & Tecnologías Clave',
+    closeInspector: 'Cerrar'
   },
   en: {
     pageTitle: 'Henrik Anderson Oloroso García | Software Development Technician',
@@ -219,7 +230,18 @@ const translations = {
     copyright: '© 2026 All rights reserved • Hosted on',
     terminalBtnLabel: 'Open interactive CLI terminal',
     hudToastTitle: '100% Explored!',
-    hudToastDesc: 'You have explored all portfolio sections.'
+    hudToastDesc: 'You have explored all portfolio sections.',
+    filterAll: 'All',
+    filterBackend: 'Backend & APIs',
+    filterDatabases: 'Databases & SQL',
+    filterDevops: 'DevOps & Automation',
+    filterCli: 'CLI & Python',
+    inspectProject: 'View Architecture',
+    inspectorScope: 'Objective & Scope',
+    inspectorArchitecture: 'Architecture & Data Flow',
+    inspectorHighlights: 'Key Technical Highlights',
+    inspectorStack: 'Stack & Core Technologies',
+    closeInspector: 'Close'
   }
 };
 

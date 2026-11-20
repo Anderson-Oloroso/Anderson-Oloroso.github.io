@@ -403,9 +403,28 @@
           <p class="section-desc" data-i18n="projectsDescription">Aplicaciones desarrolladas con buenas prácticas de software y código en GitHub.</p>
         </div>
 
+        <!-- Filtros interactivos por categoría -->
+        <div class="project-filters-container" role="toolbar" aria-label="Filtros por categoría de proyecto">
+          <button type="button" class="project-filter-btn active" data-filter="all" aria-pressed="true">
+            <span data-i18n="filterAll">Todos</span>
+          </button>
+          <button type="button" class="project-filter-btn" data-filter="backend" aria-pressed="false">
+            <span data-i18n="filterBackend">Backend & APIs</span>
+          </button>
+          <button type="button" class="project-filter-btn" data-filter="databases" aria-pressed="false">
+            <span data-i18n="filterDatabases">Bases de Datos & SQL</span>
+          </button>
+          <button type="button" class="project-filter-btn" data-filter="devops" aria-pressed="false">
+            <span data-i18n="filterDevops">DevOps & Automatización</span>
+          </button>
+          <button type="button" class="project-filter-btn" data-filter="cli" aria-pressed="false">
+            <span data-i18n="filterCli">CLI & Python</span>
+          </button>
+        </div>
+
         <div class="projects-grid">
           <!-- Proyecto 1: Minerva-lib -->
-          <article class="project-card">
+          <article class="project-card" data-category="backend databases devops">
             <div class="project-thumbnail">
               <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=700&auto=format&fit=crop" alt="Minerva-lib" loading="lazy">
               <span class="project-badge-tag">Full Stack & Docker</span>
@@ -422,6 +441,10 @@
                 <span class="project-pill">Docker</span>
               </div>
               <div class="project-links">
+                <button type="button" class="project-inspect-btn" data-project-id="minerva-lib" aria-label="Inspeccionar arquitectura de Minerva-lib">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  <span data-i18n="inspectProject">Ver Arquitectura</span>
+                </button>
                 <a href="https://github.com/Anderson-Oloroso/minerva-lib.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de Minerva-lib" data-i18n-aria-label="repoOne">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
                   <span data-i18n="viewRepository">Ver Repositorio</span>
@@ -431,7 +454,7 @@
           </article>
 
           <!-- Proyecto 2: Countries Express Rate Limit -->
-          <article class="project-card">
+          <article class="project-card" data-category="backend devops">
             <div class="project-thumbnail">
               <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=700&auto=format&fit=crop" alt="Countries Express Rate Limit" loading="lazy">
               <span class="project-badge-tag">API REST & DevOps</span>
@@ -448,6 +471,10 @@
                 <span class="project-pill">Rate Limit</span>
               </div>
               <div class="project-links">
+                <button type="button" class="project-inspect-btn" data-project-id="countries-rate-limit" aria-label="Inspeccionar arquitectura de Countries Express Rate Limit">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  <span data-i18n="inspectProject">Ver Arquitectura</span>
+                </button>
                 <a href="https://github.com/Anderson-Oloroso/countries-express-rate-limit.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de Countries Express Rate Limit" data-i18n-aria-label="repoTwo">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
                   <span data-i18n="viewRepository">Ver Repositorio</span>
@@ -457,7 +484,7 @@
           </article>
 
           <!-- Proyecto 3: HYDRA GYM CLI -->
-          <article class="project-card">
+          <article class="project-card" data-category="cli databases">
             <div class="project-thumbnail">
               <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=700&auto=format&fit=crop" alt="HYDRA GYM CLI" loading="lazy">
               <span class="project-badge-tag">CLI & MySQL</span>
@@ -474,6 +501,10 @@
                 <span class="project-pill">CLI</span>
               </div>
               <div class="project-links">
+                <button type="button" class="project-inspect-btn" data-project-id="hydra-gym" aria-label="Inspeccionar arquitectura de HYDRA GYM">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  <span data-i18n="inspectProject">Ver Arquitectura</span>
+                </button>
                 <a href="https://github.com/Anderson-Oloroso/hydra-gym.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de HYDRA GYM" data-i18n-aria-label="repoThree">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
                   <span data-i18n="viewRepository">Ver Repositorio</span>
@@ -483,7 +514,7 @@
           </article>
 
           <!-- Proyecto 4: TechZone -->
-          <article class="project-card">
+          <article class="project-card" data-category="databases">
             <div class="project-thumbnail">
               <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=700&auto=format&fit=crop" alt="TechZone" loading="lazy">
               <span class="project-badge-tag">PostgreSQL & PL/pgSQL</span>
@@ -499,6 +530,10 @@
                 <span class="project-pill">RDBMS</span>
               </div>
               <div class="project-links">
+                <button type="button" class="project-inspect-btn" data-project-id="tech-zone" aria-label="Inspeccionar arquitectura de TechZone">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  <span data-i18n="inspectProject">Ver Arquitectura</span>
+                </button>
                 <a href="https://github.com/Anderson-Oloroso/tech-zone.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de TechZone" data-i18n-aria-label="repoFour">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
                   <span data-i18n="viewRepository">Ver Repositorio</span>
@@ -508,7 +543,7 @@
           </article>
 
           <!-- Proyecto 5: TutorBot -->
-          <article class="project-card">
+          <article class="project-card" data-category="backend devops">
             <div class="project-thumbnail">
               <img src="img/tutorbot.jpg" alt="TutorBot" loading="lazy">
               <span class="project-badge-tag">n8n & Telegram</span>
@@ -524,6 +559,10 @@
                 <span class="project-pill">Webhooks</span>
               </div>
               <div class="project-links">
+                <button type="button" class="project-inspect-btn" data-project-id="proyecto-tutorbot" aria-label="Inspeccionar arquitectura de TutorBot">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  <span data-i18n="inspectProject">Ver Arquitectura</span>
+                </button>
                 <a href="https://github.com/Anderson-Oloroso/proyecto-tutorbot.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de TutorBot" data-i18n-aria-label="repoFive">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
                   <span data-i18n="viewRepository">Ver Repositorio</span>
@@ -533,7 +572,7 @@
           </article>
 
           <!-- Proyecto 6: Sistema de Gestión de Inventario -->
-          <article class="project-card">
+          <article class="project-card" data-category="cli">
             <div class="project-thumbnail">
               <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=700&auto=format&fit=crop" alt="Sistema de Inventario" data-i18n-alt="inventoryImageAlt" loading="lazy">
               <span class="project-badge-tag">Python CLI</span>
@@ -549,6 +588,10 @@
                 <span class="project-pill">Inventarios</span>
               </div>
               <div class="project-links">
+                <button type="button" class="project-inspect-btn" data-project-id="inventario-tienda" aria-label="Inspeccionar arquitectura de Sistema de Inventario">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  <span data-i18n="inspectProject">Ver Arquitectura</span>
+                </button>
                 <a href="https://github.com/Anderson-Oloroso/inventario-tienda.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="Ver repositorio de Sistema de Inventario" data-i18n-aria-label="repoSix">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
                   <span data-i18n="viewRepository">Ver Repositorio</span>
@@ -692,6 +735,59 @@
       <div class="dev-terminal-prompt-line">
         <span class="terminal-prompt-sym">guest@henrik-portfolio:~$</span>
         <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" spellcheck="false" placeholder="Escribe 'help' o 'bio'...">
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE INSPECCIÓN RÁPIDA DE ARQUITECTURA -->
+  <div class="project-inspector-modal" id="project-inspector-modal" aria-hidden="true" role="dialog" aria-labelledby="inspector-title">
+    <div class="project-inspector-backdrop" id="project-inspector-backdrop"></div>
+    <div class="project-inspector-dialog">
+      <div class="project-inspector-header">
+        <div class="inspector-header-left">
+          <span class="inspector-badge" id="inspector-badge">Full Stack</span>
+          <h3 class="inspector-modal-title" id="inspector-title">Proyecto</h3>
+        </div>
+        <button class="inspector-close-btn" id="project-inspector-close" aria-label="Cerrar modal de inspección">&times;</button>
+      </div>
+      <div class="project-inspector-body">
+        <div class="inspector-hero-banner">
+          <img src="" alt="" id="inspector-img">
+        </div>
+        <div class="inspector-block">
+          <h4 class="inspector-block-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            <span data-i18n="inspectorScope">Objetivo & Alcance</span>
+          </h4>
+          <p class="inspector-block-desc" id="inspector-overview"></p>
+        </div>
+        <div class="inspector-block">
+          <h4 class="inspector-block-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            <span data-i18n="inspectorArchitecture">Arquitectura & Flujo de Datos</span>
+          </h4>
+          <p class="inspector-block-desc" id="inspector-arch"></p>
+        </div>
+        <div class="inspector-block">
+          <h4 class="inspector-block-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span data-i18n="inspectorHighlights">Aspectos Técnicos Destacados</span>
+          </h4>
+          <ul class="inspector-highlights-list" id="inspector-highlights"></ul>
+        </div>
+        <div class="inspector-block">
+          <h4 class="inspector-block-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            <span data-i18n="inspectorStack">Stack & Tecnologías Clave</span>
+          </h4>
+          <div class="inspector-tags-container" id="inspector-tags"></div>
+        </div>
+      </div>
+      <div class="project-inspector-footer">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="inspector-repo-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+          <span data-i18n="viewRepository">Ver Repositorio</span>
+        </a>
       </div>
     </div>
   </div>

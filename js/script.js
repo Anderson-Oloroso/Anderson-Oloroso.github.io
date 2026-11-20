@@ -9,6 +9,7 @@ import { initLocalization } from './modules/localization.js';
 import { initTheme } from './modules/theme.js';
 import { initCinematic } from './modules/cinematic.js';
 import { initInteractive } from './modules/interactive.js';
+import { initProjects } from './modules/projects.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initLocalization();
@@ -18,4 +19,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnimations();
   initCinematic();
   initInteractive();
+  initProjects();
 });
