@@ -3,13 +3,15 @@
 <div align="center">
   <img src="https://img.shields.io/badge/Despliegue-GitHub_Pages-22c55e?style=for-the-badge&logo=githubpages&logoColor=white" alt="GitHub Pages" />
   <img src="https://img.shields.io/badge/Arquitectura-Modular_ES6_%2B_CSS_Modules-3b82f6?style=for-the-badge&logo=javascript&logoColor=white" alt="Arquitectura" />
+  <img src="https://img.shields.io/badge/Anime.js-v3.2.2-f59e0b?style=for-the-badge&logo=javascript&logoColor=white" alt="Anime.js" />
+  <img src="https://img.shields.io/badge/Inmersión-100%25_Cinemática-10b981?style=for-the-badge" alt="Inmersión" />
   <img src="https://img.shields.io/badge/Estado-Producci%C3%B3n-06b6d4?style=for-the-badge" alt="Estado" />
 </div>
 
 <br />
 
 > **Técnico en desarrollo de Software**  
-> Sitio web personal y portafolio técnico interactivo, desarrollado bajo estándares modernos de desarrollo web, accesibilidad (a11y), modularidad y alto rendimiento sin dependencias externas pesadas.
+> Sitio web personal y portafolio técnico interactivo de alto rendimiento, desarrollado con arquitectura modular, experiencia cinemática exploratoria al 100%, accesibilidad (a11y) y sin dependencias externas pesadas.
 
 ---
 
@@ -23,11 +25,12 @@ El portafolio se encuentra publicado y accesible de forma continua a través de 
 
 ## Propósito del Proyecto
 
-Servir como punto de convergencia profesional donde se presentan:
-- **Perfil Técnico & Especialidad:** Desarrollo de APIs REST, arquitectura y normalización de bases de datos relacionales (PostgreSQL, MySQL), contenerización con Docker, Prompt Engineering y automatización de flujos de trabajo con n8n.
-- **Catálogo de Proyectos Reales:** Demostración práctica con enlaces directos a repositorios de GitHub, tags de tecnologías y especificaciones de arquitectura.
-- **Canales de Comunicación Directa:** Enlaces vectorizados a LinkedIn, Correo y GitHub.
-- **Experiencia Personalizable:** Selector español/inglés, modo claro/oscuro y una sección dedicada a sus pasatiempos.
+Servir como punto de convergencia profesional e interactivo donde se presentan:
+- **Perfil Técnico & Especialidad:** Desarrollo de APIs REST, arquitectura y normalización de bases de datos relacionales (PostgreSQL, MySQL), contenerización con Docker, Prompt Engineering y automatización de flujos con n8n.
+- **Catálogo de Proyectos Reales:** Demostración práctica con enlaces directos a repositorios GitHub, tags de tecnologías, filtros animados y modal de inspección de arquitectura técnica por proyecto.
+- **Dinámica Lúdica de Descubrimiento («Protocolo Núcleo»):** Minijuego de exploración con 5 nodos de datos cifrados repartidos en las secciones, dossier central de misión, persistencia de progreso y modo visual Overclock como recompensa final.
+- **Canales de Comunicación Directa:** LinkedIn, correo y GitHub.
+- **Experiencia Personalizable:** Bilingüe (ES/EN) con cambio en tiempo real, modo claro/oscuro y consola CLI interactiva con easter eggs.
 
 ---
 
@@ -36,26 +39,60 @@ Servir como punto de convergencia profesional donde se presentan:
 ### 1. HTML5 Semántico & Accesibilidad
 - Jerarquía semántica estricta (`<header>`, `<main>`, `<section>`, `<article>`, `<footer>`).
 - Metadatos optimizados para SEO y Open Graph (vistas previas enriquecidas en redes sociales).
-- Atributos ARIA (`aria-expanded`, `aria-controls`, `aria-label`) para compatibilidad con lectores de pantalla.
+- Atributos ARIA (`aria-expanded`, `aria-controls`, `aria-label`, `aria-hidden`, `role`) en todos los componentes interactivos.
+- Soporte completo a `prefers-reduced-motion`: todas las animaciones se desactivan respetando las preferencias del sistema operativo.
 
 ### 2. CSS3 Modular & Design Tokens
-- **Arquitectura en submódulos (`css/modules/`)**: Separación limpia por responsabilidades (variables, estilos base, navegación, hero, stack tecnológico, proyectos y media queries).
-- **Design Tokens con Variables CSS (`:root`)**: Control centralizado de colores para los temas claro y oscuro, radios de borde, tipografías y curvas de transición.
-- **Layout Responsivo Nativo**: CSS Grid auto-ajustable (`repeat(auto-fit, minmax(...))`) y Flexbox, evitando frameworks pesados y garantizando tiempos de carga casi instantáneos.
-- **Respeto a Preferencias del Usuario**: Soporte completo para `@media (prefers-reduced-motion: reduce)`.
+- **Arquitectura en submódulos (`css/modules/`)**: Separación por responsabilidad: variables, base, navegación, hero, stack, proyectos, interacciones, misión de descubrimiento y media queries.
+- **Design Tokens con Variables CSS (`:root`)**: Control centralizado de paleta de colores (modo claro/oscuro), radios de borde, tipografías mono y sans, curvas de transición y profundidades de sombra.
+- **Layout Responsivo Nativo**: CSS Grid auto-ajustable (`repeat(auto-fit, minmax(...))`) y Flexbox sin frameworks pesados.
+- **Efectos Visuales Avanzados**: Glassmorphism con `backdrop-filter: blur()`, gradientes dinámicos, animación de scanlines para el modo Overclock y efecto glare especular en 3D Tilt.
 
-### 3. JavaScript Moderno (ES6+ Modules) & Experiencia Cinemática
-- **Cero dependencias pesadas**: Código Vanilla puro ejecutado con `<script type="module">`, complementado con librerías hiper-ligeras como Lenis para smooth scrolling.
+### 3. JavaScript Moderno (ES6+ Modules) + Anime.js
+- **Cero frameworks pesados**: Vanilla JS modular (`<script type="module">`), Anime.js v3.2.2 cargado localmente desde `js/vendor/` para máxima velocidad sin CDN.
 - **Módulos desacoplados (`js/modules/`)**:
-  - `navigation.js`: Control del menú móvil, eventos de teclado (`Escape`) y clics fuera del contenedor.
-  - `scrollSpy.js`: Detección eficiente de sección activa con `requestAnimationFrame` y estilo sticky del navbar.
-  - `cinematic.js`: Barra superior de progreso de lectura, fondo ambiental interactivo con canvas 2D, parallax cinemático en Hero y smooth scroll con Lenis.
-  - `animations.js`: Revelado progresivo escalonado (Staggered Reveal) en scroll utilizando la API nativa `IntersectionObserver`.
-  - `interactive.js`: 3D Tilt suave con reflejo especular (glare) en tarjetas, HUD radar de exploración del portafolio y consola interactiva para desarrolladores (Easter egg CLI con atajos `~` y `Ctrl+K`).
-  - `projects.js`: Filtros reactivos por categoría tecnológica y panel/modal de inspección rápida de arquitectura y flujo de datos.
-  - `lifeExperience.js`: Showcase interactivo y cinematográfico de pasatiempos ("Mi vida fuera del código") con visor dinámico y rotación táctil/teclado.
-  - `localization.js`: Traducción completa en tiempo real de la interfaz entre español e inglés, incluidos metadatos, tags y diálogos modales.
-  - `theme.js`: Alternancia entre los temas claro y oscuro con persistencia visual.
+  - `navigation.js` — Menú móvil hamburguesa, cierre con `Escape` y clics fuera del contenedor, gestión de ARIA.
+  - `scrollSpy.js` — Detección de sección activa vía `requestAnimationFrame`; aplica clase `scrolled` al navbar.
+  - `cinematic.js` — Barra de progreso de lectura, canvas ambiental 2D interactivo, parallax cinemático en Hero y smooth scroll con Lenis.
+  - `animations.js` — Revelado escalonado cinemático con Anime.js (`stagger`, `easeOutExpo`), protección contra saltos de ancla (`hashchange`), fallback de visibilidad (3.5 s) y microinteracción flotante en badges SVG.
+  - `cursor.js` — Cursor personalizado con rastro de tela de araña al moverse, efecto de expansión al hacer hover en elementos interactivos.
+  - `interactive.js` — 3D Tilt con glare especular en tarjetas, HUD de exploración con interpolación fluida vía Anime.js, chispas cósmicas al clic, efecto magnético en botones y consola CLI interactiva con historial de comandos.
+  - `discoveryQuest.js` — Dinámica lúdica **«Protocolo Núcleo»**: 5 nodos cifrados con lore técnico repartidos en el portafolio, animación de desbloqueo con Anime.js + chispas cuánticas, dossier modal con barra de progreso, toast con barra de temporizador y botón de cierre manual, persistencia en `localStorage` y recompensa Overclock al completar los 5/5.
+  - `projects.js` — Filtros por categoría con transición escalonada Anime.js en tarjetas y modal de inspección rápida de arquitectura, stack y aspectos técnicos de cada proyecto.
+  - `lifeExperience.js` — Visor cinematográfico de pasatiempos con crossfade de fondo (`scale: [1.06, 1]`), entrada escalonada de texto y rotación automática cada 5 segundos.
+  - `localization.js` — Sistema i18n reactivo bilingüe (ES/EN): traduce `data-i18n`, `data-i18n-html`, `data-i18n-aria-label`, metadatos SEO, pistas del Protocolo Núcleo y textos de todos los modales. Emite `CustomEvent('languagechange')` para sincronización entre módulos.
+  - `theme.js` — Alternancia claro/oscuro con transición circular (`clip-path`) y persistencia en `localStorage`.
+
+---
+
+## Componentes Interactivos Destacados
+
+### 🎯 HUD de Exploración
+Cápsula en la barra de navegación que calcula un progreso compuesto entre el scroll continuo del documento y las secciones visitadas. Interpolado fluidamente con Anime.js. Al llegar al 100% muestra un toast de celebración. Al hacer clic, navega a la siguiente sección no explorada.
+
+### 🕹️ Dinámica «Protocolo Núcleo» (Minijuego de Descubrimiento)
+5 nodos de datos cifrados ocultos en puntos estratégicos del portafolio:
+
+| Nodo | Ubicación | Fragmento de Conocimiento |
+|------|-----------|--------------------------|
+| `01` | Hero / Rol profesional | Arquitectura Limpia & Modular |
+| `02` | Bloque de Bases de Datos | Persistencia & Normalización SQL |
+| `03` | Tarjeta Countries Rate Limit | Blindaje de API & Rate Limiting |
+| `04` | Sección «Mi vida» | Automatización & Rendimiento Humano |
+| `05` | Terminal CLI (`decode`) | Acceso Root / Shell Kernel |
+
+- Cada nodo al tocarse genera una animación elástica + ráfaga de chispas con Anime.js.
+- Toast flotante con temporizador visual y botón `✕` de cierre manual.
+- Dossier modal central (`[⚡ Núcleo]` en navbar): barra de progreso, estado por nodo, pista de localización, botón «Rastrear en página».
+- Persistencia automática en `localStorage` (`henrik_core_protocol_v1`).
+- **Recompensa endgame**: Modo Overclock / Cyber-Matrix (scanlines, acentos reactivos) activable al completar 5/5.
+
+### 💻 Terminal CLI Interactiva
+Accesible con el botón `CLI` en el navbar, o con la tecla `` ` `` / `Ctrl+K`. Comandos disponibles:
+
+```
+help · bio · stack · projects · contact · cv · theme · matrix · quest · decode · overclock · clear · exit
+```
 
 ---
 
@@ -63,39 +100,45 @@ Servir como punto de convergencia profesional donde se presentan:
 
 ```text
 Anderson-Oloroso.github.io/
-├── index.html                  # Estructura semántica principal y metadatos
-├── README.md                   # Documentación técnica del proyecto
+├── index.html                     # Estructura semántica, metadatos y todos los modales
+├── README.md                      # Documentación técnica del proyecto
 ├── assets/
-│   └── CV_Personalizado_Henrik_Anderson_Oloroso.pdf  # Currículum descargable
+│   └── CV_Personalizado_Henrik_Anderson_Oloroso.pdf
 ├── css/
-│   ├── style.css               # Orquestador principal de importaciones
-│   └── modules/                # Submódulos organizados por responsabilidad
-│       ├── variables.css       # Design tokens y variables de diseño (:root)
-│       ├── base.css            # Resets, tipografía, barra de progreso y canvas ambiental
-│       ├── navigation.css      # Header, navbar blur, menú móvil y footer
-│       ├── hero-about.css      # Hero interactivo y perfil profesional
-│       ├── stack.css           # Grid y flexbox de tecnologías y competencias
-│       ├── projects-contact.css# Filtros, modal de arquitectura, showcase de vida y contacto
-│       ├── interactive.css     # Estilos para 3D Tilt, HUD de lectura y Terminal CLI
-│       └── responsive.css      # Media queries y accesibilidad de movimiento
+│   ├── style.css                  # Orquestador de importaciones (@import)
+│   └── modules/
+│       ├── variables.css          # Design tokens: colores, tipografías, radios, curvas
+│       ├── base.css               # Reset, tipografía, cursor personalizado, canvas y progreso
+│       ├── navigation.css         # Header, navbar blur, menú móvil, hamburguesa y footer
+│       ├── hero-about.css         # Hero, orbes, perfil, especificaciones
+│       ├── stack.css              # Grid de tecnologías y competencias
+│       ├── projects-contact.css   # Filtros, tarjetas de proyectos, modal inspector y contacto
+│       ├── interactive.css        # 3D Tilt + glare, HUD, toast de exploración y Terminal CLI
+│       ├── quest.css              # Protocolo Núcleo: nodos, dossier, toast, Overclock
+│       └── responsive.css         # Media queries responsivas y prefers-reduced-motion
 ├── js/
-│   ├── script.js               # Punto de entrada orquestador
-│   └── modules/                # Lógica desacoplada en módulos ES6
-│       ├── cinematic.js        # Smooth scroll, barra de lectura, ambient canvas y parallax
-│       ├── interactive.js      # 3D Tilt con glare, HUD de progreso y terminal CLI
-│       ├── projects.js         # Filtros por categoría y modal de arquitectura técnica
-│       ├── lifeExperience.js   # Visor cinemático de vida personal y pasatiempos
-│       ├── navigation.js       # Comportamiento del menú móvil y ARIA
-│       ├── scrollSpy.js        # Detección de scroll y clase de navbar
-│       ├── animations.js       # IntersectionObserver con ritmo escalonado
-│       ├── localization.js     # Selector de idioma español/inglés reactivo
-│       └── theme.js            # Alternancia de tema claro/oscuro
+│   ├── script.js                  # Punto de entrada: importa e inicializa todos los módulos
+│   ├── vendor/
+│   │   └── anime.min.js           # Anime.js v3.2.2 (local, sin CDN)
+│   └── modules/
+│       ├── animations.js          # Staggered reveal, protección ancla, SVG hover
+│       ├── cinematic.js           # Lenis, canvas ambiental, parallax, barra de lectura
+│       ├── cursor.js              # Cursor personalizado con tela de araña
+│       ├── discoveryQuest.js      # Protocolo Núcleo: nodos, dossier, toast, Overclock, CLI
+│       ├── interactive.js         # Tilt 3D, HUD, sparks cósmicos, magnético, Terminal CLI
+│       ├── lifeExperience.js      # Visor de pasatiempos con crossfade y auto-rotación
+│       ├── localization.js        # i18n reactivo ES/EN con CustomEvent
+│       ├── navigation.js          # Menú móvil, ARIA y cierre por teclado
+│       ├── projects.js            # Filtros animados y modal de inspección de proyectos
+│       ├── scrollSpy.js           # Scroll spy y clase scrolled en navbar
+│       ├── theme.js               # Tema claro/oscuro con transición y persistencia
+│       └── utils.js               # Funciones utilitarias compartidas
 └── img/
-    ├── Hnk.jpeg                # Fotografía profesional de perfil
-    ├── favicon.ico             # Favicon oficial del sitio
-    ├── ia.svg                  # Icono vectorial para Prompt Engineering
-    ├── tutorbot.jpg            # Activo visual del proyecto TutorBot
-    └── hobbies/                # Fotografías locales de los pasatiempos
+    ├── Hnk.jpeg                   # Fotografía de perfil
+    ├── favicon.ico
+    ├── ia.svg
+    ├── tutorbot.jpg
+    └── hobbies/                   # Imágenes de pasatiempos
 ```
 
 ---
@@ -116,7 +159,7 @@ Para inspeccionar o ejecutar este portafolio en tu entorno local:
    cd Anderson-Oloroso.github.io
    ```
 
-2. Ábrelo con cualquier servidor estático local (recomendado para ES6 Modules):
+2. Ábrelo con un servidor estático local (obligatorio para ES6 Modules y `localStorage`):
    - **VS Code Live Server**: Clic derecho en `index.html` > *Open with Live Server*.
    - **Python**:
      ```bash
@@ -126,6 +169,8 @@ Para inspeccionar o ejecutar este portafolio en tu entorno local:
      ```bash
      npx serve .
      ```
+
+> **Nota**: No abrir `index.html` directamente desde el sistema de archivos (`file://`). Los ES6 Modules y `localStorage` requieren un servidor HTTP.
 
 ---
 
@@ -142,5 +187,5 @@ Ciudad de Guatemala, Guatemala
 ---
 
 <div align="center">
-  <sub>Última actualización: 21 de octubre de 2026</sub>
+  <sub>Última actualización: 20 de noviembre de 2026</sub>
 </div>
