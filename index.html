@@ -17,6 +17,12 @@
   <!-- Estilos -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
+  <!-- Marca de JS activo + red de seguridad para revelado cinemático -->
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () { document.documentElement.classList.add('is-ready'); }, 3000);
+  </script>
 </head>
 <body>
 
@@ -87,28 +93,28 @@
       <div class="hero-orb hero-orb--b" aria-hidden="true"></div>
 
       <div class="container hero-grid">
-        <div class="profile-container">
+        <div class="profile-container hero-anim" style="--i: 0">
           <div class="profile-card">
             <img src="img/Hnk.jpeg" alt="Fotografía profesional de Henrik Anderson Oloroso García" data-i18n-alt="profileImageAlt" class="profile-img" width="290" height="350" fetchpriority="high">
           </div>
         </div>
         
         <div class="hero-content">
-          <div class="hero-badge-role">
+          <div class="hero-badge-role hero-anim" style="--i: 1">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
             <span data-i18n="heroRole">Técnico en desarrollo de Software</span>
           </div>
 
           <h1 class="hero-title">
-            Henrik Anderson <br>
-            <span class="title-accent">Oloroso García</span>
+            <span class="line"><span>Henrik Anderson</span></span>
+            <span class="line"><span class="title-accent">Oloroso García</span></span>
           </h1>
 
-          <p class="hero-description" data-i18n="heroDescription">
+          <p class="hero-description hero-anim" style="--i: 2" data-i18n="heroDescription">
             Enfocado en el desarrollo de APIs REST, modelado y normalización de bases de datos relacionales, contenerización con Docker, Prompt Engineering y automatización de procesos. Con proyección hacia soluciones de software escalables y ciberseguridad.
           </p>
 
-          <div class="hero-actions">
+          <div class="hero-actions hero-anim" style="--i: 3">
             <a href="#proyectos" class="btn btn-primary" data-magnetic="0.25">
               <span data-i18n="exploreProjects">Explorar Proyectos</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -122,7 +128,7 @@
             </a>
           </div>
 
-          <div class="hero-quick-stack">
+          <div class="hero-quick-stack hero-anim" style="--i: 4">
             <span class="quick-stack-label" data-i18n="ecosystem">Ecosistema:</span>
             <span class="quick-tag">Node.js</span>
             <span class="quick-tag">Express</span>
