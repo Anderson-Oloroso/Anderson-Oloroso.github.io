@@ -390,15 +390,35 @@ function initQuestModal() {
       const cliBtn = document.getElementById('terminal-trigger');
       cliBtn?.click();
     } else {
-      const section = document.getElementById(nodeData.sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+      // Si es el nodo de proyectos, asegurarse de activar el filtro "all" para que la tarjeta sea visible
+      if (nodeData.id === 'node-project') {
+        const allFilterBtn = document.querySelector('.project-filter-btn[data-filter="all"]');
+        allFilterBtn?.click();
+      }
+
+      const nodeBtn = document.querySelector(`.core-node[data-node-id="${nodeData.id}"]`);
+      if (nodeBtn) {
+        nodeBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
         setTimeout(() => {
-          const nodeBtn = section.querySelector(`.core-node[data-node-id="${nodeData.id}"]`);
-          if (nodeBtn) {
-            animateNodeUnlock(nodeBtn);
+          animateNodeUnlock(nodeBtn);
+          // Efecto de pulso luminoso para atraer la mirada
+          if (typeof window.anime === 'function') {
+            window.anime({
+              targets: nodeBtn,
+              scale: [1, 1.35, 1],
+              boxShadow: [
+                '0 0 0px rgba(245, 158, 11, 0)',
+                '0 0 35px rgba(245, 158, 11, 0.9)',
+                '0 0 16px rgba(245, 158, 11, 0.4)'
+              ],
+              duration: 1000,
+              easing: 'easeOutElastic(1, .5)'
+            });
           }
-        }, 600);
+        }, 500);
+      } else {
+        const section = document.getElementById(nodeData.sectionId);
+        section?.scrollIntoView({ behavior: 'smooth' });
       }
     }
   });
